@@ -1,4 +1,4 @@
-# neuralmorse
+# NeuralMorse
 
 NeuralMorse is a project that utilizes neural networks to translate text to Morse code and vice versa.
 
