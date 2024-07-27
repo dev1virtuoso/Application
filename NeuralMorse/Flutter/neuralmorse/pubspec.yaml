@@ -1,7 +1,7 @@
 name: neuralmrse
-description: "A new Flutter project."
+description: "NeuralMorse is a project that utilizes neural networks to translate text to Morse code and vice versa."
 publish_to: 'none'
-version: 0.1.0
+version: 0.1.1+2
 
 environment:
   sdk: '>=3.4.4 <4.0.0'
