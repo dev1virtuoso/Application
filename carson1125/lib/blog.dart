@@ -6,12 +6,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Blogs'),
+          title: const Text('Blogs'),
         ),
         body: ListView.builder(
           itemCount: blogs.length,
