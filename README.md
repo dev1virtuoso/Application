@@ -19,7 +19,7 @@ To begin working with the Application project, follow these steps:
 1. Clone the repository to your local machine:
 
    `
-   git clone https://github.com/Team-Integrity/Application.git
+   git clone https://github.com/Carson-We/Application.git
    `
 
 2. Install any necessary dependencies as outlined in the project's documentation.
