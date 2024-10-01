@@ -4,7 +4,7 @@ MindCheck is an Multi-platform built with Flutter for comprehensive mental healt
 
 ## License
 
-This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the The Carson Open Source License (CEOSL) in addition to the terms outlined in this license.
+This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the MIT Licensein addition to the terms outlined in this license.
 
 ## Contribution Guidelines
 
@@ -18,6 +18,6 @@ By contributing to this project, you agree to license your contributions under t
 
 ## Contact Information
 
-If you have any questions or suggestions regarding this computer vision project, please feel free to contact me at [following methods](https://carson-we.github.io/contact.html).
+If you have any questions or suggestions regarding this computer vision project, please feel free to contact me at [following methods](https://carson-we.github.io/Carson-We.github.io/contact.html).
 
 Thank you for your interest and contributions to the project!

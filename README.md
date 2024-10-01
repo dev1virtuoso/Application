@@ -4,7 +4,7 @@ This GitHub repository serves as a central location for storing the code of my A
 
 ## License
 
-This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the The Carson Open Source License (CEOSL) in addition to the terms outlined in this license.
+This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the MIT Licensein addition to the terms outlined in this license.
 
 For a detailed understanding of the terms and conditions of the The Carson Open Source License (CEOSL), please refer to the [LICENSE](LICENSE) file in this repository.
 
@@ -40,6 +40,6 @@ By contributing to this project, you agree to license your contributions under t
 
 ## Contact Information
 
-If you have any questions or suggestions regarding this application project, please feel free to contact me at [following methods](https://carson-we.github.io/contact.html).
+If you have any questions or suggestions regarding this application project, please feel free to contact me at [following methods](https://carson-we.github.io/Carson-We.github.io/contact.html).
 
 Thank you for your interest and contributions to the project!
