@@ -4,8 +4,6 @@ class MultipleChoiceQuestionView extends StatefulWidget {
   final String question;
   final List<String> options;
   final Function(List<String>) callback;
-  @override
-  // ignore: overridden_fields
   final Key? key;
 
   const MultipleChoiceQuestionView({
@@ -16,12 +14,12 @@ class MultipleChoiceQuestionView extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _MultipleChoiceQuestionViewState createState() =>
       _MultipleChoiceQuestionViewState();
 }
 
-class _MultipleChoiceQuestionViewState extends State<MultipleChoiceQuestionView> {
+class _MultipleChoiceQuestionViewState
+    extends State<MultipleChoiceQuestionView> {
   List<String> selectedOptions = [];
 
   @override
@@ -95,7 +93,7 @@ void main() {
 }
 
 class MindCheck extends StatelessWidget {
-  const MindCheck({super.key});
+  const MindCheck({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +107,6 @@ class MindCheck extends StatelessWidget {
   }
 }
 
-// ignore: use_key_in_widget_constructors
 class AssessmentPage extends StatelessWidget {
   final List<String> gad7Questions = [
     'Feeling nervous, anxious, or on edge',

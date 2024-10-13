@@ -6,7 +6,7 @@ void main() {
 }
 
 class NeuralMorseApp extends StatelessWidget {
-  const NeuralMorseApp({super.key});
+  const NeuralMorseApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,9 @@ class NeuralMorseApp extends StatelessWidget {
 }
 
 class ContentView extends StatefulWidget {
-  const ContentView({super.key});
+  const ContentView({Key? key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _ContentViewState createState() => _ContentViewState();
 }
 
@@ -44,11 +43,31 @@ class _ContentViewState extends State<ContentView> {
 
   String convertToMorseCode(String text) {
     Map<String, String> morseCodeMap = {
-      'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-      'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-      'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-      'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-      'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+      'A': '.-',
+      'B': '-...',
+      'C': '-.-.',
+      'D': '-..',
+      'E': '.',
+      'F': '..-.',
+      'G': '--.',
+      'H': '....',
+      'I': '..',
+      'J': '.---',
+      'K': '-.-',
+      'L': '.-..',
+      'M': '--',
+      'N': '-.',
+      'O': '---',
+      'P': '.--.',
+      'Q': '--.-',
+      'R': '.-.',
+      'S': '...',
+      'T': '-',
+      'U': '..-',
+      'V': '...-',
+      'W': '.--',
+      'X': '-..-',
+      'Y': '-.--',
       'Z': '--..'
     };
 
@@ -104,7 +123,8 @@ class _ContentViewState extends State<ContentView> {
             ),
             ElevatedButton(
               onPressed: _copyToClipboard,
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue)),
               child: const Text('Copy Morse Code'),
             ),
             const Spacer(),
