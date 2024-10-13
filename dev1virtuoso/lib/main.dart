@@ -14,45 +14,49 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: const MyHomePage(),
+      home: const IndexPage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class IndexPage extends StatelessWidget {
+  const IndexPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Personal Profile'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/avatar.png'),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Your Name',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Description about yourself',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            // Placeholder for logo (removed)
+            // SizedBox(width: 8.0),
+            // Add 'dev1virtuoso' in the middle
+            Text('dev1virtuoso'),
           ],
         ),
+        actions: [
+          // Add a search button on the top right corner
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              // Handle search button press
+            },
+          ),
+          // Add a user account button with a circular profile picture on the top right corner
+          IconButton(
+            icon: CircleAvatar(
+              backgroundImage: AssetImage(
+                  'assets/images/profile_picture.jpg'), // Replace with your user's profile picture path
+            ),
+            onPressed: () {
+              // Handle user account button press
+            },
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text('Your content here'),
       ),
     );
   }
