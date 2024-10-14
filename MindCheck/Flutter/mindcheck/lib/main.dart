@@ -4,6 +4,7 @@ class MultipleChoiceQuestionView extends StatefulWidget {
   final String question;
   final List<String> options;
   final Function(List<String>) callback;
+  @override
   final Key? key;
 
   const MultipleChoiceQuestionView({
@@ -93,7 +94,7 @@ void main() {
 }
 
 class MindCheck extends StatelessWidget {
-  const MindCheck({Key? key});
+  const MindCheck({super.key, Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -126,6 +127,8 @@ class AssessmentPage extends StatelessWidget {
     'Trouble concentrating on things, such as reading the newspaper or watching television',
     'Moving or speaking so slowly that other people could have noticed?',
   ];
+
+  const AssessmentPage({super.key});
 
   @override
   Widget build(BuildContext context) {
