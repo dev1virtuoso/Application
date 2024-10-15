@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'arcade_page.dart';
+import 'utility_page.dart';
+import 'custom_side_navigation_bar.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -14,14 +17,6 @@ class IndexPage extends StatelessWidget {
             icon: const Icon(Icons.search),
             onPressed: () {
               // Handle search button press
-            },
-          ),
-          IconButton(
-            icon: const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/profile_picture.jpg'),
-            ),
-            onPressed: () {
-              // Handle user account button press
             },
           ),
         ],
@@ -52,23 +47,19 @@ class IndexPage extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,
-                color: Colors.red), // Customize the color of the icon
+            icon: Icon(Icons.home, color: Colors.red),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.gamepad,
-                color: Colors.blue), // Customize the color of the icon
+            icon: Icon(Icons.gamepad, color: Colors.blue),
             label: 'Arcade',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.build,
-                color: Colors.green), // Customize the color of the icon
+            icon: Icon(Icons.build, color: Colors.green),
             label: 'Utility',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle,
-                color: Colors.orange), // Customize the color of the icon
+            icon: Icon(Icons.account_circle, color: Colors.orange),
             label: 'Account',
           ),
         ],

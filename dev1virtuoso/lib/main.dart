@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'index_page.dart';
 import 'settings_page.dart';
 import 'package:provider/provider.dart';
+import 'index_page.dart';
 
 void main() {
   runApp(
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'dev1virtuoso',
       theme: Provider.of<ThemeModel>(context).currentTheme,
-      home: const IndexPage(),
+      home: IndexPage(),
       routes: {
         '/settings': (context) => SettingsPage(),
       },
