@@ -9,6 +9,42 @@ class UtilityPage extends StatefulWidget {
 }
 
 class _UtilityPageState extends State<UtilityPage> {
+  String piValue = '';
+  String bmiResult = '';
+  String randomString = '';
+  String morseCode = '';
+
+  // Calculate the value of Pi
+  void calculatePi() {
+    setState(() {
+      piValue = '3.14159'; // more accurate value of Pi here
+    });
+  }
+
+  // BMI Calculator
+  void calculateBMI() {
+    // Add your BMI calculation logic here
+    setState(() {
+      bmiResult = 'Your BMI result'; // Update this with the calculated BMI
+    });
+  }
+
+  // Random English-Alphanumeric String Generator
+  void generateRandomString() {
+    // Add logic to generate a random alphanumeric string
+    setState(() {
+      randomString = 'Random string'; // Update this with the generated string
+    });
+  }
+
+  // Morse Code Translator
+  void translateToMorseCode() {
+    // Add logic to translate text to Morse code
+    setState(() {
+      morseCode = 'Morse code'; // Update this with the translated Morse code
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,26 +56,25 @@ class _UtilityPageState extends State<UtilityPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {
-                // Add functionality for Utility Option 1
-                print('Utility Option 1 selected');
-              },
-              child: Text('Utility Option 1'),
+              onPressed: calculatePi,
+              child: Text('Calculate Pi'),
             ),
+            Text('Pi Value: $piValue'),
             ElevatedButton(
-              onPressed: () {
-                // Add functionality for Utility Option 2
-                print('Utility Option 2 selected');
-              },
-              child: Text('Utility Option 2'),
+              onPressed: calculateBMI,
+              child: Text('Calculate BMI'),
             ),
+            Text('BMI Result: $bmiResult'),
             ElevatedButton(
-              onPressed: () {
-                // Add functionality for Utility Option 3
-                print('Utility Option 3 selected');
-              },
-              child: Text('Utility Option 3'),
+              onPressed: generateRandomString,
+              child: Text('Generate Random String'),
             ),
+            Text('Random String: $randomString'),
+            ElevatedButton(
+              onPressed: translateToMorseCode,
+              child: Text('Translate to Morse Code'),
+            ),
+            Text('Morse Code: $morseCode'),
           ],
         ),
       ),
