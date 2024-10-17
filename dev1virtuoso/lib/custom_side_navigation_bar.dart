@@ -22,32 +22,24 @@ class CustomSideNavigationBar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.gamepad,
+            leading: Icon(Icons.work,
                 color: currentIndex == 1 ? Colors.blue : Colors.grey),
-            title: Text('Arcade'),
+            title: Text('Work'),
             onTap: () {
               onTap(1);
               Navigator.pop(context);
             },
           ),
           ListTile(
-            leading: Icon(Icons.build,
+            leading: Icon(Icons.school,
                 color: currentIndex == 2 ? Colors.green : Colors.grey),
-            title: Text('Utility'),
+            title: Text('School'),
             onTap: () {
               onTap(2);
               Navigator.pop(context);
             },
           ),
-          ListTile(
-            leading: Icon(Icons.account_circle,
-                color: currentIndex == 3 ? Colors.orange : Colors.grey),
-            title: Text('Account'),
-            onTap: () {
-              onTap(3);
-              Navigator.pop(context);
-            },
-          ),
+          // Add more ListTiles as needed
         ],
       ),
     );

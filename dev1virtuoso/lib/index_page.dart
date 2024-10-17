@@ -44,26 +44,6 @@ class IndexPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.red),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.gamepad, color: Colors.blue),
-            label: 'Arcade',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.build, color: Colors.green),
-            label: 'Utility',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle, color: Colors.orange),
-            label: 'Account',
-          ),
-        ],
-      ),
     );
   }
 }
