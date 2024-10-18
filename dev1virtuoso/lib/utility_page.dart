@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'custom_side_navigation_bar.dart';
+import 'scripts.dart';
 
 class UtilityPage extends StatefulWidget {
-  const UtilityPage({Key? key}) : super(key: key);
+  const UtilityPage({super.key});
 
   @override
   _UtilityPageState createState() => _UtilityPageState();
@@ -49,7 +50,7 @@ class _UtilityPageState extends State<UtilityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Utility Page'),
+        title: const Text('Utility Page'),
       ),
       body: Center(
         child: Column(
@@ -57,22 +58,22 @@ class _UtilityPageState extends State<UtilityPage> {
           children: [
             ElevatedButton(
               onPressed: calculatePi,
-              child: Text('Calculate Pi'),
+              child: const Text('Calculate Pi'),
             ),
             Text('Pi Value: $piValue'),
             ElevatedButton(
               onPressed: calculateBMI,
-              child: Text('Calculate BMI'),
+              child: const Text('Calculate BMI'),
             ),
             Text('BMI Result: $bmiResult'),
             ElevatedButton(
               onPressed: generateRandomString,
-              child: Text('Generate Random String'),
+              child: const Text('Generate Random String'),
             ),
             Text('Random String: $randomString'),
             ElevatedButton(
               onPressed: translateToMorseCode,
-              child: Text('Translate to Morse Code'),
+              child: const Text('Translate to Morse Code'),
             ),
             Text('Morse Code: $morseCode'),
           ],

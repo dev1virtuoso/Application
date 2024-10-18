@@ -5,11 +5,19 @@ import 'main.dart';
 import 'custom_side_navigation_bar.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = Provider.of<ThemeModel>(context).isDarkMode;
+    bool notificationsEnabled = true;
+    bool anonymousFeedbackEnabled = true;
+    bool developerOptionsEnabled = true;
+    bool boldTextEnabled = true;
+    bool colorBlindModeEnabled = true;
+    bool elderlyModeEnabled = true;
+
+    double textSize = 14.0;
 
     return FutureBuilder<PackageInfo>(
       future: PackageInfo.fromPlatform(),
@@ -18,25 +26,11 @@ class SettingsPage extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: Text('Settings'),
+            title: const Text('Settings'),
           ),
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Switch(
-                  value: isDarkMode,
-                  onChanged: (value) {
-                    Provider.of<ThemeModel>(context, listen: false).isDarkMode =
-                        value;
-                  },
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'App Version: $version',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
             ),
           ),
         );

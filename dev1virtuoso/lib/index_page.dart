@@ -4,7 +4,7 @@ import 'utility_page.dart';
 import 'custom_side_navigation_bar.dart';
 
 class IndexPage extends StatelessWidget {
-  const IndexPage({Key? key}) : super(key: key);
+  const IndexPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class IndexPage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

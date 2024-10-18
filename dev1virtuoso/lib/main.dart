@@ -7,7 +7,7 @@ void main() {
   runApp(
     ChangeNotifierProvider<ThemeModel>(
       create: (context) => ThemeModel(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -27,7 +27,7 @@ class ThemeModel with ChangeNotifier {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +35,18 @@ class MyApp extends StatelessWidget {
       title: 'dev1virtuoso',
       theme: Provider.of<ThemeModel>(context).currentTheme,
       home: IndexPage(),
-      routes: {
-        '/settings': (context) => SettingsPage(),
-      },
     );
   }
 }
 
 class IndexPage extends StatelessWidget {
+  const IndexPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Index Page'),
+        title: const Text('Index Page'),
       ),
       drawer: CustomSideNavigationBar(
         currentIndex: 0,
@@ -60,7 +59,7 @@ class IndexPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Index Page Content',
               style: TextStyle(fontSize: 20),
             ),
@@ -68,7 +67,7 @@ class IndexPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/settings');
               },
-              child: Text('Go to Settings'),
+              child: const Text('Go to Settings'),
             ),
           ],
         ),
@@ -78,13 +77,15 @@ class IndexPage extends StatelessWidget {
 }
 
 class SettingsPage extends StatelessWidget {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeModel>(context);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: const Text('Settings'),
       ),
       body: Center(
         child: Switch(

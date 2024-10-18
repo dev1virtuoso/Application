@@ -17,23 +17,31 @@ void main() {
 }
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'About App',
-      home: AboutHomePage(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('About Page'),
+      ),
+      body: Center(
+        child: Text('About Page Content'),
+      ),
     );
   }
 }
 
 class AboutHomePage extends StatelessWidget {
+  const AboutHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About'),
+        title: const Text('About'),
       ),
-      body: Center(
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -43,7 +51,7 @@ class AboutHomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Version: v0.0.1.0(001)(0010_001-181024a)',
+              'Version: v0.0.2.0(002)(0020_002-191024a)',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 10),

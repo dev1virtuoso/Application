@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:math';
 import 'dart:io';
@@ -54,7 +55,9 @@ void aboutMe() {
     ];
 
     print("Contact Information:");
-    contactInfo.forEach((contact) => print(contact));
+    for (var contact in contactInfo) {
+      print(contact);
+    }
 
     // Donation links
     List<String> donationLinks = [
@@ -63,7 +66,9 @@ void aboutMe() {
     ];
 
     print("\nDonation Links:");
-    donationLinks.forEach((donation) => print(donation));
+    for (var donation in donationLinks) {
+      print(donation);
+    }
   }
 
 // Call the function to print contact information and donation links
@@ -220,7 +225,7 @@ void snakeGame() {
     }
   });
 
-  Timer.periodic(Duration(milliseconds: 200), (timer) {
+  Timer.periodic(const Duration(milliseconds: 200), (timer) {
     if (gameover) {
       timer.cancel();
       stdout.writeln('Game Over! Your score: ${snake.length - 2}');
@@ -266,6 +271,94 @@ void move() {
   }
 }
 
+// Setting
+class SettingsList extends StatelessWidget {
+  final bool notificationsEnabled;
+  final bool isDarkMode;
+  final bool anonymousFeedbackEnabled;
+  final bool developerOptionsEnabled;
+  final double textSize;
+  final bool colorBlindModeEnabled;
+  final bool elderlyModeEnabled;
+  final bool boldTextEnabled;
+  final Function(bool) toggleNotifications;
+  final Function(bool) toggleDarkMode;
+  final Function(bool) toggleAnonymousFeedback;
+  final Function(bool) toggleDeveloperOptions;
+  final Function(double) updateTextSize;
+  final Function(bool) toggleColorBlindMode;
+  final Function(bool) toggleElderlyMode;
+  final Function(bool) toggleBoldText;
+
+  const SettingsList({
+    required this.notificationsEnabled,
+    required this.isDarkMode,
+    required this.anonymousFeedbackEnabled,
+    required this.developerOptionsEnabled,
+    required this.textSize,
+    required this.colorBlindModeEnabled,
+    required this.elderlyModeEnabled,
+    required this.boldTextEnabled,
+    required this.toggleNotifications,
+    required this.toggleDarkMode,
+    required this.toggleAnonymousFeedback,
+    required this.toggleDeveloperOptions,
+    required this.updateTextSize,
+    required this.toggleColorBlindMode,
+    required this.toggleElderlyMode,
+    required this.toggleBoldText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        SwitchListTile(
+          title: Text('Notifications'),
+          value: notificationsEnabled,
+          onChanged: toggleNotifications,
+        ),
+        SwitchListTile(
+          title: Text('Dark Mode'),
+          value: isDarkMode,
+          onChanged: toggleDarkMode,
+        ),
+        SwitchListTile(
+          title: Text('Anonymous Feedback'),
+          value: anonymousFeedbackEnabled,
+          onChanged: toggleAnonymousFeedback,
+        ),
+        SwitchListTile(
+          title: Text('Developer Options'),
+          value: developerOptionsEnabled,
+          onChanged: toggleDeveloperOptions,
+        ),
+        Slider(
+          value: textSize,
+          min: 10.0,
+          max: 20.0,
+          onChanged: updateTextSize,
+        ),
+        SwitchListTile(
+          title: Text('Color Blind Mode'),
+          value: colorBlindModeEnabled,
+          onChanged: toggleColorBlindMode,
+        ),
+        SwitchListTile(
+          title: Text('Elderly Mode'),
+          value: elderlyModeEnabled,
+          onChanged: toggleElderlyMode,
+        ),
+        SwitchListTile(
+          title: Text('Bold Text'),
+          value: boldTextEnabled,
+          onChanged: toggleBoldText,
+        ),
+      ],
+    );
+  }
+}
+
 // Utility
 class PiCalculator {
   int pointsInsideCircle = 0;
@@ -277,11 +370,11 @@ class PiCalculator {
 
   void updatePiValue() {
     piValue = 4 * pointsInsideCircle / maxTimeInSeconds;
-    progress = (pointsInsideCircle * 100 / maxTimeInSeconds).toInt();
+    progress = pointsInsideCircle * 100 ~/ maxTimeInSeconds;
   }
 
   void startCalculation(Function setState) {
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (elapsedTimeInSeconds >= maxTimeInSeconds) {
         timer.cancel();
         isCalculating = false;
@@ -369,7 +462,7 @@ String morseCodeToText(String morseCode) {
     List<String> chars = morseChars
         .map((morseChar) => morseCodeMap.entries
             .firstWhere((entry) => entry.value == morseChar,
-                orElse: () => MapEntry('', ''))
+                orElse: () => const MapEntry('', ''))
             .key)
         .toList();
     String word = chars.join('');

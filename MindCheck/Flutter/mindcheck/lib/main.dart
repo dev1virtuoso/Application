@@ -103,7 +103,7 @@ class MindCheck extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AssessmentPage(),
+      home: const AssessmentPage(),
     );
   }
 }
