@@ -51,7 +51,7 @@ class AboutHomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Version: v0.0.2.0(002)(0020_002-191024a)',
+              'Version: v0.0.2.1(003)(0021_003-211024a)',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 10),
