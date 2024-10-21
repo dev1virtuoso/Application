@@ -20,60 +20,37 @@ class CustomSideNavigationBar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          ListTile(
-            leading: Icon(Icons.home,
-                color: currentIndex == 0 ? Colors.red : Colors.grey),
-            title: const Text('Home'),
-            onTap: () {
-              onTap(0);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => IndexPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.account_circle,
-                color: currentIndex == 1 ? Colors.blue : Colors.grey),
-            title: const Text('Account'),
-            onTap: () {
-              onTap(1);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AccountPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.gamepad,
-                color: currentIndex == 2 ? Colors.green : Colors.grey),
-            title: const Text('Arcade'),
-            onTap: () {
-              onTap(2);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ArcadePage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.build,
-                color: currentIndex == 3 ? Colors.green : Colors.grey),
-            title: const Text('Utility'),
-            onTap: () {
-              onTap(3);
-              Navigator.pop(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UtilityPage()),
-              );
-            },
-          ),
+          _buildListTile(
+              context, Icons.home, 'Home', 0, currentIndex, onTap, IndexPage()),
+          _buildListTile(context, Icons.account_circle, 'About', 1,
+              currentIndex, onTap, AccountPage()),
+          _buildListTile(context, Icons.account_circle, 'Account', 2,
+              currentIndex, onTap, AccountPage()),
+          _buildListTile(context, Icons.gamepad, 'Arcade', 3, currentIndex,
+              onTap, ArcadePage()),
+          _buildListTile(context, Icons.settings, 'Utility', 4, currentIndex,
+              onTap, UtilityPage()),
+          _buildListTile(context, Icons.settings, 'Settings', 5, currentIndex,
+              onTap, SettingsPage()),
         ],
       ),
+    );
+  }
+
+  ListTile _buildListTile(BuildContext context, IconData icon, String title,
+      int index, int currentIndex, Function(int) onTap, Widget widget) {
+    return ListTile(
+      leading:
+          Icon(icon, color: currentIndex == index ? Colors.blue : Colors.grey),
+      title: Text(title),
+      onTap: () {
+        onTap(index);
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => widget),
+        );
+      },
     );
   }
 }

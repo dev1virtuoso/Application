@@ -1,7 +1,8 @@
-import 'package:dev1virtuoso/custom_side_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'settings_page.dart';
+import 'index_page.dart';
 import 'package:provider/provider.dart';
+import 'custom_side_navigation_bar.dart';
 
 void main() {
   runApp(
@@ -18,8 +19,10 @@ class ThemeModel with ChangeNotifier {
   bool get isDarkMode => _isDarkMode;
 
   set isDarkMode(bool value) {
-    _isDarkMode = value;
-    notifyListeners();
+    if (_isDarkMode != value) {
+      _isDarkMode = value;
+      notifyListeners();
+    }
   }
 
   ThemeData get currentTheme =>
@@ -27,7 +30,7 @@ class ThemeModel with ChangeNotifier {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +42,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class IndexPage extends StatelessWidget {
-  const IndexPage({super.key});
+class IndexContent extends StatelessWidget {
+  const IndexContent({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,49 +53,29 @@ class IndexPage extends StatelessWidget {
       ),
       drawer: CustomSideNavigationBar(
         currentIndex: 0,
-        onTap: (index) {
-          // Handle navigation based on index
-          // For example, Navigator.pushNamed(context, '/settings');
-        },
+        onTap: (index) {},
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Index Page Content',
-              style: TextStyle(fontSize: 20),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-              child: const Text('Go to Settings'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeModel>(context);
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
-      body: Center(
-        child: Switch(
-          value: themeProvider.isDarkMode,
-          onChanged: (value) {
-            themeProvider.isDarkMode = value;
-          },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text('Your content here', style: TextStyle(fontSize: 18)),
+              const SizedBox(height: 20),
+              Text('Upcoming Event: Event details here',
+                  style: TextStyle(fontSize: 16)),
+              Text('News: Latest news updates here',
+                  style: TextStyle(fontSize: 16)),
+              Text('Blogs: Recent blog posts here',
+                  style: TextStyle(fontSize: 16)),
+              Text('Release: New releases information here',
+                  style: TextStyle(fontSize: 16)),
+              Text('Research: Research findings here',
+                  style: TextStyle(fontSize: 16)),
+            ],
+          ),
         ),
       ),
     );

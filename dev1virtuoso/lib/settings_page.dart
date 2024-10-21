@@ -4,19 +4,30 @@ import 'package:package_info/package_info.dart';
 import 'main.dart';
 import 'custom_side_navigation_bar.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({Key? key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
+
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
+  bool isDarkMode = false;
+  bool notificationsEnabled = true;
+  bool anonymousFeedbackEnabled = true;
+  bool developerOptionsEnabled = true;
+  bool boldTextEnabled = true;
+
+  double textSize = 14.0;
+
+  @override
+  void initState() {
+    super.initState();
+    isDarkMode = Provider.of<ThemeModel>(context, listen: false).isDarkMode;
+  }
 
   @override
   Widget build(BuildContext context) {
-    bool isDarkMode = Provider.of<ThemeModel>(context).isDarkMode;
-    bool notificationsEnabled = true;
-    bool anonymousFeedbackEnabled = true;
-    bool developerOptionsEnabled = true;
-    bool boldTextEnabled = true;
-
-    double textSize = 14.0;
-
     return FutureBuilder<PackageInfo>(
       future: PackageInfo.fromPlatform(),
       builder: (context, snapshot) {
@@ -34,28 +45,36 @@ class SettingsPage extends StatelessWidget {
                   title: const Text('Notifications'),
                   value: notificationsEnabled,
                   onChanged: (value) {
-                    // Update notificationsEnabled variable based on the value
+                    setState(() {
+                      notificationsEnabled = value;
+                    });
                   },
                 ),
                 ListTile(
                   title: const Text('Dark Mode'),
                   subtitle: const Text('System Default'),
                   onTap: () {
-                    // Toggle between dark, system default, and light modes
+                    setState(() {
+                      isDarkMode = !isDarkMode;
+                    });
                   },
                 ),
                 SwitchListTile(
                   title: const Text('Anonymous Feedback'),
                   value: anonymousFeedbackEnabled,
                   onChanged: (value) {
-                    // Update anonymousFeedbackEnabled variable based on the value
+                    setState(() {
+                      anonymousFeedbackEnabled = value;
+                    });
                   },
                 ),
                 SwitchListTile(
                   title: const Text('Developer Options'),
                   value: developerOptionsEnabled,
                   onChanged: (value) {
-                    // Update developerOptionsEnabled variable based on the value
+                    setState(() {
+                      developerOptionsEnabled = value;
+                    });
                   },
                 ),
                 Slider(
@@ -65,9 +84,20 @@ class SettingsPage extends StatelessWidget {
                   divisions: 4,
                   label: 'Text Size: $textSize',
                   onChanged: (value) {
-                    // Update textSize variable based on the slider value
+                    setState(() {
+                      textSize = value;
+                    });
                   },
                 ),
+                AnimatedDefaultTextStyle(
+                  style: TextStyle(fontSize: textSize),
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                  child:
+                      Text('Sample Text', style: TextStyle(fontSize: textSize)),
+                ),
+                Text('Selected Text Size: $textSize',
+                    style: TextStyle(fontSize: 16)),
               ],
             ),
           ),
