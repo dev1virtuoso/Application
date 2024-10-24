@@ -9,13 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    assets:
-    - assets/words.json
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   flutter_localizations:
     sdk: flutter
   intl: any
+
+assets:
+  - assets/words.json
 
 dev_dependencies:
   flutter_test:
