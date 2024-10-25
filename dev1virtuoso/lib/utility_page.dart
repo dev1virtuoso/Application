@@ -3,7 +3,7 @@ import 'custom_side_navigation_bar.dart';
 import 'scripts.dart';
 
 class UtilityPage extends StatefulWidget {
-  const UtilityPage({super.key});
+  const UtilityPage({Key? key}) : super(key: key);
 
   @override
   _UtilityPageState createState() => _UtilityPageState();
@@ -52,30 +52,67 @@ class _UtilityPageState extends State<UtilityPage> {
       appBar: AppBar(
         title: const Text('Utility Page'),
       ),
-      body: Center(
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ElevatedButton(
-              onPressed: calculatePi,
-              child: const Text('Calculate Pi'),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: calculatePi,
+                      child: const Text('Calculate Pi'),
+                    ),
+                    Text('Pi Value: $piValue'),
+                  ],
+                ),
+              ),
             ),
-            Text('Pi Value: $piValue'),
-            ElevatedButton(
-              onPressed: calculateBMI,
-              child: const Text('Calculate BMI'),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: calculateBMI,
+                      child: const Text('Calculate BMI'),
+                    ),
+                    Text('BMI Result: $bmiResult'),
+                  ],
+                ),
+              ),
             ),
-            Text('BMI Result: $bmiResult'),
-            ElevatedButton(
-              onPressed: generateRandomString,
-              child: const Text('Generate Random String'),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: generateRandomString,
+                      child: const Text('Generate Random String'),
+                    ),
+                    Text('Random String: $randomString'),
+                  ],
+                ),
+              ),
             ),
-            Text('Random String: $randomString'),
-            ElevatedButton(
-              onPressed: translateToMorseCode,
-              child: const Text('Translate to Morse Code'),
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: translateToMorseCode,
+                      child: const Text('Translate to Morse Code'),
+                    ),
+                    Text('Morse Code: $morseCode'),
+                  ],
+                ),
+              ),
             ),
-            Text('Morse Code: $morseCode'),
           ],
         ),
       ),

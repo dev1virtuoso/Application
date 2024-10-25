@@ -23,7 +23,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context, Icons.home, 'Home', 0, currentIndex, onTap, IndexPage()),
           _buildListTile(context, Icons.account_circle, 'About', 1,
-              currentIndex, onTap, AccountPage()),
+              currentIndex, onTap, AboutHomePage()),
           _buildListTile(context, Icons.account_circle, 'Account', 2,
               currentIndex, onTap, AccountPage()),
           _buildListTile(context, Icons.gamepad, 'Arcade', 3, currentIndex,
