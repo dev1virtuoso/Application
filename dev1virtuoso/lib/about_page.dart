@@ -1,39 +1,47 @@
 import 'package:flutter/material.dart';
-import 'custom_side_navigation_bar.dart';
-import 'scripts.dart';
+import 'package:http/http.dart' as http;
 
-void main() {
-  aboutMe(); // Call the aboutMe function from scripts.dart
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  print("\nContact Information:");
-  var contactInfo;
-  contactInfo.forEach((contact) => print(contact));
+  await fetchContactInfo();
+  await fetchDonationLinks();
 
-  print("\nDonation Links:");
-  var donationLinks;
-  donationLinks.forEach((donation) => print(donation));
-
-  runApp(AboutPage());
+  runApp(MaterialApp(
+    home: AboutHomePage(),
+  ));
 }
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+Future<void> fetchContactInfo() async {
+  var response =
+      await http.get(Uri.parse('https://api.example.com/contact_info'));
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('About Page'),
-      ),
-      body: Center(
-        child: Text('About Page Content'),
-      ),
-    );
+  if (response.statusCode == 200) {
+    var data = response.body;
+    print('Contact Information: $data');
+    // Parse and handle the contact information data here
+  } else {
+    print(
+        'Failed to fetch contact information. Status code: ${response.statusCode}');
+  }
+}
+
+Future<void> fetchDonationLinks() async {
+  var response =
+      await http.get(Uri.parse('https://api.example.com/donation_links'));
+
+  if (response.statusCode == 200) {
+    var data = response.body;
+    print('Donation Links: $data');
+    // Parse and handle the donation links data here
+  } else {
+    print(
+        'Failed to fetch donation links. Status code: ${response.statusCode}');
   }
 }
 
 class AboutHomePage extends StatelessWidget {
-  const AboutHomePage({super.key});
+  const AboutHomePage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +59,7 @@ class AboutHomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Version: v0.0.2.6(008)(0026_008-261024a)',
+              'Version: v0.0.2.7(009)(0027_009-271024a)',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 10),
