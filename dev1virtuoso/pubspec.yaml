@@ -13,12 +13,11 @@ dependencies:
   http: ^0.13.3
   provider: ^6.1.2
   upgrader: ^11.3.0
+  lottie: ^0.4.0+1
+  package_info_plus: ^8.1.0
   flutter_localizations:
     sdk: flutter
   intl: any
-
-assets:
-  - assets/words.json
 
 dev_dependencies:
   flutter_test:
