@@ -9,54 +9,67 @@ import 'dart:convert';
 
 // General
 class PasswordLockService {
-  final LocalAuthentication _localAuth = LocalAuthentication();
-  final FlutterSecureStorage _secureStorage = FlutterSecureStorage();
+  final LocalAuthentication _localAuth;
+  final FlutterSecureStorage _secureStorage;
 
+  PasswordLockService(this._localAuth, this._secureStorage);
+
+  /// Authenticates the user using biometric, device password, or app-specific password.
   Future<bool> authenticate() async {
     try {
-      bool authenticated = false;
-
-      // Biometric authentication
-      if (await _localAuth.authenticate(
-        localizedReason: 'Authenticate to access the app',
-        biometricOnly: false,
-      )) {
-        authenticated = true;
-      }
-
-      if (!authenticated) {
-        // Device password
-        String devicePassword =
-            await _secureStorage.read(key: 'devicePassword');
-        if (devicePassword != null) {
-          // Device-specific password validation logic
-          // Implement device-specific password validation logic here, interacting with device-related APIs
-          authenticated = true;
-        }
-      }
-
-      if (!authenticated) {
-        // App-specific password
-        String storedPassword = await _secureStorage.read(key: 'appPassword');
-        String hashedPassword = sha256
-            .convert(utf8.encode('your_custom_salt' + 'desired_password'))
-            .toString();
-        if (storedPassword == hashedPassword) {
-          authenticated = true;
-        }
-      }
+      bool authenticated = await _authenticateUsingBiometrics() ||
+          await _authenticateUsingDevicePassword() ||
+          await _authenticateUsingAppPassword();
 
       return authenticated;
     } catch (e) {
-      print(e);
+      print('Authentication error: $e');
       return false;
     }
   }
 
+  /// Attempts biometric authentication.
+  Future<bool> _authenticateUsingBiometrics() async {
+    return await _localAuth.authenticate(
+      localizedReason: 'Authenticate to access the app',
+      biometricOnly: false,
+    );
+  }
+
+  /// Attempts device password authentication.
+  Future<bool> _authenticateUsingDevicePassword() async {
+    String devicePassword = await _secureStorage.read(key: 'devicePassword');
+
+    if (devicePassword != null) {
+      // Implement device-specific password validation logic here
+      return true;
+    }
+
+    return false;
+  }
+
+  /// Attempts app-specific password authentication.
+  Future<bool> _authenticateUsingAppPassword() async {
+    String storedPassword = await _secureStorage.read(key: 'appPassword');
+    String hashedPassword = sha256
+        .convert(utf8.encode('your_custom_salt' + 'desired_password'))
+        .toString();
+
+    return storedPassword == hashedPassword;
+  }
+
+  /// Stores the app-specific password securely.
   Future<void> storeAppPassword(String password) async {
-    String hashedPassword =
-        sha256.convert(utf8.encode('your_custom_salt' + password)).toString();
+    String hashedPassword = _hashPassword(password);
     await _secureStorage.write(key: 'appPassword', value: hashedPassword);
+  }
+
+  /// Hashes the password using a secure algorithm.
+  String _hashPassword(String password) {
+    // Use a secure hashing algorithm like bcrypt for better password security
+    return sha256
+        .convert(utf8.encode('your_custom_salt' + password))
+        .toString();
   }
 }
 
