@@ -6,10 +6,6 @@ void main() async {
 
   await fetchContactInfo();
   await fetchDonationLinks();
-
-  runApp(MaterialApp(
-    home: AboutHomePage(),
-  ));
 }
 
 Future<void> fetchContactInfo() async {
@@ -59,7 +55,7 @@ class AboutHomePage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              'Version: v0.0.2.9(011)(0029_011-291024a)',
+              'Version: v0.0.2.10(012)(00210_012-301024a)',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 10),
