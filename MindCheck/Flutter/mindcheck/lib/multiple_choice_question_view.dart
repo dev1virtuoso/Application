@@ -4,6 +4,7 @@ class MultipleChoiceQuestionView extends StatefulWidget {
   final String question;
   final List<String> options;
   final Function(List<String>) callback;
+  @override
   final Key? key;
 
   const MultipleChoiceQuestionView({

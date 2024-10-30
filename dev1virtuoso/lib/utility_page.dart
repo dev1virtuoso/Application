@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'custom_side_navigation_bar.dart';
-import 'scripts.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UtilityPage extends StatefulWidget {
   const UtilityPage({Key? key}) : super(key: key);
@@ -48,67 +47,69 @@ class _UtilityPageState extends State<UtilityPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Utility Page'),
+        title: Text(loc!.utilityPageTitle),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     ElevatedButton(
                       onPressed: calculatePi,
-                      child: const Text('Calculate Pi'),
+                      child: Text(loc.calculatePiButton),
                     ),
-                    Text('Pi Value: $piValue'),
+                    Text('${loc.piValueLabel}: $piValue'),
                   ],
                 ),
               ),
             ),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     ElevatedButton(
                       onPressed: calculateBMI,
-                      child: const Text('Calculate BMI'),
+                      child: Text(loc.calculateBMIButton),
                     ),
-                    Text('BMI Result: $bmiResult'),
+                    Text('${loc.bmiResultLabel}: $bmiResult'),
                   ],
                 ),
               ),
             ),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     ElevatedButton(
                       onPressed: generateRandomString,
-                      child: const Text('Generate Random String'),
+                      child: Text(loc.generateRandomStringButton),
                     ),
-                    Text('Random String: $randomString'),
+                    Text('${loc.randomStringLabel}: $randomString'),
                   ],
                 ),
               ),
             ),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
                     ElevatedButton(
                       onPressed: translateToMorseCode,
-                      child: const Text('Translate to Morse Code'),
+                      child: Text(loc.translateToMorseCodeButton),
                     ),
-                    Text('Morse Code: $morseCode'),
+                    Text('${loc.morseCodeLabel}: $morseCode'),
                   ],
                 ),
               ),

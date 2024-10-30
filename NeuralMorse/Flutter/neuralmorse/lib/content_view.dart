@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'morse_code_converter.dart';
 
 class ContentView extends StatefulWidget {
-  const ContentView({Key? key});
+  const ContentView({super.key, Key? key});
 
   @override
   _ContentViewState createState() => _ContentViewState();
@@ -27,7 +27,7 @@ class _ContentViewState extends State<ContentView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Morse Code Converter'),
+        title: const Text('Morse Code Converter'),
       ),
       body: Center(
         child: Column(
@@ -35,16 +35,16 @@ class _ContentViewState extends State<ContentView> {
           children: <Widget>[
             TextField(
               controller: _inputTextController,
-              decoration: InputDecoration(labelText: 'Enter text'),
+              decoration: const InputDecoration(labelText: 'Enter text'),
             ),
             ElevatedButton(
               onPressed: _convertToMorseCode,
-              child: Text('Convert to Morse Code'),
+              child: const Text('Convert to Morse Code'),
             ),
             Text('Morse Code: $_morseCode'),
             ElevatedButton(
               onPressed: _copyToClipboard,
-              child: Text('Copy to Clipboard'),
+              child: const Text('Copy to Clipboard'),
             ),
           ],
         ),

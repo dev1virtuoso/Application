@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
-import 'custom_side_navigation_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AccountPage extends StatelessWidget {
+  const AccountPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var intl = AppLocalizations.of(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Account Page'),
+        title: Text(intl.accountPageTitle),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.account_circle,
               size: 100,
               color: Colors.blue,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              'Welcome to your account page!',
-              style: TextStyle(fontSize: 20),
+              intl.welcomeMessage,
+              style: const TextStyle(fontSize: 20),
             ),
           ],
         ),

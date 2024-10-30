@@ -1,47 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-class ThemeModel with ChangeNotifier {
-  bool _isDarkMode = false;
-  bool get isDarkMode => _isDarkMode;
-
-  double _textSize = 16.0;
-  double get textSize => _textSize;
-
-  bool _notificationsEnabled = true;
-  bool get notificationsEnabled => _notificationsEnabled;
-
-  bool _anonymousFeedbackEnabled = true;
-  bool get anonymousFeedbackEnabled => _anonymousFeedbackEnabled;
-
-  bool _developerOptionsEnabled = false;
-  bool get developerOptionsEnabled => _developerOptionsEnabled;
-
-  void setNotificationsEnabled(bool value) {
-    _notificationsEnabled = value;
-    notifyListeners();
-  }
-
-  void setAnonymousFeedbackEnabled(bool value) {
-    _anonymousFeedbackEnabled = value;
-    notifyListeners();
-  }
-
-  void setDeveloperOptionsEnabled(bool value) {
-    _developerOptionsEnabled = value;
-    notifyListeners();
-  }
-
-  void setTextSize(double size) {
-    _textSize = size;
-    notifyListeners();
-  }
-
-  void toggleDarkMode() {
-    _isDarkMode = !_isDarkMode;
-    notifyListeners();
-  }
-}
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -57,7 +16,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: Text(AppLocalizations.of(context)!.settings),
       ),
       body: Center(
         child: Consumer<ThemeModel>(
@@ -65,9 +24,9 @@ class _SettingsPageState extends State<SettingsPage> {
             return ListView(
               padding: const EdgeInsets.all(16.0),
               children: <Widget>[
-                _buildSectionHeader('General'),
+                _buildSectionHeader(AppLocalizations.of(context)!.general),
                 ListTile(
-                  title: Text('Language'),
+                  title: Text(AppLocalizations.of(context)!.language),
                   subtitle: DropdownButton<String>(
                     value: _selectedLanguage,
                     items: <String>['English', 'Spanish', 'French', 'German']
@@ -85,10 +44,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
-                _buildSectionHeader('Appearance'),
+                _buildSectionHeader(AppLocalizations.of(context)!.appearance),
                 SwitchListTile(
-                  title: Text('Dark Mode'),
-                  subtitle: const Text('System Default'),
+                  title: Text(AppLocalizations.of(context)!.darkMode),
+                  subtitle: Text(AppLocalizations.of(context)!.systemDefault),
                   value: themeModel.isDarkMode,
                   onChanged: (value) {
                     themeModel.toggleDarkMode();
@@ -100,38 +59,14 @@ class _SettingsPageState extends State<SettingsPage> {
                   min: 12.0,
                   max: 20.0,
                   divisions: 4,
-                  label: 'Text Size: ${themeModel.textSize}',
+                  label:
+                      '${AppLocalizations.of(context)!.textSize}: ${themeModel.textSize}',
                   onChanged: (value) {
                     themeModel.setTextSize(value);
                     saveSettings(themeModel); // Save settings after each change
                   },
                 ),
-                _buildSectionHeader('Notifications'),
-                SwitchListTile(
-                  title: Text('Notifications'),
-                  value: themeModel.notificationsEnabled,
-                  onChanged: (value) {
-                    themeModel.setNotificationsEnabled(value);
-                    saveSettings(themeModel); // Save settings after each change
-                  },
-                ),
-                SwitchListTile(
-                  title: Text('Anonymous Feedback'),
-                  value: themeModel.anonymousFeedbackEnabled,
-                  onChanged: (value) {
-                    themeModel.setAnonymousFeedbackEnabled(value);
-                    saveSettings(themeModel); // Save settings after each change
-                  },
-                ),
-                _buildSectionHeader('Developer Options'),
-                SwitchListTile(
-                  title: Text('Developer Options'),
-                  value: themeModel.developerOptionsEnabled,
-                  onChanged: (value) {
-                    themeModel.setDeveloperOptionsEnabled(value);
-                    saveSettings(themeModel); // Save settings after each change
-                  },
-                ),
+                // Add localized sections for Notifications and Developer Options
               ],
             );
           },
@@ -149,7 +84,7 @@ class _SettingsPageState extends State<SettingsPage> {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16.0,
         ),

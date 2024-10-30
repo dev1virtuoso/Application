@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info/package_info';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,8 +19,8 @@ class UpdateChecker {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Checking for Updates'),
-          content: CircularProgressIndicator(),
+          title: Text(AppLocalizations.of(context)!.checkingUpdates),
+          content: const CircularProgressIndicator(),
         ),
       );
 
@@ -34,13 +35,12 @@ class UpdateChecker {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('Update Available'),
-              content:
-                  Text('A new version is available. Please update your app.'),
+              title: Text(AppLocalizations.of(context)!.updateAvailable),
+              content: Text(AppLocalizations.of(context)!.newVersionAvailable),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),
@@ -49,31 +49,31 @@ class UpdateChecker {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text('No Updates'),
-              content: Text('Your app is up to date.'),
+              title: Text(AppLocalizations.of(context)!.noUpdates),
+              content: Text(AppLocalizations.of(context)!.noUpdatesMessage),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text('OK'),
+                  child: const Text('OK'),
                 ),
               ],
             ),
           );
         }
       } else {
-        throw Exception('Failed to fetch latest version');
+        throw Exception('Failed to fetch the latest version');
       }
     } catch (e) {
       print('Error checking for updates: $e');
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text('Error'),
-          content: Text('An error occurred while checking for updates.'),
+          title: Text(AppLocalizations.of(context)!.error),
+          content: Text(AppLocalizations.of(context)!.updateCheckError),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('OK'),
+              child: const Text('OK'),
             ),
           ],
         ),
@@ -83,13 +83,15 @@ class UpdateChecker {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
           onPressed: () => UpdateChecker.checkForUpdates(context),
-          child: Text('Check for Updates'),
+          child: Text(AppLocalizations.of(context)!.checkForUpdates),
         ),
       ),
     );

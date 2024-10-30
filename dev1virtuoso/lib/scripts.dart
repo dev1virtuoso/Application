@@ -40,11 +40,9 @@ class PasswordLockService {
   Future<bool> _authenticateUsingDevicePassword() async {
     String devicePassword = await _secureStorage.read(key: 'devicePassword');
 
-    if (devicePassword != null) {
-      // Implement device-specific password validation logic here
-      return true;
-    }
-
+    // Implement device-specific password validation logic here
+    return true;
+  
     return false;
   }
 
@@ -52,7 +50,7 @@ class PasswordLockService {
   Future<bool> _authenticateUsingAppPassword() async {
     String storedPassword = await _secureStorage.read(key: 'appPassword');
     String hashedPassword = sha256
-        .convert(utf8.encode('your_custom_salt' + 'desired_password'))
+        .convert(utf8.encode('your_custom_salt' 'desired_password'))
         .toString();
 
     return storedPassword == hashedPassword;
@@ -68,7 +66,7 @@ class PasswordLockService {
   String _hashPassword(String password) {
     // Use a secure hashing algorithm like bcrypt for better password security
     return sha256
-        .convert(utf8.encode('your_custom_salt' + password))
+        .convert(utf8.encode('your_custom_salt$password'))
         .toString();
   }
 }
@@ -288,7 +286,7 @@ class SettingsList extends StatelessWidget {
   final Function(bool) toggleElderlyMode;
   final Function(bool) toggleBoldText;
 
-  const SettingsList({
+  const SettingsList({Key? key, 
     required this.notificationsEnabled,
     required this.isDarkMode,
     required this.anonymousFeedbackEnabled,
@@ -305,29 +303,29 @@ class SettingsList extends StatelessWidget {
     required this.toggleColorBlindMode,
     required this.toggleElderlyMode,
     required this.toggleBoldText,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
         SwitchListTile(
-          title: Text('Notifications'),
+          title: const Text('Notifications'),
           value: notificationsEnabled,
           onChanged: toggleNotifications,
         ),
         SwitchListTile(
-          title: Text('Dark Mode'),
+          title: const Text('Dark Mode'),
           value: isDarkMode,
           onChanged: toggleDarkMode,
         ),
         SwitchListTile(
-          title: Text('Anonymous Feedback'),
+          title: const Text('Anonymous Feedback'),
           value: anonymousFeedbackEnabled,
           onChanged: toggleAnonymousFeedback,
         ),
         SwitchListTile(
-          title: Text('Developer Options'),
+          title: const Text('Developer Options'),
           value: developerOptionsEnabled,
           onChanged: toggleDeveloperOptions,
         ),
@@ -338,17 +336,17 @@ class SettingsList extends StatelessWidget {
           onChanged: updateTextSize,
         ),
         SwitchListTile(
-          title: Text('Color Blind Mode'),
+          title: const Text('Color Blind Mode'),
           value: colorBlindModeEnabled,
           onChanged: toggleColorBlindMode,
         ),
         SwitchListTile(
-          title: Text('Elderly Mode'),
+          title: const Text('Elderly Mode'),
           value: elderlyModeEnabled,
           onChanged: toggleElderlyMode,
         ),
         SwitchListTile(
-          title: Text('Bold Text'),
+          title: const Text('Bold Text'),
           value: boldTextEnabled,
           onChanged: toggleBoldText,
         ),

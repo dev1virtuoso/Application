@@ -20,7 +20,7 @@ class AssessmentPage extends StatelessWidget {
     'Moving or speaking so slowly that other people could have noticed?',
   ];
 
-  const AssessmentPage({Key? key}) : super(key: key);
+  const AssessmentPage({super.key});
 
   @override
   Widget build(BuildContext context) {

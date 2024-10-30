@@ -3,12 +3,13 @@ import 'settings_page.dart';
 import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(
     ChangeNotifierProvider<ThemeModel>(
       create: (context) => ThemeModel(),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -35,13 +36,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'dev1virtuoso',
       home: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.appTitle)),
         drawer: CustomSideNavigationBar(
           currentIndex: 0,
           onTap: (index) {},
         ),
-        body: IndexPage(),
+        body: const IndexPage(),
       ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
