@@ -1,7 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:dev1virtuoso/l10n/app_localizations.dart';
 
 void main() {
   runApp(MaterialApp(

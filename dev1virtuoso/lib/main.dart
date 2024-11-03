@@ -3,7 +3,7 @@ import 'settings_page.dart';
 import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:dev1virtuoso/l10n/app_localizations.dart';
 
 void main() {
   runApp(

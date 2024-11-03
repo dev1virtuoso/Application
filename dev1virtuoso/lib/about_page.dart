@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:dev1virtuoso/l10n/app_localizations.dart';
 
 class AboutHomePage extends StatelessWidget {
   const AboutHomePage({Key key}) : super(key: key);
@@ -15,7 +15,7 @@ class AboutHomePage extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Text(
               intl.appTitle,
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
