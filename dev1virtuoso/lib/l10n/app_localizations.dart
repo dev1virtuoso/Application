@@ -1,54 +1,52 @@
-import 'dart:async';
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter/services.dart';
 
-import 'messages_all.dart';
+class AppLocalizations {
+  final Locale locale;
+  Map<String, String>? _localizedStrings;
+
+  AppLocalizations(this.locale);
+
+  Future<bool> load() async {
+    try {
+      String jsonString = await rootBundle.loadString('lib/l10n/${locale.languageCode}.json');
+      Map<String, dynamic> jsonMap = json.decode(jsonString);
+
+      _localizedStrings = jsonMap.map((key, value) {
+        return MapEntry(key, value.toString());
+      });
+
+      return true;
+    } catch (e) {
+      print('Error loading localization: $e');
+      return false;
+    }
+  }
+
+  String translate(String key) {
+    if (_localizedStrings == null) {
+      return 'Localization not loaded';
+    }
+    return _localizedStrings?[key] ?? 'Missing translation';
+  }
+}
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['en', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) {
+    return ['en', 'zh'].contains(locale.languageCode);
+  }
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    final String name =
-        locale.countryCode == null ? locale.languageCode : locale.toString();
-    final String localeName = Intl.canonicalizedLocale(name);
-
-    await initializeMessages(localeName);
-
-    Intl.defaultLocale = localeName;
-
-    return AppLocalizations();
+    AppLocalizations localizations = AppLocalizations(locale);
+    await localizations.load();
+    return localizations;
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<AppLocalizations> old) => false;
-}
-
-class AppLocalizations {
-  static final AppLocalizations _instance = AppLocalizations._();
-  late Intl _intl;
-
-  factory AppLocalizations() {
-    return _instance;
-  }
-
-  AppLocalizations._() {
-    _intl = Intl(this);
-  }
-
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
-  }
-
-  String workout() => _intl.message('Workout');
-
-  String unitMinute() =>
-      _intl.message('Minute', desc: 'The singular form of minute');
-
-  String unitMinutes() => _intl.message('Minutes',
-      name: 'unitMinutes', desc: 'The plural form of minute');
+  bool shouldReload(AppLocalizationsDelegate old) => false;
 }

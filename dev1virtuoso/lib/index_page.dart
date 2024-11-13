@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:dev1virtuoso/l10n/app_localizations.dart';
-import 'arcade_page.dart';
-import 'utility_page.dart';
-import 'custom_side_navigation_bar.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);

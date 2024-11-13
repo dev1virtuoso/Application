@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:dev1virtuoso/l10n/app_localizations.dart';
 import 'about_page.dart';
 import 'account_page.dart';
-import 'arcade_page.dart';
 import 'index_page.dart';
 import 'settings_page.dart';
 import 'utility_page.dart';

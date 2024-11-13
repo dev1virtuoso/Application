@@ -33,4 +33,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - lib/l10n/
+    - lib/l10n/en.json
+    - lib/l10n/zh.json

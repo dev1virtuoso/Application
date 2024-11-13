@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'settings_page.dart';
 import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
