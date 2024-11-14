@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dev1virtuoso/l10n/app_localizations.dart';
+import 'package:dev1virtuoso/app_localizations.dart';
+import 'package:dev1virtuoso/scripts.dart';
+import 'package:intl/intl.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.settings),
+        title: Text(AppLocalizations.of(context).settingTitle),
       ),
       body: Center(
         child: Consumer<ThemeModel>(
@@ -24,9 +26,9 @@ class _SettingsPageState extends State<SettingsPage> {
             return ListView(
               padding: const EdgeInsets.all(16.0),
               children: <Widget>[
-                _buildSectionHeader(AppLocalizations.of(context)!.general),
+                _buildSectionHeader(AppLocalizations.of(context).general),
                 ListTile(
-                  title: Text(AppLocalizations.of(context)!.language),
+                  title: Text(AppLocalizations.of(context).language),
                   subtitle: DropdownButton<String>(
                     value: _selectedLanguage,
                     items: <String>['English', 'Spanish', 'French', 'German']
@@ -44,10 +46,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
-                _buildSectionHeader(AppLocalizations.of(context)!.appearance),
+                _buildSectionHeader(AppLocalizations.of(context).appearance),
                 SwitchListTile(
-                  title: Text(AppLocalizations.of(context)!.darkMode),
-                  subtitle: Text(AppLocalizations.of(context)!.systemDefault),
+                  title: Text(AppLocalizations.of(context).darkMode),
+                  subtitle: Text(AppLocalizations.of(context).systemDefault),
                   value: themeModel.isDarkMode,
                   onChanged: (value) {
                     themeModel.toggleDarkMode();
@@ -60,7 +62,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   max: 20.0,
                   divisions: 4,
                   label:
-                      '${AppLocalizations.of(context)!.textSize}: ${themeModel.textSize}',
+                      '${AppLocalizations.of(context).textSize}: ${themeModel.textSize}',
                   onChanged: (value) {
                     themeModel.setTextSize(value);
                     saveSettings(themeModel); // Save settings after each change

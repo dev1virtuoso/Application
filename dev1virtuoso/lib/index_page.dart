@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:dev1virtuoso/l10n/app_localizations.dart';
+import 'package:dev1virtuoso/app_localizations.dart';
+import 'package:dev1virtuoso/scripts.dart';
+import 'package:intl/intl.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var intl = AppLocalizations.of(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(intl.appTitle, style: const TextStyle(color: Colors.white)),
+        title: Text(AppLocalizations.of(context).appTitle,
+            style: const TextStyle(color: Colors.white)),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -27,13 +28,35 @@ class IndexPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(intl.yourContent, style: const TextStyle(fontSize: 18)),
+              Text(
+                Intl.message('Your Content',
+                    name: 'yourContent', desc: 'yourContent'),
+                style: const TextStyle(fontSize: 18),
+              ),
               const SizedBox(height: 20),
-              Text(intl.upcomingEvent, style: const TextStyle(fontSize: 16)),
-              Text(intl.news, style: const TextStyle(fontSize: 16)),
-              Text(intl.blogs, style: const TextStyle(fontSize: 16)),
-              Text(intl.releaseInfo, style: const TextStyle(fontSize: 16)),
-              Text(intl.researchFindings, style: const TextStyle(fontSize: 16)),
+              Text(
+                Intl.message('Upcoming Event',
+                    name: 'upcomingEvent', desc: 'upcomingEvent'),
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                Intl.message('News', name: 'news', desc: 'news'),
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                Intl.message('Blogs', name: 'blogs', desc: 'blogs'),
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                Intl.message('Release Information',
+                    name: 'releaseInfo', desc: 'releaseInfo'),
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                Intl.message('Research Findings',
+                    name: 'researchFindings', desc: 'researchFindings'),
+                style: const TextStyle(fontSize: 16),
+              ),
             ],
           ),
         ),

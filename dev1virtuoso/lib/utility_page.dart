@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dev1virtuoso/l10n/app_localizations.dart';
+import 'package:dev1virtuoso/app_localizations.dart';
+import 'package:dev1virtuoso/scripts.dart';
+import 'package:intl/intl.dart';
+import 'package:dev1virtuoso/scripts.dart';
 
 class UtilityPage extends StatefulWidget {
   const UtilityPage({Key? key}) : super(key: key);
@@ -14,44 +17,11 @@ class _UtilityPageState extends State<UtilityPage> {
   String randomString = '';
   String morseCode = '';
 
-  // Calculate the value of Pi
-  void calculatePi() {
-    setState(() {
-      piValue = '3.14159'; // more accurate value of Pi here
-    });
-  }
-
-  // BMI Calculator
-  void calculateBMI() {
-    // Add your BMI calculation logic here
-    setState(() {
-      bmiResult = 'Your BMI result'; // Update this with the calculated BMI
-    });
-  }
-
-  // Random English-Alphanumeric String Generator
-  void generateRandomString() {
-    // Add logic to generate a random alphanumeric string
-    setState(() {
-      randomString = 'Random string'; // Update this with the generated string
-    });
-  }
-
-  // Morse Code Translator
-  void translateToMorseCode() {
-    // Add logic to translate text to Morse code
-    setState(() {
-      morseCode = 'Morse code'; // Update this with the translated Morse code
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    final loc = AppLocalizations.of(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(loc!.utilityPageTitle),
+        title: Text(AppLocalizations.of(context).utilityPageTitle),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -65,9 +35,11 @@ class _UtilityPageState extends State<UtilityPage> {
                   children: [
                     ElevatedButton(
                       onPressed: calculatePi,
-                      child: Text(loc.calculatePiButton),
+                      child:
+                          Text(AppLocalizations.of(context).calculatePiButton),
                     ),
-                    Text('${loc.piValueLabel}: $piValue'),
+                    Text(
+                        '${AppLocalizations.of(context).piValueLabel}: $piValue'),
                   ],
                 ),
               ),
@@ -79,9 +51,11 @@ class _UtilityPageState extends State<UtilityPage> {
                   children: [
                     ElevatedButton(
                       onPressed: calculateBMI,
-                      child: Text(loc.calculateBMIButton),
+                      child:
+                          Text(AppLocalizations.of(context).calculateBMIButton),
                     ),
-                    Text('${loc.bmiResultLabel}: $bmiResult'),
+                    Text(
+                        '${AppLocalizations.of(context).bmiResultLabel}: $bmiResult'),
                   ],
                 ),
               ),
@@ -93,9 +67,11 @@ class _UtilityPageState extends State<UtilityPage> {
                   children: [
                     ElevatedButton(
                       onPressed: generateRandomString,
-                      child: Text(loc.generateRandomStringButton),
+                      child: Text(AppLocalizations.of(context)
+                          .generateRandomStringButton),
                     ),
-                    Text('${loc.randomStringLabel}: $randomString'),
+                    Text(
+                        '${AppLocalizations.of(context).randomStringLabel}: $randomString'),
                   ],
                 ),
               ),
@@ -107,9 +83,11 @@ class _UtilityPageState extends State<UtilityPage> {
                   children: [
                     ElevatedButton(
                       onPressed: translateToMorseCode,
-                      child: Text(loc.translateToMorseCodeButton),
+                      child: Text(AppLocalizations.of(context)
+                          .translateToMorseCodeButton),
                     ),
-                    Text('${loc.morseCodeLabel}: $morseCode'),
+                    Text(
+                        '${AppLocalizations.of(context).morseCodeLabel}: $morseCode'),
                   ],
                 ),
               ),

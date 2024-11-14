@@ -1,7 +1,9 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info';
-import 'package:dev1virtuoso/l10n/app_localizations.dart';
+import 'package:dev1virtuoso/app_localizations.dart';
+import 'package:dev1virtuoso/scripts.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -19,7 +21,7 @@ class UpdateChecker {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context)!.checkingUpdates),
+          title: Text(AppLocalizations.of(context).checkingUpdates),
           content: const CircularProgressIndicator(),
         ),
       );
@@ -35,8 +37,8 @@ class UpdateChecker {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text(AppLocalizations.of(context)!.updateAvailable),
-              content: Text(AppLocalizations.of(context)!.newVersionAvailable),
+              title: Text(AppLocalizations.of(context).updateAvailable),
+              content: Text(AppLocalizations.of(context).newVersionAvailable),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.pop(context),
@@ -49,8 +51,8 @@ class UpdateChecker {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              title: Text(AppLocalizations.of(context)!.noUpdates),
-              content: Text(AppLocalizations.of(context)!.noUpdatesMessage),
+              title: Text(AppLocalizations.of(context).noUpdates),
+              content: Text(AppLocalizations.of(context).noUpdatesMessage),
               actions: <Widget>[
                 TextButton(
                   onPressed: () => Navigator.pop(context),
@@ -61,15 +63,15 @@ class UpdateChecker {
           );
         }
       } else {
-        throw Exception('Failed to fetch the latest version');
+        throw Exception(AppLocalizations.of(context).updatefetch);
       }
     } catch (e) {
       print('Error checking for updates: $e');
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text(AppLocalizations.of(context)!.error),
-          content: Text(AppLocalizations.of(context)!.updateCheckError),
+          title: Text(AppLocalizations.of(context).error),
+          content: Text(AppLocalizations.of(context).updateCheckError),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -91,7 +93,7 @@ class MyApp extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () => UpdateChecker.checkForUpdates(context),
-          child: Text(AppLocalizations.of(context)!.checkForUpdates),
+          child: Text(AppLocalizations.of(context).checkForUpdates),
         ),
       ),
     );

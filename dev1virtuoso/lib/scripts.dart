@@ -42,7 +42,7 @@ class PasswordLockService {
 
     // Implement device-specific password validation logic here
     return true;
-  
+
     return false;
   }
 
@@ -65,9 +65,7 @@ class PasswordLockService {
   /// Hashes the password using a secure algorithm.
   String _hashPassword(String password) {
     // Use a secure hashing algorithm like bcrypt for better password security
-    return sha256
-        .convert(utf8.encode('your_custom_salt$password'))
-        .toString();
+    return sha256.convert(utf8.encode('your_custom_salt$password')).toString();
   }
 }
 
@@ -286,7 +284,8 @@ class SettingsList extends StatelessWidget {
   final Function(bool) toggleElderlyMode;
   final Function(bool) toggleBoldText;
 
-  const SettingsList({Key? key, 
+  const SettingsList({
+    Key? key,
     required this.notificationsEnabled,
     required this.isDarkMode,
     required this.anonymousFeedbackEnabled,
