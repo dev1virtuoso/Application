@@ -2,7 +2,6 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info';
 import 'package:dev1virtuoso/app_localizations.dart';
-import 'package:dev1virtuoso/scripts.dart';
 import 'package:intl/intl.dart';
 
 void main() {
@@ -31,7 +30,7 @@ class UpdateChecker {
       Navigator.pop(context); // Dismiss the loading indicator
 
       if (response.statusCode == 200) {
-        String latestVersion = response.body;
+        String latestVersion = response.body.trim();
 
         if (latestVersion != currentVersion) {
           showDialog(
@@ -63,7 +62,7 @@ class UpdateChecker {
           );
         }
       } else {
-        throw Exception(AppLocalizations.of(context).updatefetch);
+        throw Exception(AppLocalizations.of(context).updateFetchError);
       }
     } catch (e) {
       print('Error checking for updates: $e');

@@ -10,7 +10,7 @@ class IndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).appTitle,
+        title: Text(Intl.message('Dev1virtuoso', name: 'appTitle', desc: 'appTitle'),
             style: const TextStyle(color: Colors.white)),
         actions: [
           IconButton(

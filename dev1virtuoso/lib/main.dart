@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:dev1virtuoso/app_localizations.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(
@@ -38,7 +39,16 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeModel>(context).currentTheme,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context).dev1vrtuoso),
+          title: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(AppLocalizations.of(context).dev1vrtuoso),
+                Text(" - "),
+                Text(Intl.message('Arcade', name: 'arcade', desc: 'arcade')),
+              ],
+            ),
+          ),
         ),
         drawer: CustomSideNavigationBar(
           currentIndex: 0,
