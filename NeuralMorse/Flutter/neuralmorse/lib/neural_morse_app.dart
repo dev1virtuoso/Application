@@ -6,7 +6,7 @@ void main() {
 }
 
 class NeuralMorseApp extends StatelessWidget {
-  const NeuralMorseApp({super.key, Key? key});
+  const NeuralMorseApp({super.key, Key});
 
   @override
   Widget build(BuildContext context) {

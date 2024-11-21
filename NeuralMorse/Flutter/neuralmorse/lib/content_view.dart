@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'morse_code_converter.dart';
 
 class ContentView extends StatefulWidget {
-  const ContentView({super.key, Key? key});
+  const ContentView({super.key, Key});
 
   @override
   _ContentViewState createState() => _ContentViewState();
