@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'about_page.dart';
@@ -49,7 +48,7 @@ class CustomSideNavigationBar extends StatelessWidget {
   }
 
   Future<Map<String, dynamic>> _loadData() async {
-    String data = await rootBundle.loadString('assets/data.json');
+    String data = await rootBundle.loadString('assets/app_strings.json');
     return json.decode(data);
   }
 

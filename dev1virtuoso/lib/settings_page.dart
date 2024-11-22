@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
@@ -28,7 +27,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Future<void> _loadData() async {
-    String data = await rootBundle.loadString('assets/data.json');
+    String data = await rootBundle.loadString('assets/app_strings.json');
     List<dynamic> jsonData = json.decode(data)['pages'];
 
     for (var page in jsonData) {

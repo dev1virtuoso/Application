@@ -20,7 +20,7 @@ class _AboutMePageState extends State<AboutMePage> {
   }
 
   Future<void> _loadData() async {
-    final String data = await rootBundle.loadString('assets/data.json');
+    final String data = await rootBundle.loadString('assets/app_strings.json');
     setState(() {
       _data = json.decode(data)['aboutMe']['CarsonWu'];
     });

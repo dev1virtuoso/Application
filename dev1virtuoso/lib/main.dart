@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
+import 'index_page.dart';
 
 void main() => runApp(MyApp());
 

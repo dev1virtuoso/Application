@@ -1,17 +1,35 @@
 import 'package:flutter/material.dart';
+import 'dart:convert' show json;
+import 'package:flutter/services.dart' show rootBundle;
 
-import 'package:intl/intl.dart';
-
-class IndexPage extends StatelessWidget {
+class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
+
+  @override
+  _IndexPageState createState() => _IndexPageState();
+}
+
+class _IndexPageState extends State<IndexPage> {
+  late Map<String, dynamic> _data;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final String data = await rootBundle.loadString('assets/app_strings.json');
+    setState(() {
+      _data = json.decode(data);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-            Intl.message('Dev1virtuoso', name: 'appTitle', desc: 'appTitle'),
-            style: const TextStyle(color: Colors.white)),
+        title: Text(_data['appTitle'] ?? ''), // Added a comma here
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -28,35 +46,13 @@ class IndexPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(
-                Intl.message('Your Content',
-                    name: 'yourContent', desc: 'yourContent'),
-                style: const TextStyle(fontSize: 18),
-              ),
+              Text(_data['yourContent'] ?? ''),
               const SizedBox(height: 20),
-              Text(
-                Intl.message('Upcoming Event',
-                    name: 'upcomingEvent', desc: 'upcomingEvent'),
-                style: const TextStyle(fontSize: 16),
-              ),
-              Text(
-                Intl.message('News', name: 'news', desc: 'news'),
-                style: const TextStyle(fontSize: 16),
-              ),
-              Text(
-                Intl.message('Blogs', name: 'blogs', desc: 'blogs'),
-                style: const TextStyle(fontSize: 16),
-              ),
-              Text(
-                Intl.message('Release Information',
-                    name: 'releaseInfo', desc: 'releaseInfo'),
-                style: const TextStyle(fontSize: 16),
-              ),
-              Text(
-                Intl.message('Research Findings',
-                    name: 'researchFindings', desc: 'researchFindings'),
-                style: const TextStyle(fontSize: 16),
-              ),
+              Text(_data['upcomingEvent'] ?? ''),
+              Text(_data['news'] ?? ''),
+              Text(_data['blogs'] ?? ''),
+              Text(_data['releaseInfo'] ?? ''),
+              Text(_data['researchFindings'] ?? ''),
             ],
           ),
         ),
