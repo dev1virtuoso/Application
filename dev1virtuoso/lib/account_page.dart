@@ -1,35 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:convert' show json;
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
+import 'package:intl/intl.dart';
 
-class AccountPage extends StatefulWidget {
+class AccountPage extends StatelessWidget {
   const AccountPage({Key? key}) : super(key: key);
-
-  @override
-  _AccountPageState createState() => _AccountPageState();
-}
-
-class _AccountPageState extends State<AccountPage> {
-  late Map<String, dynamic> _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadData();
-  }
-
-  Future<void> _loadData() async {
-    final String data = await rootBundle.loadString('assets/app_strings.json');
-    setState(() {
-      _data = json.decode(data);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_data['accountPageTitle'] ?? ''),
+        title: Text(AppLocalizations.of(context)!.accountPageTitle),
       ),
       body: Center(
         child: Column(
@@ -42,7 +23,7 @@ class _AccountPageState extends State<AccountPage> {
             ),
             const SizedBox(height: 20),
             Text(
-              _data['welcomeMessage'] ?? '',
+              AppLocalizations.of(context)!.welcomeMessage,
               style: const TextStyle(fontSize: 20),
             ),
           ],

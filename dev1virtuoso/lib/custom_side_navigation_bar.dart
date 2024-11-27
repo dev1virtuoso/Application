@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
+import 'package:intl/intl.dart';
 import 'about_page.dart';
 import 'account_page.dart';
-import 'arcade_page.dart';
 import 'index_page.dart';
 import 'settings_page.dart';
 import 'utility_page.dart';
+import 'arcade_page.dart';
 
 class CustomSideNavigationBar extends StatelessWidget {
   final int currentIndex;
@@ -19,56 +20,60 @@ class CustomSideNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: FutureBuilder(
-        future: _loadData(),
-        builder: (BuildContext context,
-            AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            List<dynamic> pages = snapshot.data!['pages'];
-            return ListView(
-              padding: EdgeInsets.zero,
-              children: pages.map<Widget>((page) {
-                return _buildListTile(
-                  context,
-                  Icons.home,
-                  page['title'],
-                  pages.indexOf(page),
-                  currentIndex,
-                  onTap,
-                  _getPageWidget(page['route']),
-                );
-              }).toList(),
-            );
-          } else {
-            return Center(child: CircularProgressIndicator());
-          }
-        },
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          _buildListTile(
+              context,
+              Icons.home,
+              AppLocalizations.of(context)!.home,
+              0,
+              currentIndex,
+              onTap,
+              const IndexPage()),
+          _buildListTile(
+              context,
+              Icons.account_circle,
+              AppLocalizations.of(context)!.about,
+              1,
+              currentIndex,
+              onTap,
+              const AboutHomePage()),
+          _buildListTile(
+              context,
+              Icons.account_circle,
+              AppLocalizations.of(context)!.account,
+              2,
+              currentIndex,
+              onTap,
+              const AccountPage()),
+          _buildListTile(
+              context,
+              Icons.gamepad,
+              AppLocalizations.of(context)!.arcade,
+              3,
+              currentIndex,
+              onTap,
+              const ArcadePage()),
+          _buildListTile(
+              context,
+              Icons.settings,
+              AppLocalizations.of(context)!.utility,
+              4,
+              currentIndex,
+              onTap,
+              const UtilityPage()),
+          _buildListTile(
+              context,
+              Icons.settings,
+              AppLocalizations.of(context)!.settings,
+              5,
+              currentIndex,
+              onTap,
+              const SettingsPage()),
+        ],
       ),
     );
-  }
-
-  Future<Map<String, dynamic>> _loadData() async {
-    String data = await rootBundle.loadString('assets/app_strings.json');
-    return json.decode(data);
-  }
-
-  Widget _getPageWidget(String route) {
-    switch (route) {
-      case 'index_page':
-        return const IndexPage();
-      case 'about_page':
-        return const AboutMePage();
-      case 'account_page':
-        return AccountPage();
-      case 'arcade_page':
-        return ArcadeHomePage();
-      case 'utility_page':
-        return const UtilityPage();
-      case 'settings_page':
-        return const SettingsPage();
-      default:
-        return const SizedBox(); // Placeholder widget
-    }
   }
 
   ListTile _buildListTile(BuildContext context, IconData icon, String title,

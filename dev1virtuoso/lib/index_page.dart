@@ -1,35 +1,19 @@
 import 'package:flutter/material.dart';
-import 'dart:convert' show json;
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
+import 'package:intl/intl.dart';
 
-class IndexPage extends StatefulWidget {
+class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);
-
-  @override
-  _IndexPageState createState() => _IndexPageState();
-}
-
-class _IndexPageState extends State<IndexPage> {
-  late Map<String, dynamic> _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadData();
-  }
-
-  Future<void> _loadData() async {
-    final String data = await rootBundle.loadString('assets/app_strings.json');
-    setState(() {
-      _data = json.decode(data);
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_data['appTitle'] ?? ''), // Added a comma here
+        title: Text(
+          AppLocalizations.of(context)!.appTitle,
+          style: const TextStyle(color: Colors.white),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
@@ -46,13 +30,31 @@ class _IndexPageState extends State<IndexPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(_data['yourContent'] ?? ''),
+              Text(
+                AppLocalizations.of(context)!.yourContent,
+                style: const TextStyle(fontSize: 18),
+              ),
               const SizedBox(height: 20),
-              Text(_data['upcomingEvent'] ?? ''),
-              Text(_data['news'] ?? ''),
-              Text(_data['blogs'] ?? ''),
-              Text(_data['releaseInfo'] ?? ''),
-              Text(_data['researchFindings'] ?? ''),
+              Text(
+                AppLocalizations.of(context)!.upcomingEvent,
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                AppLocalizations.of(context)!.news,
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                AppLocalizations.of(context)!.blogs,
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                AppLocalizations.of(context)!.releaseInfo,
+                style: const TextStyle(fontSize: 16),
+              ),
+              Text(
+                AppLocalizations.of(context)!.researchFindings,
+                style: const TextStyle(fontSize: 16),
+              ),
             ],
           ),
         ),

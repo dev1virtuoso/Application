@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
 import 'package:intl/intl.dart';
 
 class UtilityPage extends StatefulWidget {
@@ -13,8 +15,10 @@ class _UtilityPageState extends State<UtilityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Intl.message('Utility',
-            name: 'utilityTitle', desc: 'utilityTitle')),
+        title: Text(
+          AppLocalizations.of(context)!.utilityTitle,
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Center(
         child: Column(
@@ -25,7 +29,9 @@ class _UtilityPageState extends State<UtilityPage> {
                 // Navigate to Guess the Number game page
               },
               child: Text(
-                  Intl.message('Utility', name: 'utility', desc: 'utility')),
+                AppLocalizations.of(context)!.utility,
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ],
         ),

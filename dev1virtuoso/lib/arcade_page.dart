@@ -1,40 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:convert' show json;
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
+import 'package:intl/intl.dart';
 
-class ArcadeHomePage extends StatefulWidget {
+class ArcadeHomePage extends StatelessWidget {
   const ArcadeHomePage({Key? key}) : super(key: key);
-
-  @override
-  _ArcadeHomePageState createState() => _ArcadeHomePageState();
-}
-
-class _ArcadeHomePageState extends State<ArcadeHomePage> {
-  late Map<String, dynamic> _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _loadData();
-  }
-
-  Future<void> _loadData() async {
-    final String data = await rootBundle.loadString('assets/app_strings.json');
-    setState(() {
-      _data = json.decode(data);
-    });
-  }
-
-  void navigateToGamePage() {
-    // Implement navigation to the specific game page here
-    // For example, use Navigator.push to navigate to the game page
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_data['arcadeTitle'] ?? ''),
+        title: Text(AppLocalizations.of(context)!.arcadeTitle),
       ),
       body: Center(
         child: Column(
@@ -42,9 +18,9 @@ class _ArcadeHomePageState extends State<ArcadeHomePage> {
           children: [
             ElevatedButton(
               onPressed: () {
-                navigateToGamePage();
+                // Navigate to Guess the Number game page
               },
-              child: Text(_data['arcade'] ?? ''),
+              child: Text(AppLocalizations.of(context)!.arcade),
             ),
           ],
         ),

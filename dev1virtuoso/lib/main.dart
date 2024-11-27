@@ -1,70 +1,110 @@
 import 'package:flutter/material.dart';
+import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
-import 'index_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'localization.dart';
+import 'package:intl/intl.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    ChangeNotifierProvider<ThemeModel>(
+      create: (context) => ThemeModel(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class ThemeModel with ChangeNotifier {
-  ThemeData _currentTheme = ThemeData.light();
+  bool _isDarkMode = false;
 
-  ThemeData get currentTheme => _currentTheme;
+  bool get isDarkMode => _isDarkMode;
 
-  void updateTheme(ThemeData newTheme) {
-    _currentTheme = newTheme;
+  set isDarkMode(bool value) {
+    _isDarkMode = value;
     notifyListeners();
   }
+
+  ThemeData get currentTheme =>
+      _isDarkMode ? ThemeData.dark() : ThemeData.light();
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  Future<Map<String, dynamic>> loadAppStrings() async {
-    String data = await rootBundle.loadString('assets/app_strings.json');
-    return json.decode(data);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'dev1virtuoso',
+      theme: Provider.of<ThemeModel>(context).currentTheme,
+      home: const MyAppState(),
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('en'),
+        const Locale.fromSubtags(
+          languageCode: 'zh',
+          scriptCode: 'Hant',
+          countryCode: 'TW',
+        ),
+      ],
+    );
+  }
+}
+
+class MyAppState extends StatefulWidget {
+  const MyAppState({Key? key}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyAppState> {
+  @override
+  void initState() {
+    super.initState();
+
+    localization.init(
+      mapLocales: [
+        const MapLocale('en', AppLocale.EN),
+        const MapLocale('km', AppLocale.KM),
+        const MapLocale('ja', AppLocale.JA),
+      ],
+      initLanguageCode: 'en',
+    );
+    localization.onTranslatedLanguage = _onTranslatedLanguage;
+  }
+
+  void _onTranslatedLanguage(Locale? locale) {
+    // Handle language change
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Map<String, dynamic>>(
-      future: loadAppStrings(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          Map<String, dynamic> appStrings = snapshot.data!;
-
-          return MaterialApp(
-            title: 'dev1virtuoso',
-            theme: Provider.of<ThemeModel>(context).currentTheme,
-            home: Scaffold(
-              appBar: AppBar(
-                title: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(appStrings['dev1virtuoso']),
-                      Text(" - "),
-                      Text('Arcade'),
-                    ],
-                  ),
-                ),
-              ),
-              drawer: CustomSideNavigationBar(
-                currentIndex: 0,
-                onTap: (index) {},
-              ),
-              body: const IndexPage(),
-            ),
-          );
-        } else {
-          return MaterialApp(
-            home: Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            ),
-          );
-        }
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(AppLocalizations.of(context)!.dev1virtuoso),
+              Text(" - "),
+              Text(AppLocalizations.of(context)!.arcade),
+            ],
+          ),
+        ),
+      ),
+      drawer: CustomSideNavigationBar(
+        currentIndex: 0,
+        onTap: (index) {
+          // Handle drawer item tap
+        },
+      ),
+      body: const IndexPage(),
     );
   }
 }
