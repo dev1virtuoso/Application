@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
+import 'app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'about_page.dart';
 import 'account_page.dart';
@@ -26,7 +26,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.home,
-              AppLocalizations.of(context)!.home,
+              AppLocalizations.of(context)!.translate("home,
               0,
               currentIndex,
               onTap,
@@ -34,7 +34,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.account_circle,
-              AppLocalizations.of(context)!.about,
+              AppLocalizations.of(context)!.translate("about"),
               1,
               currentIndex,
               onTap,
@@ -42,7 +42,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.account_circle,
-              AppLocalizations.of(context)!.account,
+              AppLocalizations.of(context)!.translate("account"),
               2,
               currentIndex,
               onTap,
@@ -50,7 +50,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.gamepad,
-              AppLocalizations.of(context)!.arcade,
+              AppLocalizations.of(context)!.translate("arcade"),
               3,
               currentIndex,
               onTap,
@@ -58,7 +58,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.settings,
-              AppLocalizations.of(context)!.utility,
+              AppLocalizations.of(context)!.translate("utility"),
               4,
               currentIndex,
               onTap,
@@ -66,7 +66,7 @@ class CustomSideNavigationBar extends StatelessWidget {
           _buildListTile(
               context,
               Icons.settings,
-              AppLocalizations.of(context)!.settings,
+              AppLocalizations.of(context)!.translate("settings"),
               5,
               currentIndex,
               onTap,

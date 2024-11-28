@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "chess": MessageLookupByLibrary.simpleMessage("國際象棋"),
         "chineseChess": MessageLookupByLibrary.simpleMessage("中國象棋"),
         "darkMode": MessageLookupByLibrary.simpleMessage("暗黑模式"),
+        "dev1virtuoso": MessageLookupByLibrary.simpleMessage("dev1virtuoso"),
         "developer": MessageLookupByLibrary.simpleMessage("由 Dev1Virtuoso 開發"),
         "error": MessageLookupByLibrary.simpleMessage("錯誤"),
         "general": MessageLookupByLibrary.simpleMessage("一般"),
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "news": MessageLookupByLibrary.simpleMessage("新聞"),
         "noUpdates": MessageLookupByLibrary.simpleMessage("沒有更新"),
         "noUpdatesMessage": MessageLookupByLibrary.simpleMessage("您已經在使用最新版本。"),
+        "ok": MessageLookupByLibrary.simpleMessage("好的"),
         "piValueLabel": MessageLookupByLibrary.simpleMessage("圓周率值"),
         "randomStringLabel": MessageLookupByLibrary.simpleMessage("隨機字串"),
         "releaseInfo": MessageLookupByLibrary.simpleMessage("發布資訊"),
@@ -65,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "upcomingEvent": MessageLookupByLibrary.simpleMessage("即將到來的活動"),
         "updateAvailable": MessageLookupByLibrary.simpleMessage("有更新"),
         "updateCheckError": MessageLookupByLibrary.simpleMessage("檢查更新時發生錯誤。"),
+        "updatefetch": MessageLookupByLibrary.simpleMessage("無法獲取最新版本"),
         "utility": MessageLookupByLibrary.simpleMessage("實用"),
         "utilityPageTitle": MessageLookupByLibrary.simpleMessage("實用功能頁面"),
         "version": MessageLookupByLibrary.simpleMessage(

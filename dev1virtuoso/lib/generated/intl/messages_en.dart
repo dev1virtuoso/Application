@@ -22,57 +22,72 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("關於"),
-        "aboutTitle": MessageLookupByLibrary.simpleMessage("關於"),
-        "account": MessageLookupByLibrary.simpleMessage("帳戶"),
-        "accountPageTitle": MessageLookupByLibrary.simpleMessage("帳戶"),
-        "appearance": MessageLookupByLibrary.simpleMessage("外觀"),
-        "appleChess": MessageLookupByLibrary.simpleMessage("蘋果國際象棋"),
-        "arcade": MessageLookupByLibrary.simpleMessage("街機"),
-        "arcadeTitle": MessageLookupByLibrary.simpleMessage("街機遊戲"),
-        "blogs": MessageLookupByLibrary.simpleMessage("部落格"),
-        "bmiResultLabel": MessageLookupByLibrary.simpleMessage("BMI 結果"),
-        "calculateBMIButton": MessageLookupByLibrary.simpleMessage("計算BMI"),
-        "calculatePiButton": MessageLookupByLibrary.simpleMessage("計算圓周率"),
-        "checkForUpdates": MessageLookupByLibrary.simpleMessage("檢查更新"),
-        "checkingUpdates": MessageLookupByLibrary.simpleMessage("正在檢查更新..."),
-        "chess": MessageLookupByLibrary.simpleMessage("國際象棋"),
-        "chineseChess": MessageLookupByLibrary.simpleMessage("中國象棋"),
-        "darkMode": MessageLookupByLibrary.simpleMessage("暗黑模式"),
+        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "aboutTitle": MessageLookupByLibrary.simpleMessage("About"),
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "accountPageTitle": MessageLookupByLibrary.simpleMessage("Account"),
+        "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
+        "appleChess": MessageLookupByLibrary.simpleMessage("Apple Chess"),
+        "arcade": MessageLookupByLibrary.simpleMessage("Arcade"),
+        "arcadeTitle": MessageLookupByLibrary.simpleMessage("Arcade Games"),
+        "blogs": MessageLookupByLibrary.simpleMessage("Blogs"),
+        "bmiResultLabel": MessageLookupByLibrary.simpleMessage("BMI Result"),
+        "calculateBMIButton":
+            MessageLookupByLibrary.simpleMessage("Calculate BMI"),
+        "calculatePiButton":
+            MessageLookupByLibrary.simpleMessage("Calculate Pi"),
+        "checkForUpdates":
+            MessageLookupByLibrary.simpleMessage("Check for Updates"),
+        "checkingUpdates":
+            MessageLookupByLibrary.simpleMessage("Checking for updates..."),
+        "chess": MessageLookupByLibrary.simpleMessage("Chess"),
+        "chineseChess": MessageLookupByLibrary.simpleMessage("Chinese Chess"),
+        "darkMode": MessageLookupByLibrary.simpleMessage("Dark Mode"),
         "dev1virtuoso": MessageLookupByLibrary.simpleMessage("dev1virtuoso"),
-        "developer": MessageLookupByLibrary.simpleMessage("由 Dev1Virtuoso 開發"),
-        "error": MessageLookupByLibrary.simpleMessage("錯誤"),
-        "general": MessageLookupByLibrary.simpleMessage("一般"),
+        "developer":
+            MessageLookupByLibrary.simpleMessage("Developed by Dev1Virtuoso"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
+        "general": MessageLookupByLibrary.simpleMessage("General"),
         "generateRandomStringButton":
-            MessageLookupByLibrary.simpleMessage("生成隨機字串"),
-        "guessTheNumber": MessageLookupByLibrary.simpleMessage("猜數字"),
-        "home": MessageLookupByLibrary.simpleMessage("主頁"),
-        "language": MessageLookupByLibrary.simpleMessage("語言"),
-        "morseCodeLabel": MessageLookupByLibrary.simpleMessage("摩斯碼"),
-        "newVersionAvailable":
-            MessageLookupByLibrary.simpleMessage("有新版本可供更新。請進行更新。"),
-        "news": MessageLookupByLibrary.simpleMessage("新聞"),
-        "noUpdates": MessageLookupByLibrary.simpleMessage("沒有更新"),
-        "noUpdatesMessage": MessageLookupByLibrary.simpleMessage("您已經在使用最新版本。"),
-        "ok": MessageLookupByLibrary.simpleMessage("好的"),
-        "piValueLabel": MessageLookupByLibrary.simpleMessage("圓周率值"),
-        "randomStringLabel": MessageLookupByLibrary.simpleMessage("隨機字串"),
-        "releaseInfo": MessageLookupByLibrary.simpleMessage("發布資訊"),
-        "researchFindings": MessageLookupByLibrary.simpleMessage("研究結果"),
-        "settings": MessageLookupByLibrary.simpleMessage("設置"),
-        "systemDefault": MessageLookupByLibrary.simpleMessage("系統默認"),
-        "textSize": MessageLookupByLibrary.simpleMessage("文字大小"),
+            MessageLookupByLibrary.simpleMessage("Generate Random String"),
+        "guessTheNumber":
+            MessageLookupByLibrary.simpleMessage("Guess the Number"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "morseCodeLabel": MessageLookupByLibrary.simpleMessage("Morse Code"),
+        "newVersionAvailable": MessageLookupByLibrary.simpleMessage(
+            "A new version is available. Please update."),
+        "news": MessageLookupByLibrary.simpleMessage("News"),
+        "noUpdates": MessageLookupByLibrary.simpleMessage("No Updates"),
+        "noUpdatesMessage": MessageLookupByLibrary.simpleMessage(
+            "You are already using the latest version."),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
+        "piValueLabel": MessageLookupByLibrary.simpleMessage("Pi Value"),
+        "randomStringLabel":
+            MessageLookupByLibrary.simpleMessage("Random String"),
+        "releaseInfo":
+            MessageLookupByLibrary.simpleMessage("Release Information"),
+        "researchFindings":
+            MessageLookupByLibrary.simpleMessage("Research Findings"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "systemDefault": MessageLookupByLibrary.simpleMessage("System Default"),
+        "textSize": MessageLookupByLibrary.simpleMessage("Text Size"),
         "translateToMorseCodeButton":
-            MessageLookupByLibrary.simpleMessage("翻譯為摩斯碼"),
-        "upcomingEvent": MessageLookupByLibrary.simpleMessage("即將到來的活動"),
-        "updateAvailable": MessageLookupByLibrary.simpleMessage("有更新"),
-        "updateCheckError": MessageLookupByLibrary.simpleMessage("檢查更新時發生錯誤。"),
-        "updatefetch": MessageLookupByLibrary.simpleMessage("無法獲取最新版本"),
-        "utility": MessageLookupByLibrary.simpleMessage("實用"),
-        "utilityPageTitle": MessageLookupByLibrary.simpleMessage("實用功能頁面"),
+            MessageLookupByLibrary.simpleMessage("Translate to Morse Code"),
+        "upcomingEvent": MessageLookupByLibrary.simpleMessage("Upcoming Event"),
+        "updateAvailable":
+            MessageLookupByLibrary.simpleMessage("Update Available"),
+        "updateCheckError": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while checking for updates."),
+        "updatefetch": MessageLookupByLibrary.simpleMessage(
+            "Failed to fetch the latest version"),
+        "utility": MessageLookupByLibrary.simpleMessage("Utility"),
+        "utilityPageTitle":
+            MessageLookupByLibrary.simpleMessage("Utility Page"),
         "version": MessageLookupByLibrary.simpleMessage(
-            "版本 v0.0.3.6(023)(0036_023-271124a)"),
-        "welcomeMessage": MessageLookupByLibrary.simpleMessage("歡迎來到您的帳戶頁面！"),
-        "yourContent": MessageLookupByLibrary.simpleMessage("您的內容")
+            "Version v0.0.3.6(023)(0036_023-271124a)"),
+        "welcomeMessage": MessageLookupByLibrary.simpleMessage(
+            "Welcome to your account page!"),
+        "yourContent": MessageLookupByLibrary.simpleMessage("Your Content")
       };
 }

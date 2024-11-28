@@ -3,8 +3,8 @@ import 'index_page.dart';
 import 'package:provider/provider.dart';
 import 'custom_side_navigation_bar.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
-import 'package:intl/intl.dart';
+
+import 'generated/l10n.dart';
 
 void main() {
   runApp(
@@ -39,19 +39,12 @@ class MyApp extends StatelessWidget {
       theme: Provider.of<ThemeModel>(context).currentTheme,
       home: const MyAppState(),
       localizationsDelegates: [
-        AppLocalizations.delegate,
+        S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
-        const Locale('en'),
-        const Locale.fromSubtags(
-          languageCode: 'zh',
-          scriptCode: 'Hant',
-          countryCode: 'TW',
-        ),
-      ],
+      supportedLocales: S.delegate.supportedLocales,
     );
   }
 }
@@ -91,9 +84,9 @@ class _MyAppState extends State<MyAppState> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(AppLocalizations.of(context)!.dev1virtuoso),
+              Text(AppLocalizations.of(context)!.translate("dev1virtuoso),
               Text(" - "),
-              Text(AppLocalizations.of(context)!.arcade),
+              Text(AppLocalizations.of(context)!.translate("arcade),
             ],
           ),
         ),
@@ -105,6 +98,105 @@ class _MyAppState extends State<MyAppState> {
         },
       ),
       body: const IndexPage(),
+    );
+  }
+}
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: ListTile(
+              leading: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    S.load(const Locale('en'));
+                  });
+                },
+                child: const Text('ENGLISH'),
+              ),
+              trailing: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    S.load(const Locale('de'));
+                  });
+                },
+                child: const Text('GERMAN'),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  S.of(context).pageHomeListTitle,
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  S.of(context).pageHomeSamplePlaceholder('John'),
+                  style: const TextStyle(fontSize: 20),
+                ),
+                Text(
+                  S
+                      .of(context)
+                      .pageHomeSamplePlaceholdersOrdered('John', 'Doe'),
+                  style: const TextStyle(fontSize: 20),
+                ),
+                Text(
+                  S.of(context).pageHomeSamplePlural(2),
+                  style: const TextStyle(fontSize: 20),
+                ),
+                Text(
+                  S.of(context).pageHomeSampleTotalAmount(2500.0),
+                  style: const TextStyle(fontSize: 20),
+                ),
+                Text(
+                  S.of(context).pageHomeSampleCurrentDateTime(
+                      DateTime.now(), DateTime.now()),
+                  style: const TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

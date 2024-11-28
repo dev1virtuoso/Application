@@ -100,8 +100,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get updateAvailable => 'Update Available';
 
   @override
-  String get newVersionAvailable =>
-      'A new version is available. Please update.';
+  String get newVersionAvailable => 'A new version is available. Please update.';
 
   @override
   String get noUpdates => 'No Updates';
@@ -119,8 +118,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get updateCheckError =>
-      'An error occurred while checking for updates.';
+  String get updateCheckError => 'An error occurred while checking for updates.';
 
   @override
   String get checkForUpdates => 'Check for Updates';

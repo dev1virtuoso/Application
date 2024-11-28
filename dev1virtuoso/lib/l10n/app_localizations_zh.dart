@@ -109,10 +109,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noUpdatesMessage => '您已經在使用最新版本。';
 
   @override
-  String get ok => 'OK';
+  String get ok => '好的';
 
   @override
-  String get updatefetch => 'Failed to fetch the latest version';
+  String get updatefetch => '無法獲取最新版本';
 
   @override
   String get error => '錯誤';

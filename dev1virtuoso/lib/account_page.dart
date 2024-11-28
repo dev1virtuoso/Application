@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
+import 'app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class AccountPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.accountPageTitle),
+        title: Text(AppLocalizations.of(context)!.translate("accountPageTitle"),
       ),
       body: Center(
         child: Column(
@@ -23,7 +23,7 @@ class AccountPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              AppLocalizations.of(context)!.welcomeMessage,
+              AppLocalizations.of(context)!.translate("welcomeMessage"),
               style: const TextStyle(fontSize: 20),
             ),
           ],

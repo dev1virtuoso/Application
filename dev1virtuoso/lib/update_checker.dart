@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
+import 'app_localizations.dart';
 import 'package:intl/intl.dart';
 
 void main() {

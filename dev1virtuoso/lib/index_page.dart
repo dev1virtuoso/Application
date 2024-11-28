@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
+import 'app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class IndexPage extends StatelessWidget {
@@ -11,7 +11,7 @@ class IndexPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.appTitle,
+          AppLocalizations.of(context)!.translate("appTitle,
           style: const TextStyle(color: Colors.white),
         ),
         actions: [
@@ -31,28 +31,28 @@ class IndexPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Text(
-                AppLocalizations.of(context)!.yourContent,
+                AppLocalizations.of(context)!.translate("yourContent,
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(height: 20),
               Text(
-                AppLocalizations.of(context)!.upcomingEvent,
+                AppLocalizations.of(context)!.translate("upcomingEvent,
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                AppLocalizations.of(context)!.news,
+                AppLocalizations.of(context)!.translate("news"),
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                AppLocalizations.of(context)!.blogs,
+                AppLocalizations.of(context)!.translate("blogs"),
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                AppLocalizations.of(context)!.releaseInfo,
+                AppLocalizations.of(context)!.translate("releaseInfo"),
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                AppLocalizations.of(context)!.researchFindings,
+                AppLocalizations.of(context)!.translate("researchFindings"),
                 style: const TextStyle(fontSize: 16),
               ),
             ],

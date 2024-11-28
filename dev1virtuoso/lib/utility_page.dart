@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'localization.dart';
+import 'app_localizations.dart';
 import 'package:intl/intl.dart';
 
 class UtilityPage extends StatefulWidget {
@@ -16,7 +16,7 @@ class _UtilityPageState extends State<UtilityPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.utilityTitle,
+          AppLocalizations.of(context)!.translate("utilityTitle,
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -29,7 +29,7 @@ class _UtilityPageState extends State<UtilityPage> {
                 // Navigate to Guess the Number game page
               },
               child: Text(
-                AppLocalizations.of(context)!.utility,
+                AppLocalizations.of(context)!.translate("utility,
                 style: TextStyle(fontSize: 16),
               ),
             ),
