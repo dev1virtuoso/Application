@@ -85,7 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "utilityPageTitle":
             MessageLookupByLibrary.simpleMessage("Utility Page"),
         "version": MessageLookupByLibrary.simpleMessage(
-            "Version v0.0.3.6(023)(0036_023-271124a)"),
+            "Version v0.0.3.7(025)(0037_024-281124a)"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage(
             "Welcome to your account page!"),
         "yourContent": MessageLookupByLibrary.simpleMessage("Your Content")

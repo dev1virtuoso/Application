@@ -74,7 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "utility": MessageLookupByLibrary.simpleMessage("유틸리티"),
         "utilityPageTitle": MessageLookupByLibrary.simpleMessage("유틸리티 페이지"),
         "version": MessageLookupByLibrary.simpleMessage(
-            "버전 v0.0.3.6(023)(0036_023-271124a)"),
+            "버전 v0.0.3.7(025)(0037_024-281124a)"),
         "welcomeMessage":
             MessageLookupByLibrary.simpleMessage("계정 페이지에 오신 것을 환영합니다!"),
         "yourContent": MessageLookupByLibrary.simpleMessage("귀하의 콘텐츠")

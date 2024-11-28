@@ -13,7 +13,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dev1virtuoso => 'dev1virtuoso';
 
   @override
-  String get version => '版本 v0.0.3.6(023)(0036_023-271124a)';
+  String get version => '版本 v0.0.3.7(025)(0037_024-281124a)';
 
   @override
   String get developer => '由 Dev1Virtuoso 開發';

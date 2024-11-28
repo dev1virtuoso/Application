@@ -71,7 +71,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "utility": MessageLookupByLibrary.simpleMessage("實用"),
         "utilityPageTitle": MessageLookupByLibrary.simpleMessage("實用功能頁面"),
         "version": MessageLookupByLibrary.simpleMessage(
-            "版本 v0.0.3.6(023)(0036_023-271124a)"),
+            "版本 v0.0.3.7(025)(0037_024-281124a)"),
         "welcomeMessage": MessageLookupByLibrary.simpleMessage("歡迎來到您的帳戶頁面！"),
         "yourContent": MessageLookupByLibrary.simpleMessage("您的內容")
       };

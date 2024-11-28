@@ -70,10 +70,10 @@ class S {
     );
   }
 
-  /// `Version v0.0.3.6(023)(0036_023-271124a)`
+  /// `Version v0.0.3.7(025)(0037_024-281124a)`
   String get version {
     return Intl.message(
-      'Version v0.0.3.6(023)(0036_023-271124a)',
+      'Version v0.0.3.7(025)(0037_024-281124a)',
       name: 'version',
       desc: '',
       args: [],

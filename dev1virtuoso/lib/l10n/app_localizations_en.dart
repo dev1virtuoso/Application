@@ -13,7 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dev1virtuoso => 'dev1virtuoso';
 
   @override
-  String get version => 'Version v0.0.3.6(023)(0036_023-271124a)';
+  String get version => 'Version v0.0.3.7(025)(0037_024-281124a)';
 
   @override
   String get developer => 'Developed by Dev1Virtuoso';
@@ -100,7 +100,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get updateAvailable => 'Update Available';
 
   @override
-  String get newVersionAvailable => 'A new version is available. Please update.';
+  String get newVersionAvailable =>
+      'A new version is available. Please update.';
 
   @override
   String get noUpdates => 'No Updates';
@@ -118,7 +119,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error => 'Error';
 
   @override
-  String get updateCheckError => 'An error occurred while checking for updates.';
+  String get updateCheckError =>
+      'An error occurred while checking for updates.';
 
   @override
   String get checkForUpdates => 'Check for Updates';
