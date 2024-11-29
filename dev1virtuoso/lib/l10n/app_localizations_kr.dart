@@ -13,7 +13,7 @@ class AppLocalizationsKr extends AppLocalizations {
   String get dev1virtuoso => 'dev1virtuoso';
 
   @override
-  String get version => '버전 v0.0.3.7(025)(0037_024-281124a)';
+  String get version => '버전';
 
   @override
   String get developer => 'Dev1Virtuoso에 의해 개발됨';

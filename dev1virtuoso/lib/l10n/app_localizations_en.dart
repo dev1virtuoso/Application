@@ -13,7 +13,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dev1virtuoso => 'dev1virtuoso';
 
   @override
-  String get version => 'Version v0.0.3.7(025)(0037_024-281124a)';
+  String get version => 'Version';
 
   @override
   String get developer => 'Developed by Dev1Virtuoso';

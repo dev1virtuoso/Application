@@ -10,7 +10,7 @@ class AboutHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.translate("aboutTitle"),
+        title: Text(AppLocalizations.of(context)!.translate("aboutTitle")),
       ),
       body: Center(
         child: Column(
@@ -22,7 +22,7 @@ class AboutHomePage extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             Text(
-              AppLocalizations.of(context)!.translate("version"),
+              "${AppLocalizations.of(context)!.translate("version")}: v0.0.3.8(026)(0038_026-301124a)",
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 10),
