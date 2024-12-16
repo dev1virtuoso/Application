@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/paragraph_widget.dart';
+import 'package:dev1virtuoso/widgets/data_table.dart';
 
 class About extends StatelessWidget {
-  const About({Key? key});
+  const About({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var theme = Theme.of(context);
     var t = AppLocalizations.of(context)!;
 
     return Scaffold(
@@ -19,6 +21,10 @@ class About extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              Text(
+                t.aboutTitle,
+                style: theme.textTheme.titleMedium,
+              ),
               ParagraphWidget(t.carsonWuIntroduction),
               ParagraphWidget(t.carsonWuBackground),
               ParagraphWidget(t.carsonWuPassion),
@@ -27,7 +33,12 @@ class About extends StatelessWidget {
               ParagraphWidget(t.carsonWuLearning),
               ParagraphWidget(t.carsonWuFuture),
               ParagraphWidget(t.carsonWuCollaboration),
-              SizedBox(height: 20), // Add some spacing
+              SizedBox(height: 20),
+              Text(
+                t.personalInfoTitle,
+                style: theme.textTheme.titleMedium,
+              ),
+              DataTableClass(),
             ],
           ),
         ),
