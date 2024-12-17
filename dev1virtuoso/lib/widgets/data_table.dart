@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class DataTableClass extends StatelessWidget {
-  const DataTableClass({Key? key}) : super(key: key);
+class PersonalInfoTable extends StatelessWidget {
+  const PersonalInfoTable({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,55 +13,39 @@ class DataTableClass extends StatelessWidget {
       children: [
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo1)),
-            TableCell(child: Text(t.personalInfo1Context)),
+            TableCell(child: Text(t.personalInfoName)),
+            TableCell(child: Text(t.personalInfoNameContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo2)),
-            TableCell(child: Text(t.personalInfo2Context)),
+            TableCell(child: Text(t.personalInfoCName)),
+            TableCell(child: Text(t.personalInfoCNameContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo3)),
-            TableCell(child: Text(t.personalInfo3Context)),
+            TableCell(child: Text(t.personalInfoBorn)),
+            TableCell(child: Text(t.personalInfoBornContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo4)),
-            TableCell(child: Text(t.personalInfo4Context)),
+            TableCell(child: Text(t.personalInfoEOL)),
+            TableCell(child: Text(t.personalInfoEOLContext)),
           ],
         ),
         TableRow(
           children: [
             TableCell(
               child: Text(
-                t.personalInfo5,
+                t.personalInfoFActor,
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
             TableCell(
               child: Text(
-                t.personalInfo5Context,
-                style: TextStyle(fontStyle: FontStyle.italic),
-              ),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            TableCell(
-              child: Text(
-                t.personalInfo6,
-                style: TextStyle(fontStyle: FontStyle.italic),
-              ),
-            ),
-            TableCell(
-              child: Text(
-                t.personalInfo6Context,
+                t.personalInfoFActorContext,
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
@@ -69,21 +53,15 @@ class DataTableClass extends StatelessWidget {
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo7)),
-            TableCell(child: Text(t.personalInfo7Context)),
-          ],
-        ),
-        TableRow(
-          children: [
             TableCell(
               child: Text(
-                t.personalInfo8,
+                t.personalInfoFBotanical,
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
             TableCell(
               child: Text(
-                t.personalInfo8Context,
+                t.personalInfoFBotanicalContext,
                 style: TextStyle(fontStyle: FontStyle.italic),
               ),
             ),
@@ -91,59 +69,117 @@ class DataTableClass extends StatelessWidget {
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo9)),
-            TableCell(child: Text(t.personalInfo9Context)),
+            TableCell(child: Text(t.personalInfoFColor)),
+            TableCell(child: Text(t.personalInfoFColorContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo10)),
-            TableCell(child: Text(t.personalInfo10Context)),
+            TableCell(
+              child: Text(
+                t.personalInfoFCeature,
+                style: TextStyle(fontStyle: FontStyle.italic),
+              ),
+            ),
+            TableCell(
+              child: Text(
+                t.personalInfoFCeatureContext,
+                style: TextStyle(fontStyle: FontStyle.italic),
+              ),
+            ),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo11)),
-            TableCell(child: Text(t.personalInfo11Context)),
+            TableCell(child: Text(t.personalInfoFields)),
+            TableCell(child: Text(t.personalInfoFieldsContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo12)),
-            TableCell(child: Text(t.personalInfo12Context)),
+            TableCell(child: Text(t.personalInfoGender)),
+            TableCell(child: Text(t.personalInfoGenderContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo13)),
-            TableCell(child: Text(t.personalInfo13Context)),
+            TableCell(child: Text(t.personalInfoMBTI)),
+            TableCell(child: Text(t.personalInfoMBTIContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo14)),
-            TableCell(child: Text(t.personalInfo14Context)),
+            TableCell(child: Text(t.personalInfoPI)),
+            TableCell(child: Text(t.personalInfoPIContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo15)),
-            TableCell(child: Text(t.personalInfo15Context)),
+            TableCell(child: Text(t.personalInfoPronouns)),
+            TableCell(child: Text(t.personalInfoPronounsContext)),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo16)),
+            TableCell(child: Text(t.personalInfoReligion)),
+            TableCell(child: Text(t.personalInfoReligionContext)),
+          ],
+        ),
+        TableRow(
+          children: [
+            TableCell(child: Text(t.personalInfoSO)),
+            TableCell(child: Text(t.personalInfoSOContext)),
+          ],
+        ),
+        TableRow(
+          children: [
+            TableCell(child: Text(t.personalInfoSignature)),
             TableCell(child: Image.asset('assets/images/sign.png')),
           ],
         ),
         TableRow(
           children: [
-            TableCell(child: Text(t.personalInfo17)),
-            TableCell(child: Text(t.personalInfo17Context)),
+            TableCell(child: Text(t.personalInfoZS)),
+            TableCell(child: Text(t.personalInfoZSContext)),
           ],
         ),
       ],
     );
+  }
+}
+
+class CreditTable extends StatelessWidget {
+  const CreditTable({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+
+    return Table(border: TableBorder.all(), children: [
+      TableRow(
+        children: [
+          TableCell(child: Text(t.creditInfoDesigner)),
+          TableCell(child: Text('Carson Wu')),
+        ],
+      ),
+      TableRow(
+        children: [
+          TableCell(child: Text(t.creditInfoProgrammer)),
+          TableCell(child: Text('Carson Wu')),
+        ],
+      ),
+      TableRow(
+        children: [
+          TableCell(child: Text(t.creditInfoHWS)),
+          TableCell(child: Text(t.creditInfoHWSContext)),
+        ],
+      ),
+      TableRow(
+        children: [
+          TableCell(child: Text(t.creditInfoBM)),
+          TableCell(child: Text(t.creditInfoBMContext)),
+        ],
+      ),
+    ]);
   }
 }

@@ -38,7 +38,7 @@ class About extends StatelessWidget {
                 t.personalInfoTitle,
                 style: theme.textTheme.titleMedium,
               ),
-              DataTableClass(),
+              PersonalInfoTable(),
             ],
           ),
         ),

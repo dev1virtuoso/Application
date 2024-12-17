@@ -9,9 +9,8 @@ class Support extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion =
-        'v0.0.3.10(028)(00310_028-171224a)';
-    var licence1 = 'MIT License';
+    var appVersion = 'v0.0.3.11(029)(00311_029-181224a)';
+    var licenceTitle = 'MIT License';
     var licence2 = 'Copyright (c) 2023 - present Carson Wu';
     var licence3 =
         'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
@@ -30,6 +29,21 @@ class Support extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              Text(
+                t.companyLicenseTitle,
+                style: theme.textTheme.titleMedium,
+              ),
+              ParagraphWidget(t.companyLicense1),
+              ParagraphWidget(t.companyLicense2),
+              ParagraphWidget(t.companyLicense3),
+              ParagraphWidget('1. ${t.companyLicense4}'),
+              ParagraphWidget('2. ${t.companyLicense5}'),
+              ParagraphWidget('3. ${t.companyLicense6}'),
+              ParagraphWidget('4. ${t.companyLicense7}'),
+              ParagraphWidget('5. ${t.companyLicense8}'),
+              ParagraphWidget(t.companyLicense9),
+              ParagraphWidget(t.companyLicense10),
+              ParagraphWidget(t.companyLicense11),
               Text(
                 t.copyrightNoticeTitle,
                 style: theme.textTheme.titleMedium,
@@ -60,12 +74,31 @@ class Support extends StatelessWidget {
                 t.licenceTitle,
                 style: theme.textTheme.titleMedium,
               ),
-              ParagraphWidget(licence1),
+              ParagraphWidget(licenceTitle),
               ParagraphWidget(licence2),
               ParagraphWidget(licence3),
               ParagraphWidget(licence4),
               ParagraphWidget(licence5),
-              SizedBox(height: 20), // Add some spacing
+              SizedBox(height: 20),
+              Text(
+                t.versionTitle,
+                style: theme.textTheme.titleMedium,
+              ),
+              ParagraphWidget('- ${t.version1Context}'),
+              ParagraphWidget('- ${t.version2Context}'),
+              ParagraphWidget('- ${t.version3Context}'),
+              ParagraphWidget('- ${t.version4Context}'),
+              ParagraphWidget('- ${t.version5Context}'),
+              Text(
+                t.versionTitle2,
+                style: theme.textTheme.titleSmall,
+              ),
+              ParagraphWidget(t.version6Context),
+              ParagraphWidget(t.version7Context),
+              ParagraphWidget('- ${t.version8Context}'),
+              ParagraphWidget('- ${t.version9Context}'),
+              ParagraphWidget('- ${t.version10Context}'),
+              ParagraphWidget('- ${t.version11Context}'), // Add some spacing
               Text(
                 '${t.appVersion}: $appVersion',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
