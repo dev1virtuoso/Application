@@ -9,7 +9,7 @@ class Support extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.11(029)(00311_029-181224a)';
+    var appVersion = 'v0.0.3.12(030)(00312_030-191224a)';
     var licenceTitle = 'MIT License';
     var licence2 = 'Copyright (c) 2023 - present Carson Wu';
     var licence3 =
