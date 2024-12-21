@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/paragraph_widget.dart';
 import 'package:dev1virtuoso/widgets/data_table.dart';
 
+// Support
 class SupportTabBar extends StatelessWidget {
   const SupportTabBar({Key? key});
 
@@ -10,9 +11,9 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.13(031)(00313_031-201224a)';
+    var appVersion = 'v0.0.3.14(032)(00314_032-221224a)';
     var licenceTitle = 'MIT License';
-    var licence2 = 'Copyright (c) 2023 - present Carson Wu';
+    var licence2 = t.copyrightStatement;
     var licence3 =
         'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
     var licence4 =
@@ -149,6 +150,7 @@ class SupportTabBar extends StatelessWidget {
   }
 }
 
+// About
 class AboutTabBar extends StatelessWidget {
   const AboutTabBar({Key? key});
 
@@ -158,13 +160,14 @@ class AboutTabBar extends StatelessWidget {
     var theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
+              Tab(text: _getTabTitle(2, t)),
             ],
           ),
         ),
@@ -190,6 +193,15 @@ class AboutTabBar extends StatelessWidget {
             Column(
               children: [
                 Text(
+                  t.contactTitle,
+                  style: theme.textTheme.titleMedium,
+                ),
+                ContactTable(),
+              ],
+            ),
+            Column(
+              children: [
+                Text(
                   t.personalInfoTitle,
                   style: theme.textTheme.titleMedium,
                 ),
@@ -207,6 +219,8 @@ class AboutTabBar extends StatelessWidget {
       case 0:
         return t.aboutTitle;
       case 1:
+        return t.contactTitle;
+      case 2:
         return t.personalInfoTitle;
       default:
         return '';
