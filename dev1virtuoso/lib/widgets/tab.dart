@@ -11,15 +11,8 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.14(032)(00314_032-221224a)';
-    var licenceTitle = 'MIT License';
+    var appVersion = 'v0.0.3.15(033)(00315_033-231224a)';
     var licence2 = t.copyrightStatement;
-    var licence3 =
-        'Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:';
-    var licence4 =
-        'The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.';
-    var licence5 =
-        'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.';
 
     return DefaultTabController(
       length: 4,
@@ -31,102 +24,87 @@ class SupportTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
               Tab(text: _getTabTitle(3, t)),
+              Tab(text: _getTabTitle(4, t)),
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            Column(
-              children: [
-                Text(
-                  t.companyLicenseTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget(t.companyLicense1),
-                ParagraphWidget(t.companyLicense2),
-                ParagraphWidget(t.companyLicense3),
-                ParagraphWidget('1. ${t.companyLicense4}'),
-                ParagraphWidget('2. ${t.companyLicense5}'),
-                ParagraphWidget('3. ${t.companyLicense6}'),
-                ParagraphWidget('4. ${t.companyLicense7}'),
-                ParagraphWidget('5. ${t.companyLicense8}'),
-                ParagraphWidget(t.companyLicense9),
-                ParagraphWidget(t.companyLicense10),
-                ParagraphWidget(t.companyLicense11),
-                // Add more content for Tab 1
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.companyLicenseTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.companyLicense),
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  t.copyrightNoticeTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget('1. ${t.copyrightNotice1}'),
-                ParagraphWidget('2. ${t.copyrightNotice2}'),
-                ParagraphWidget('3. ${t.copyrightNotice3}'),
-                ParagraphWidget('4. ${t.copyrightNotice4}'),
-                ParagraphWidget('5. ${t.copyrightNotice5}'),
-                ParagraphWidget('6. ${t.copyrightNotice6}'),
-                ParagraphWidget('7. ${t.copyrightNotice7}'),
-                ParagraphWidget('8. ${t.copyrightNotice8}'),
-                ParagraphWidget('9. ${t.copyrightNotice9}'),
-                ParagraphWidget('10. ${t.copyrightNotice10}'),
-                ParagraphWidget(t.copyrightNoticeContact),
-                // Add more content for Tab 2
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.copyrightNoticeTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.copyrightNotice),
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  t.mitLTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget(t.mitLContent),
-                Text(
-                  t.mitLAboutTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget(t.mitLAboutContent),
-                ParagraphWidget(t.mitLAboutContent2),
-                Text(
-                  t.licenceTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget(licenceTitle),
-                ParagraphWidget(licence2),
-                ParagraphWidget(licence3),
-                ParagraphWidget(licence4),
-                ParagraphWidget(licence5),
-                SizedBox(height: 20),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.mitLTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.mitLContent),
+                  Text(
+                    t.mitLAboutTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.mitLAboutContent),
+                  Text(
+                    t.licenceTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.mitlicenceTitle),
+                  ParagraphWidget(licence2),
+                  ParagraphWidget(t.licence),
+                  SizedBox(height: 20),
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  t.versionTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget('- ${t.version1Context}'),
-                ParagraphWidget('- ${t.version2Context}'),
-                ParagraphWidget('- ${t.version3Context}'),
-                ParagraphWidget('- ${t.version4Context}'),
-                ParagraphWidget('- ${t.version5Context}'),
-                Text(
-                  t.versionTitle2,
-                  style: theme.textTheme.titleSmall,
-                ),
-                ParagraphWidget(t.version6Context),
-                ParagraphWidget(t.version7Context),
-                ParagraphWidget('- ${t.version8Context}'),
-                ParagraphWidget('- ${t.version9Context}'),
-                ParagraphWidget('- ${t.version10Context}'),
-                ParagraphWidget('- ${t.version11Context}'),
-                Text(
-                  '${t.appVersion}: $appVersion',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.touaTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.versionTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.version1Context),
+                  Text(
+                    t.versionTitle2,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.version2Context),
+                  Text(
+                    '${t.appVersion}: $appVersion',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -143,6 +121,8 @@ class SupportTabBar extends StatelessWidget {
       case 2:
         return t.mitLTitle;
       case 3:
+        return t.touaTitle;
+      case 4:
         return t.versionTitle;
       default:
         return '';
@@ -168,45 +148,75 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
+              Tab(text: _getTabTitle(3, t)),
             ],
           ),
         ),
         body: TabBarView(
           children: [
-            Column(
-              children: [
-                Text(
-                  t.aboutTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ParagraphWidget(t.carsonWuIntroduction),
-                ParagraphWidget(t.carsonWuBackground),
-                ParagraphWidget(t.carsonWuPassion),
-                ParagraphWidget(t.carsonWuSkills),
-                ParagraphWidget(t.carsonWuProjects),
-                ParagraphWidget(t.carsonWuLearning),
-                ParagraphWidget(t.carsonWuFuture),
-                ParagraphWidget(t.carsonWuCollaboration),
-                SizedBox(height: 20),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.aboutTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ParagraphWidget(t.carsonWuAboutMe),
+                  SizedBox(height: 20),
+                  Text(
+                    t.personalInfoTitle,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  PersonalInfoTable(),
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  t.contactTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                ContactTable(),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.contactTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ContactTable(),
+                ],
+              ),
             ),
-            Column(
-              children: [
-                Text(
-                  t.personalInfoTitle,
-                  style: theme.textTheme.titleMedium,
-                ),
-                PersonalInfoTable(),
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.donateTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  DonateTable(),
+                  Text(
+                    t.donateTitle1,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.donateDescribe1),
+                  Text(
+                    t.donateDescribeTitle1,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.donateDescribe2),
+                  Text(
+                    t.donateDescribeTitle2,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.donateDescribe3),
+                  Text(
+                    t.donateDescribeTitle3,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.donateDescribe4),
+                  Text(
+                    t.donateDescribeTitle4,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  ParagraphWidget(t.donateDescribe5),
+                ],
+              ),
             ),
           ],
         ),
@@ -221,7 +231,7 @@ class AboutTabBar extends StatelessWidget {
       case 1:
         return t.contactTitle;
       case 2:
-        return t.personalInfoTitle;
+        return t.donateTitle;
       default:
         return '';
     }

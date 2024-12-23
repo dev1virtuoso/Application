@@ -8,10 +8,13 @@ class ParagraphWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-          bottom: 16.0), // Vertical space between paragraphs
-      child: Text(
-        text,
+      padding: const EdgeInsets.symmetric(
+          horizontal: 20.0, vertical: 16.0), // Adding padding on both sides
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: Text(
+          text,
+        ),
       ),
     );
   }
