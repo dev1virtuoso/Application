@@ -4,6 +4,9 @@ import 'package:url_launcher/url_launcher.dart';
 class UrlStyle {
   static const TextStyle url =
       TextStyle(color: Colors.blue, decoration: TextDecoration.underline);
+
+  static const TextStyle blueUnderline =
+      TextStyle(color: Colors.blue, decoration: TextDecoration.underline);
 }
 
 class UrlLauncher {
@@ -24,6 +27,13 @@ class UrlLauncher {
         url,
         style: UrlStyle.url,
       ),
+    );
+  }
+
+  static Widget buildBlueUnderlineText(String text) {
+    return Text(
+      text,
+      style: UrlStyle.blueUnderline,
     );
   }
 }

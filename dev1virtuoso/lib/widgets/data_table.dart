@@ -226,7 +226,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://discord.com/users/893165893469732935');
                   },
-                  child: Text(t.contactDiscord),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactDiscord),
                 ),
               ),
             ],
@@ -240,7 +240,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'mailto:carson.developer1125@gmail.com');
                   },
-                  child: Text(t.contactEmail),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactEmail),
                 ),
               ),
             ],
@@ -254,7 +254,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://www.facebook.com/apple.we.98');
                   },
-                  child: Text(t.contactFacebook),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactFacebook),
                 ),
               ),
             ],
@@ -268,7 +268,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://github.com/dev1virtuoso');
                   },
-                  child: Text(t.contactGitHub),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactGitHub),
                 ),
               ),
             ],
@@ -282,7 +282,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://instagram.com/dev1virtuoso');
                   },
-                  child: Text(t.contactInstagram),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactInstagram),
                 ),
               ),
             ],
@@ -302,7 +302,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'viber://add?number=63078780');
                   },
-                  child: Text(t.contactViber),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactViber),
                 ),
               ),
             ],
@@ -316,7 +316,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://line.me/ti/p/k4_I_vkqFZ');
                   },
-                  child: Text(t.contactLINE),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactLINE),
                 ),
               ),
             ],
@@ -330,7 +330,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://www.linkedin.com/in/carson-wu-34a615325/');
                   },
-                  child: Text(t.contactLinkedIn),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactLinkedIn),
                 ),
               ),
             ],
@@ -344,7 +344,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://linktr.ee/carsonwe');
                   },
-                  child: Text(t.contactLinktree),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactLinktree),
                 ),
               ),
             ],
@@ -358,7 +358,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://orcid.org/0009-0004-2238-8912');
                   },
-                  child: Text(t.contactORCID),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactORCID),
                 ),
               ),
             ],
@@ -371,7 +371,7 @@ class ContactTable extends StatelessWidget {
                   onTap: () {
                     UrlLauncher.buildClickableLink('tel:85263078780');
                   },
-                  child: Text(t.contactPhone),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactPhone),
                 ),
               ),
             ],
@@ -385,7 +385,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://www.reddit.com/user/carson_we/');
                   },
-                  child: Text(t.contactReddit),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactReddit),
                 ),
               ),
             ],
@@ -399,7 +399,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://signal.me/#eu/os05Q0OzC3s1NRRYvDNmobxTzCq1SPfX0ReOgDSQQbju04OeyaRG3rHClOwaf_m2');
                   },
-                  child: Text(t.contactSignal),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactSignal),
                 ),
               ),
             ],
@@ -413,7 +413,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://telegram.me/dev1virtuoso');
                   },
-                  child: Text(t.contactTelegram),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactTelegram),
                 ),
               ),
             ],
@@ -427,7 +427,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://www.threads.net/@dev1virtuoso');
                   },
-                  child: Text(t.contactThreads),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactThreads),
                 ),
               ),
             ],
@@ -440,7 +440,7 @@ class ContactTable extends StatelessWidget {
                   onTap: () {
                     UrlLauncher.buildClickableLink('https://wa.me/63078780');
                   },
-                  child: Text(t.contactWhatsApp),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactWhatsApp),
                 ),
               ),
             ],
@@ -454,7 +454,7 @@ class ContactTable extends StatelessWidget {
                     UrlLauncher.buildClickableLink(
                         'https://x.com/dev1virtuoso/');
                   },
-                  child: Text(t.contactTwitter),
+                  child: UrlLauncher.buildBlueUnderlineText(t.contactTwitter),
                 ),
               ),
             ],
