@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              ParagraphWidget(t.helloWorld),
+              Text(t.helloWorld),
             ],
           ),
         ),

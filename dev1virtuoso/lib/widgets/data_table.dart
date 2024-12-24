@@ -494,7 +494,7 @@ class DonateTable extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text(t.donateBMC),
+                    child: UrlLauncher.buildBlueUnderlineText(t.donateBMC),
                   ),
                 ),
               ),
@@ -516,7 +516,7 @@ class DonateTable extends StatelessWidget {
                   },
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
-                    child: Text(t.donateGHSP),
+                    child: UrlLauncher.buildBlueUnderlineText(t.donateGHSP),
                   ),
                 ),
               ),
