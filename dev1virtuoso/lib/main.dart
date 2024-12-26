@@ -4,9 +4,12 @@ import 'package:provider/provider.dart';
 
 import 'views/home.dart';
 import 'views/about.dart';
+import 'views/account.dart';
+import 'views/arcade.dart';
 import 'views/credit.dart';
 import 'views/settings.dart';
 import 'views/support.dart';
+import 'views/utillty.dart';
 
 import 'model/locale.dart';
 
@@ -36,9 +39,12 @@ class Dev1virtuoso extends StatelessWidget {
           routes: {
             '/': (context) => const Home(),
             '/about': (context) => const About(),
+            '/account': (context) => const Account(),
+            '/arcade': (context) => const Arcade(),
             '/credit': (context) => const Credit(),
             '/settings': (context) => const Settings(),
             '/support': (context) => const Support(),
+            '/utillty': (context) => const Utillty(),
           },
           initialRoute: '/',
         ),

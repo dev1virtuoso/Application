@@ -1,11 +1,229 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:dev1virtuoso/widgets/paragraph_widget.dart';
 import 'package:dev1virtuoso/widgets/data_table.dart';
-import 'package:dev1virtuoso/widgets/url_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:linkable/linkable.dart';
 import 'package:flutter/gestures.dart';
+
+// About
+class AboutTabBar extends StatelessWidget {
+  const AboutTabBar({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+    var theme = Theme.of(context);
+
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: _getTabTitle(0, t)),
+              Tab(text: _getTabTitle(1, t)),
+              Tab(text: _getTabTitle(2, t)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.aboutTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  Text(t.carsonWuAboutMe),
+                  SizedBox(height: 20),
+                  Text(
+                    t.personalInfoTitle,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  PersonalInfoTable(),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.contactTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  ContactTable(),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.donateTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  DonateTable(),
+                  Text(
+                    t.donateTitle1,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  Text(t.donateDescribe1),
+                  Text(
+                    t.donateDescribeTitle1,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  Text(t.donateDescribe2),
+                  Text(
+                    t.donateDescribeTitle2,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  Text(t.donateDescribe3),
+                  Text(
+                    t.donateDescribeTitle3,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  Text(t.donateDescribe4),
+                  Text(
+                    t.donateDescribeTitle4,
+                    style: theme.textTheme.titleSmall,
+                  ),
+                  Text(t.donateDescribe5),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _getTabTitle(int index, AppLocalizations t) {
+    switch (index) {
+      case 0:
+        return t.aboutTitle;
+      case 1:
+        return t.contactTitle;
+      case 2:
+        return t.donateTitle;
+      default:
+        return '';
+    }
+  }
+}
+
+// Account
+class AccountTabBar extends StatelessWidget {
+  const AccountTabBar({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+    var theme = Theme.of(context);
+
+    return DefaultTabController(
+      length: 6,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: _getTabTitle(0, t)),
+              Tab(text: _getTabTitle(1, t)),
+              Tab(text: _getTabTitle(2, t)),
+              Tab(text: _getTabTitle(3, t)),
+              Tab(text: _getTabTitle(4, t)),
+              Tab(text: _getTabTitle(5, t)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _getTabTitle(int index, AppLocalizations t) {
+    switch (index) {
+      case 0:
+        return t.companyLicenseTitle;
+      case 1:
+        return t.copyrightNoticeTitle;
+      case 2:
+        return t.touaTitle;
+      case 3:
+        return t.privacypolicyTitle;
+      case 4:
+        return t.mitLTitle;
+      case 5:
+        return t.versionTitle;
+      default:
+        return '';
+    }
+  }
+}
+
+// Arcade
+class ArcadeTabBar extends StatelessWidget {
+  const ArcadeTabBar({Key? key});
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+    var theme = Theme.of(context);
+
+    return DefaultTabController(
+      length: 6,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: _getTabTitle(0, t)),
+              Tab(text: _getTabTitle(1, t)),
+              Tab(text: _getTabTitle(2, t)),
+              Tab(text: _getTabTitle(3, t)),
+              Tab(text: _getTabTitle(4, t)),
+              Tab(text: _getTabTitle(5, t)),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                children: [],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _getTabTitle(int index, AppLocalizations t) {
+    switch (index) {
+      case 0:
+        return t.companyLicenseTitle;
+      case 1:
+        return t.copyrightNoticeTitle;
+      case 2:
+        return t.touaTitle;
+      case 3:
+        return t.privacypolicyTitle;
+      case 4:
+        return t.mitLTitle;
+      case 5:
+        return t.versionTitle;
+      default:
+        return '';
+    }
+  }
+}
 
 // Support
 class SupportTabBar extends StatelessWidget {
@@ -15,7 +233,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.16(034)(00316_034-241224a)';
+    var appVersion = 'v0.0.3.17(035)(00317_035-271224a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
@@ -402,9 +620,9 @@ class SupportTabBar extends StatelessWidget {
   }
 }
 
-// About
-class AboutTabBar extends StatelessWidget {
-  const AboutTabBar({Key? key});
+// Utillty
+class UtilltyTabBar extends StatelessWidget {
+  const UtilltyTabBar({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -412,7 +630,7 @@ class AboutTabBar extends StatelessWidget {
     var theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 3,
+      length: 6,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
@@ -420,6 +638,9 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
+              Tab(text: _getTabTitle(3, t)),
+              Tab(text: _getTabTitle(4, t)),
+              Tab(text: _getTabTitle(5, t)),
             ],
           ),
         ),
@@ -427,66 +648,7 @@ class AboutTabBar extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Column(
-                children: [
-                  Text(
-                    t.aboutTitle,
-                    style: theme.textTheme.titleMedium,
-                  ),
-                  Text(t.carsonWuAboutMe),
-                  SizedBox(height: 20),
-                  Text(
-                    t.personalInfoTitle,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  PersonalInfoTable(),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    t.contactTitle,
-                    style: theme.textTheme.titleMedium,
-                  ),
-                  ContactTable(),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    t.donateTitle,
-                    style: theme.textTheme.titleMedium,
-                  ),
-                  DonateTable(),
-                  Text(
-                    t.donateTitle1,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  Text(t.donateDescribe1),
-                  Text(
-                    t.donateDescribeTitle1,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  Text(t.donateDescribe2),
-                  Text(
-                    t.donateDescribeTitle2,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  Text(t.donateDescribe3),
-                  Text(
-                    t.donateDescribeTitle3,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  Text(t.donateDescribe4),
-                  Text(
-                    t.donateDescribeTitle4,
-                    style: theme.textTheme.titleSmall,
-                  ),
-                  Text(t.donateDescribe5),
-                ],
+                children: [],
               ),
             ),
           ],
@@ -498,11 +660,17 @@ class AboutTabBar extends StatelessWidget {
   String _getTabTitle(int index, AppLocalizations t) {
     switch (index) {
       case 0:
-        return t.aboutTitle;
+        return t.companyLicenseTitle;
       case 1:
-        return t.contactTitle;
+        return t.copyrightNoticeTitle;
       case 2:
-        return t.donateTitle;
+        return t.touaTitle;
+      case 3:
+        return t.privacypolicyTitle;
+      case 4:
+        return t.mitLTitle;
+      case 5:
+        return t.versionTitle;
       default:
         return '';
     }

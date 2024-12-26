@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'package:dev1virtuoso/widgets/paragraph_widget.dart';
-
 class Home extends StatelessWidget {
   const Home({Key? key});
 
@@ -53,6 +51,30 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               title: Text(
+                t.pageHomeDrawerListTileAccount,
+                style: theme.textTheme.titleMedium,
+              ),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/account',
+                );
+              },
+            ),
+            ListTile(
+              title: Text(
+                t.pageHomeDrawerListTileArcade,
+                style: theme.textTheme.titleMedium,
+              ),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/arcade',
+                );
+              },
+            ),
+            ListTile(
+              title: Text(
                 t.pageHomeDrawerListTileCredit,
                 style: theme.textTheme.titleMedium,
               ),
@@ -86,7 +108,19 @@ class Home extends StatelessWidget {
                   '/support',
                 );
               },
-            )
+            ),
+            ListTile(
+              title: Text(
+                t.pageHomeDrawerListTileUtillty,
+                style: theme.textTheme.titleMedium,
+              ),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/utillty',
+                );
+              },
+            ),
           ],
         ),
       ),
