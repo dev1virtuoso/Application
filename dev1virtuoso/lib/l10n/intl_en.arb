@@ -54,6 +54,7 @@
 
   "pageAboutTitle": "About",
   "aboutTitle": "About Me",
+  "blogTitle": "Blogs",
 
   "pageSupportTitle": "Support",
 
@@ -224,5 +225,10 @@
 "privacypolicyDescribe14": "Implement robust measures to safeguard children's privacy if services involve child users:\n\n  - **Special Policies**: Develop and clearly outline policies specifically designed to protect children's privacy rights and ensure compliance with relevant regulations.\n\n  - **Parental Consent**: Establish procedures to obtain explicit parental consent before collecting any data from children, including information on how parents can review or revoke consent.\n\n  - **Privacy Protection Measures**: Implement stringent privacy protection measures such as pseudonymization, age-appropriate content filtering, and limited data collection to protect children's privacy.",
 "privacypolicyDescribeTitle14": "14. Regulatory Information:",
 "privacypolicyDescribe15": "Provide detailed regulatory information and contact details for effective user recourse:\n\n  - **Regulatory Agency Contact Information**: Include specific contact details for relevant regulatory agencies, including names, addresses, phone numbers, and email addresses.\n\n  - **Reporting Channels**: Clearly outline the procedures for users to report privacy concerns or data breaches, including any online reporting forms or hotlines available.\n\n  - **Legal Compliance**: Specify the legal frameworks and regulations that the services adhere to, along with information on how users can verify compliance and seek assistance from regulatory authorities.\n\nFor further assistance or inquiries regarding these aspects, it is recommended to reach out to Carson Wu through the provided contact methods:",
-"privacypolicyDescribe16": "Last Updated by Carson Wu on November 2, 2024"
+"privacypolicyDescribe16": "Last Updated by Carson Wu on November 2, 2024",
+
+"post1Title": "NeuralMorse",
+"post1Summary": "Technical blog about NeuralMorse",
+"post1PublishDate": "2 April 2024",
+"post1Author": "Carson Wu"
 }

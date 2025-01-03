@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/data_table.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
+import 'package:dev1virtuoso/widgets/card_display.dart';
 
 // About
 class AboutTabBar extends StatelessWidget {
@@ -22,6 +23,7 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
+              Tab(text: _getTabTitle(3, t)),
             ],
           ),
         ),
@@ -91,6 +93,7 @@ class AboutTabBar extends StatelessWidget {
                 ],
               ),
             ),
+            SingleChildScrollView()
           ],
         ),
       ),
@@ -102,8 +105,10 @@ class AboutTabBar extends StatelessWidget {
       case 0:
         return t.aboutTitle;
       case 1:
-        return t.contactTitle;
+        return t.blogTitle;
       case 2:
+        return t.contactTitle;
+      case 3:
         return t.donateTitle;
       default:
         return '';
@@ -178,17 +183,12 @@ class ArcadeTabBar extends StatelessWidget {
     var theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 6,
+      length: 1,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
               Tab(text: _getTabTitle(0, t)),
-              Tab(text: _getTabTitle(1, t)),
-              Tab(text: _getTabTitle(2, t)),
-              Tab(text: _getTabTitle(3, t)),
-              Tab(text: _getTabTitle(4, t)),
-              Tab(text: _getTabTitle(5, t)),
             ],
           ),
         ),
@@ -209,16 +209,6 @@ class ArcadeTabBar extends StatelessWidget {
     switch (index) {
       case 0:
         return t.companyLicenseTitle;
-      case 1:
-        return t.copyrightNoticeTitle;
-      case 2:
-        return t.touaTitle;
-      case 3:
-        return t.privacypolicyTitle;
-      case 4:
-        return t.mitLTitle;
-      case 5:
-        return t.versionTitle;
       default:
         return '';
     }
@@ -233,7 +223,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.18(036)(00318_036-010125a)';
+    var appVersion = 'v0.0.3.19(037)(00319_037-040125a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
