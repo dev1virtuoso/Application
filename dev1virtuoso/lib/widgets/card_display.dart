@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dev1virtuoso/widgets/blogs.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BlogPost {
   String title;
@@ -25,6 +25,8 @@ class ExpandableCardContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -60,64 +62,58 @@ class ExpandableCardContent extends StatelessWidget {
   }
 }
 
-class ExpandableCardWidget extends StatefulWidget {
+class BlogPostCard extends StatefulWidget {
   final BlogPost blogPost;
 
-  const ExpandableCardWidget({Key? key, required this.blogPost})
-      : super(key: key);
+  const BlogPostCard({Key? key, required this.blogPost}) : super(key: key);
 
   @override
-  _ExpandableCardWidgetState createState() => _ExpandableCardWidgetState();
+  _BlogPostCardState createState() => _BlogPostCardState();
 }
 
-class _ExpandableCardWidgetState extends State<ExpandableCardWidget> {
+class _BlogPostCardState extends State<BlogPostCard> {
   bool _expanded = false;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Card(
         elevation: 5.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ListTile(
-                title: Text(
-                  widget.blogPost.title,
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            ListTile(
+              title: Text(
+                widget.blogPost.title,
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
                 ),
-                subtitle: !_expanded
-                    ? null
-                    : ExpandableCardContent(blogPost: widget.blogPost),
               ),
-              _expanded
-                  ? IconButton(
-                      icon: Icon(Icons.keyboard_arrow_up),
-                      onPressed: () {
-                        setState(() {
-                          _expanded = false;
-                        });
-                      },
-                    )
-                  : IconButton(
-                      icon: Icon(Icons.keyboard_arrow_down),
-                      onPressed: () {
-                        setState(() {
-                          _expanded = true;
-                        });
-                      },
-                    ),
-            ],
-          ),
+              subtitle: _expanded
+                  ? ExpandableCardContent(blogPost: widget.blogPost)
+                  : null,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                IconButton(
+                  icon: Icon(_expanded
+                      ? Icons.keyboard_arrow_up
+                      : Icons.keyboard_arrow_down),
+                  onPressed: () {
+                    setState(() {
+                      _expanded = !_expanded;
+                    });
+                  },
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

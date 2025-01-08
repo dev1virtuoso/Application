@@ -24,6 +24,7 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
               Tab(text: _getTabTitle(3, t)),
+              Tab(text: _getTabTitle(4, t)),
             ],
           ),
         ),
@@ -43,6 +44,17 @@ class AboutTabBar extends StatelessWidget {
                     style: theme.textTheme.titleSmall,
                   ),
                   PersonalInfoTable(),
+                ],
+              ),
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    t.blogTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  CardDisplay(),
                 ],
               ),
             ),
@@ -93,7 +105,6 @@ class AboutTabBar extends StatelessWidget {
                 ],
               ),
             ),
-            SingleChildScrollView()
           ],
         ),
       ),
@@ -223,7 +234,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.19(037)(00319_037-040125a)';
+    var appVersion = 'v0.0.3.20(038)(00320_038-090125a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
