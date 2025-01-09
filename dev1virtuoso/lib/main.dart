@@ -30,7 +30,6 @@ class Dev1virtuoso extends StatelessWidget {
         builder: (context, localeModel, child) => MaterialApp(
           title: 'dev1virtuoso',
           theme: ThemeData(
-            textTheme: GoogleFonts.newsreaderTextTheme(),
             primarySwatch: Colors.purple,
           ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,

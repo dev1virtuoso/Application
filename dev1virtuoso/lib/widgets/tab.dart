@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/data_table.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
-import 'package:dev1virtuoso/widgets/card_display.dart';
+import 'package:dev1virtuoso/widgets/blog_container.dart';
 
 // About
 class AboutTabBar extends StatelessWidget {
@@ -24,7 +24,6 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
               Tab(text: _getTabTitle(3, t)),
-              Tab(text: _getTabTitle(4, t)),
             ],
           ),
         ),
@@ -234,7 +233,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.20(038)(00320_038-090125a)';
+    var appVersion = 'v0.0.3.21(039)(00321_039-100125a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
