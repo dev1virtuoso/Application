@@ -1,0 +1,17 @@
+@tensorflow/tfjs-node@4.21.0
+async
+axios
+chart.js
+cheerio
+express
+jsonwebtoken
+lodash
+multer
+nodemailer
+passport
+recommendation-library
+socket.io
+winston
+
+--global yarn
+--global pm2

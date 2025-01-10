@@ -95,6 +95,22 @@ class PersonalInfoTable extends StatelessWidget {
           ),
           TableRow(
             children: [
+              TableCell(
+                child: Text(
+                  t.personalInfoFInsecta,
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              TableCell(
+                child: Text(
+                  t.personalInfoFInsectaContext,
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+          ),
+          TableRow(
+            children: [
               TableCell(child: Text(t.personalInfoFields)),
               TableCell(child: Text(t.personalInfoFieldsContext)),
             ],

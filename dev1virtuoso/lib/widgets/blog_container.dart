@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BlogPost {
   String title;
@@ -72,20 +73,71 @@ class BlogPostCard extends StatelessWidget {
 class CardDisplay extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+
     List<BlogPost> blogPosts = [
       BlogPost(
-        title: 'Title 1',
-        summary: 'Summary 1',
-        publishDate: '2025-01-03',
-        author: 'Author A',
-        content: 'Content 1',
+        title: t.post9Title,
+        summary: t.post9Summary,
+        publishDate: t.post9PublishDate,
+        author: t.post9Author,
+        content: t.post9Context,
       ),
       BlogPost(
-        title: 'Title 2',
-        summary: 'Summary 2',
-        publishDate: '2025-01-04',
-        author: 'Author B',
-        content: 'Content 2',
+        title: t.post8Title,
+        summary: t.post8Summary,
+        publishDate: t.post8PublishDate,
+        author: t.post8Author,
+        content: t.post8Context,
+      ),
+      BlogPost(
+        title: t.post7Title,
+        summary: t.post7Summary,
+        publishDate: t.post7PublishDate,
+        author: t.post7Author,
+        content: t.post7Context,
+      ),
+      BlogPost(
+        title: t.post6Title,
+        summary: t.post6Summary,
+        publishDate: t.post6PublishDate,
+        author: t.post6Author,
+        content: t.post6Context,
+      ),
+      BlogPost(
+        title: t.post5Title,
+        summary: t.post5Summary,
+        publishDate: t.post5PublishDate,
+        author: t.post5Author,
+        content: t.post5Context,
+      ),
+      BlogPost(
+        title: t.post4Title,
+        summary: t.post4Summary,
+        publishDate: t.post4PublishDate,
+        author: t.post4Author,
+        content: t.post4Context,
+      ),
+      BlogPost(
+        title: t.post3Title,
+        summary: t.post3Summary,
+        publishDate: t.post3PublishDate,
+        author: t.post3Author,
+        content: t.post3Context,
+      ),
+      BlogPost(
+        title: t.post2Title,
+        summary: t.post2Summary,
+        publishDate: t.post2PublishDate,
+        author: t.post2Author,
+        content: t.post2Context,
+      ),
+      BlogPost(
+        title: t.post1Title,
+        summary: t.post1Summary,
+        publishDate: t.post1PublishDate,
+        author: t.post1Author,
+        content: t.post1Context,
       ),
     ];
 
