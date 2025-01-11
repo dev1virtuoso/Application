@@ -1,9 +1,0 @@
-@tensorflow/tfjs-node@4.21.0
-async
-axios
-bower
-gulp
-grunt-cli
-jshint
-less
-yarn
