@@ -9,11 +9,9 @@ import 'views/arcade.dart';
 import 'views/credit.dart';
 import 'views/settings.dart';
 import 'views/support.dart';
-import 'views/utillty.dart';
+import 'views/utility.dart';
 
 import 'model/locale.dart';
-
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const Dev1virtuoso());
@@ -43,7 +41,7 @@ class Dev1virtuoso extends StatelessWidget {
             '/credit': (context) => const Credit(),
             '/settings': (context) => const Settings(),
             '/support': (context) => const Support(),
-            '/utillty': (context) => const Utillty(),
+            '/utility': (context) => const utility(),
           },
           initialRoute: '/',
         ),

@@ -111,13 +111,13 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                t.pageHomeDrawerListTileUtillty,
+                t.pageHomeDrawerListTileutility,
                 style: theme.textTheme.titleMedium,
               ),
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/utillty',
+                  '/utility',
                 );
               },
             ),

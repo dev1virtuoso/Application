@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/data_table.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
-import 'package:dev1virtuoso/widgets/blog_container.dart';
+import 'package:dev1virtuoso/widgets/utility_container.dart';
 
 // About
 class AboutTabBar extends StatelessWidget {
@@ -23,7 +23,6 @@ class AboutTabBar extends StatelessWidget {
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
               Tab(text: _getTabTitle(2, t)),
-              Tab(text: _getTabTitle(3, t)),
             ],
           ),
         ),
@@ -43,17 +42,6 @@ class AboutTabBar extends StatelessWidget {
                     style: theme.textTheme.titleSmall,
                   ),
                   PersonalInfoTable(),
-                ],
-              ),
-            ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Text(
-                    t.blogTitle,
-                    style: theme.textTheme.titleMedium,
-                  ),
-                  CardDisplay(),
                 ],
               ),
             ),
@@ -115,10 +103,8 @@ class AboutTabBar extends StatelessWidget {
       case 0:
         return t.aboutTitle;
       case 1:
-        return t.blogTitle;
-      case 2:
         return t.contactTitle;
-      case 3:
+      case 2:
         return t.donateTitle;
       default:
         return '';
@@ -136,17 +122,13 @@ class AccountTabBar extends StatelessWidget {
     var theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 6,
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
               Tab(text: _getTabTitle(0, t)),
               Tab(text: _getTabTitle(1, t)),
-              Tab(text: _getTabTitle(2, t)),
-              Tab(text: _getTabTitle(3, t)),
-              Tab(text: _getTabTitle(4, t)),
-              Tab(text: _getTabTitle(5, t)),
             ],
           ),
         ),
@@ -166,17 +148,9 @@ class AccountTabBar extends StatelessWidget {
   String _getTabTitle(int index, AppLocalizations t) {
     switch (index) {
       case 0:
-        return t.companyLicenseTitle;
+        return t.signUpTitle;
       case 1:
-        return t.copyrightNoticeTitle;
-      case 2:
-        return t.touaTitle;
-      case 3:
-        return t.privacypolicyTitle;
-      case 4:
-        return t.mitLTitle;
-      case 5:
-        return t.versionTitle;
+        return t.signInTitle;
       default:
         return '';
     }
@@ -233,7 +207,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.3.22(040)(00322_040-110125a)';
+    var appVersion = 'v0.0.4.0(041)(0040_041-110125a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
@@ -620,9 +594,9 @@ class SupportTabBar extends StatelessWidget {
   }
 }
 
-// Utillty
-class UtilltyTabBar extends StatelessWidget {
-  const UtilltyTabBar({Key? key});
+// utility
+class utilityTabBar extends StatelessWidget {
+  const utilityTabBar({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -630,17 +604,12 @@ class UtilltyTabBar extends StatelessWidget {
     var theme = Theme.of(context);
 
     return DefaultTabController(
-      length: 6,
+      length: 1,
       child: Scaffold(
         appBar: AppBar(
           bottom: TabBar(
             tabs: [
               Tab(text: _getTabTitle(0, t)),
-              Tab(text: _getTabTitle(1, t)),
-              Tab(text: _getTabTitle(2, t)),
-              Tab(text: _getTabTitle(3, t)),
-              Tab(text: _getTabTitle(4, t)),
-              Tab(text: _getTabTitle(5, t)),
             ],
           ),
         ),
@@ -648,7 +617,13 @@ class UtilltyTabBar extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Column(
-                children: [],
+                children: [
+                  Text(
+                    t.utilityTitle,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                  CardDisplay(),
+                ],
               ),
             ),
           ],
@@ -660,17 +635,7 @@ class UtilltyTabBar extends StatelessWidget {
   String _getTabTitle(int index, AppLocalizations t) {
     switch (index) {
       case 0:
-        return t.companyLicenseTitle;
-      case 1:
-        return t.copyrightNoticeTitle;
-      case 2:
-        return t.touaTitle;
-      case 3:
-        return t.privacypolicyTitle;
-      case 4:
-        return t.mitLTitle;
-      case 5:
-        return t.versionTitle;
+        return t.pageutilityTitle;
       default:
         return '';
     }
