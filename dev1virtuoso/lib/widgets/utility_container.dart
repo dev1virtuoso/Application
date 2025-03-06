@@ -114,49 +114,40 @@ class PiCalculatorScreen extends StatefulWidget {
 class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
   final TextEditingController _controller = TextEditingController();
   String _result = '';
-  bool _isCalculating = false; // Used to show the progress indicator
+  bool _isCalculating = false;
 
   @override
-  Widget build(BuildContext context) {
-    // Function to calculate Pi asynchronously
-    Future<void> _calculatePi(int prec) async {
-      setState(() {
-        _isCalculating = true; // Show progress indicator when calculation starts
-      });
-      try {
-        String logPath = '${Directory.current.path}/log.txt';
-        String piPath = await _performPiCalculation(prec, logPath);
-        setState(() {
-          _result = 'Calculation Completed: $piPath';
-        });
-      } catch (e) {
-        setState(() {
-          _result = 'Error: $e';
-        });
-      } finally {
-        setState(() {
-          _isCalculating = false; // Hide progress indicator after calculation
-        });
-      }
-    }
+  // Isolate entry point
+  void _isolateEntry(SendPort sendPort) {
+    final ReceivePort receivePort = ReceivePort();
+    sendPort.send(receivePort.sendPort);
 
-    // Function to perform Pi calculation
-    Future<String> _performPiCalculation(int prec, String logPath) async {
-      BigInt s = BigInt.zero;
-      int numProcesses = min(Platform.numberOfProcessors, 8);
-      String piPath = '${Directory.current.path}/pi.txt';
+    receivePort.listen((message) {
+      int k = message[0];
+      SendPort replyTo = message[1];
+      BigInt term = calculateTerm(k);
+      replyTo.send([k, term]);
+    });
+  }
 
-      List<Isolate?> isolates = <Isolate?>[];
-      List<SendPort> sendPorts = <SendPort>[];
+  // Function to perform Pi calculation
+  Future<String> _performPiCalculation(int prec, String logPath) async {
+    BigInt s = BigInt.zero;
+    int numProcesses = min(Platform.numberOfProcessors, 8);
+    String piPath = '${Directory.current.path}/pi.txt';
 
-      DateTime start = DateTime.now();
+    List<Isolate?> isolates = <Isolate?>[];
+    List<SendPort> sendPorts = <SendPort>[];
 
-      await File(logPath).create(recursive: true);
-      await File(piPath).create(recursive: true);
+    DateTime start = DateTime.now();
 
-      IOSink fPi = File(piPath).openWrite();
-      IOSink fLog = File(logPath).openWrite();
+    await File(logPath).create(recursive: true);
+    await File(piPath).create(recursive: true);
 
+    IOSink fPi = File(piPath).openWrite();
+    IOSink fLog = File(logPath).openWrite();
+
+    try {
       // Create and initialize the isolates
       for (int i = 0; i < numProcesses; i++) {
         final ReceivePort receivePort = ReceivePort();
@@ -189,42 +180,36 @@ class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
 
       DateTime end = DateTime.now();
       Duration duration = end.difference(start);
-      fLog.writeln('Calculation Time: ${duration.inSeconds}');
+      fLog.writeln('Calculation Time: ${duration.inSeconds} seconds');
+    } finally {
       await fPi.close();
       await fLog.close();
-
-      return piPath;
     }
 
-    // Isolate entry point
-    static void _isolateEntry(SendPort sendPort) {
-      final ReceivePort receivePort = ReceivePort();
-      sendPort.send(receivePort.sendPort);
+    return piPath;
+  }
 
-      receivePort.listen((message) {
-        int k = message[0];
-        SendPort replyTo = message[1];
-        var calculator = _PiCalculatorScreenState();
-        BigInt term = calculator._calculateTerm(k);
-        replyTo.send([k, term]);
+  Widget build(BuildContext context) {
+    // Function to calculate Pi asynchronously
+    Future<void> _calculatePi(int prec) async {
+      setState(() {
+        _isCalculating = true;
       });
-    }
-
-    // Calculate factorial
-    BigInt _factorial(int n) {
-      return n == 0 ? BigInt.one : BigInt.from(n) * _factorial(n - 1);
-    }
-
-    // Calculate term for Pi
-    BigInt _calculateTerm(int k) {
-      BigInt numerator = _factorial(4 * k) *
-          (BigInt.from(1103) + BigInt.from(26390) * BigInt.from(k));
-      BigInt denominator = _factorial(k) *
-          _factorial(k) *
-          _factorial(k) *
-          _factorial(k) *
-          BigInt.from(396).pow(4 * k);
-      return numerator ~/ denominator;
+      try {
+        String logPath = '${Directory.current.path}/log.txt';
+        String piPath = await _performPiCalculation(prec, logPath);
+        setState(() {
+          _result = 'Calculation Completed: $piPath';
+        });
+      } catch (e) {
+        setState(() {
+          _result = 'Error: $e';
+        });
+      } finally {
+        setState(() {
+          _isCalculating = false;
+        });
+      }
     }
 
     return Scaffold(
@@ -253,7 +238,7 @@ class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
               ),
               SizedBox(height: 20),
               _isCalculating
-                  ? CircularProgressIndicator() // Show progress indicator
+                  ? CircularProgressIndicator()
                   : Text(
                       'Result: $_result',
                       style: TextStyle(fontSize: 18),
@@ -264,6 +249,27 @@ class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
       ),
     );
   }
+}
+
+// Standalone factorial function
+BigInt factorial(int n) {
+  BigInt result = BigInt.one;
+  for (int i = 1; i <= n; i++) {
+    result *= BigInt.from(i);
+  }
+  return result;
+}
+
+// Standalone calculate term function
+BigInt calculateTerm(int k) {
+  BigInt numerator = factorial(4 * k) *
+      (BigInt.from(1103) + BigInt.from(26390) * BigInt.from(k));
+  BigInt denominator = factorial(k) *
+      factorial(k) *
+      factorial(k) *
+      factorial(k) *
+      BigInt.from(396).pow(4 * k);
+  return numerator ~/ denominator;
 }
 
 class PiCalculator {
@@ -285,7 +291,7 @@ class PiCalculator {
     return numerator ~/ denominator;
   }
 
-  static void isolateEntry(SendPort sendPort) {
+  static void _isolateEntry(SendPort sendPort) {
     final receivePort = ReceivePort();
     sendPort.send(receivePort.sendPort);
 
@@ -317,7 +323,7 @@ class PiCalculator {
     // Create and initialize the isolates
     for (var i = 0; i < numProcesses; i++) {
       final receivePort = ReceivePort();
-      isolates.add(await Isolate.spawn(isolateEntry, receivePort.sendPort));
+      isolates.add(await Isolate.spawn(_isolateEntry, receivePort.sendPort));
       var sendPort = await receivePort.first as SendPort;
       sendPorts.add(sendPort);
     }
@@ -473,7 +479,7 @@ class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
                   },
                 ),
                 CheckboxListTile(
-                  title: Text('t.utility3SpecialCharacters'),
+                  title: Text(t.utility3SpecialCharacters),
                   value: _includeSpecialCharacters,
                   onChanged: (value) {
                     setState(() {
