@@ -207,7 +207,7 @@ class SupportTabBar extends StatelessWidget {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
-    var appVersion = 'v0.0.4.2(045)(0042_045-070325a)';
+    var appVersion = 'v0.0.4.3(046)(0043_046-200325a)';
 
     final TapGestureRecognizer _tapRecognizer = TapGestureRecognizer();
 
