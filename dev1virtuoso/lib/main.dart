@@ -41,7 +41,7 @@ class Dev1virtuoso extends StatelessWidget {
             '/credit': (context) => const Credit(),
             '/settings': (context) => const Settings(),
             '/support': (context) => const Support(),
-            '/utility': (context) => const utility(),
+            '/utility': (context) => const Utility(),
           },
           initialRoute: '/',
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:dev1virtuoso/widgets/data_table.dart';
 
 class Credit extends StatelessWidget {
   const Credit({Key? key});
@@ -28,6 +27,48 @@ class Credit extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class CreditTable extends StatelessWidget {
+  const CreditTable({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+
+    return Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Table(
+        border: TableBorder.all(),
+        children: [
+          TableRow(
+            children: [
+              TableCell(child: Text(t.creditInfoDesigner)),
+              TableCell(child: Text(t.carsonwu)),
+            ],
+          ),
+          TableRow(
+            children: [
+              TableCell(child: Text(t.creditInfoProgrammer)),
+              TableCell(child: Text(t.carsonwu)),
+            ],
+          ),
+          TableRow(
+            children: [
+              TableCell(child: Text(t.creditInfoHWS)),
+              TableCell(child: Text(t.creditInfoHWSContext)),
+            ],
+          ),
+          TableRow(
+            children: [
+              TableCell(child: Text(t.creditInfoBM)),
+              TableCell(child: Text(t.creditInfoBMContext)),
+            ],
+          ),
+        ],
       ),
     );
   }
