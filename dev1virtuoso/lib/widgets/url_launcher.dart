@@ -51,7 +51,7 @@ class MarkdownParser {
 
     for (var node in nodes) {
       if (node is markdown.Element && node.tag == 'a') {
-        String linkText = node.textContent!;
+        String linkText = node.textContent;
         String url = node.attributes['href']!;
 
         children.add(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/url_launcher.dart';
 
 class About extends StatelessWidget {
-  const About({Key? key}) : super(key: key);
+  const About({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class About extends StatelessWidget {
 }
 
 class AboutTabBar extends StatefulWidget {
-  const AboutTabBar({Key? key}) : super(key: key);
+  const AboutTabBar({super.key});
 
   @override
   _AboutTabBarState createState() => _AboutTabBarState();
@@ -141,7 +141,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
 }
 
 class PersonalInfoTable extends StatelessWidget {
-  const PersonalInfoTable({Key? key}) : super(key: key);
+  const PersonalInfoTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -313,7 +313,7 @@ class PersonalInfoTable extends StatelessWidget {
 }
 
 class ContactTable extends StatelessWidget {
-  const ContactTable({Key? key}) : super(key: key);
+  const ContactTable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -576,7 +576,7 @@ class ContactTable extends StatelessWidget {
 
 // Donate
 class DonateTable extends StatelessWidget {
-  const DonateTable({Key? key}) : super(key: key);
+  const DonateTable({super.key});
 
   @override
   Widget build(BuildContext context) {

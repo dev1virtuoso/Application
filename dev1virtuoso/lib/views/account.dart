@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
+
 class Account extends StatelessWidget {
-  const Account({Key? key}) : super(key: key);
+  const Account({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class Account extends StatelessWidget {
 }
 
 class AccountTabBar extends StatefulWidget {
-  const AccountTabBar({Key? key}) : super(key: key);
+  const AccountTabBar({super.key});
 
   @override
   _AccountTabBarState createState() => _AccountTabBarState();

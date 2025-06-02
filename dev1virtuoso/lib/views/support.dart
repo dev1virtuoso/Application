@@ -1,10 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Support extends StatelessWidget {
-  const Support({Key? key}) : super(key: key);
+  const Support({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class Support extends StatelessWidget {
 }
 
 class SupportTabBar extends StatefulWidget {
-  const SupportTabBar({Key? key}) : super(key: key);
+  const SupportTabBar({super.key});
 
   @override
   _SupportTabBarState createState() => _SupportTabBarState();
@@ -28,7 +28,7 @@ class SupportTabBar extends StatefulWidget {
 
 class _SupportTabBarState extends State<SupportTabBar> {
   final List<bool> _isExpanded = List.generate(6, (_) => false);
-  final String appVersion = 'v0.0.5.1(049)(0051_049-070525a)';
+  final String appVersion = 'v0.0.5.2(050)(0052_050-020625a)';
 
   @override
   Widget build(BuildContext context) {

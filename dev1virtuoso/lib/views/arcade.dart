@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
+
 class Arcade extends StatelessWidget {
-  const Arcade({Key? key}) : super(key: key);
+  const Arcade({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class Arcade extends StatelessWidget {
 }
 
 class ArcadeTabBar extends StatefulWidget {
-  const ArcadeTabBar({Key? key}) : super(key: key);
+  const ArcadeTabBar({super.key});
 
   @override
   _ArcadeTabBarState createState() => _ArcadeTabBarState();

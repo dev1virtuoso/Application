@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 
 // Data model for utility content
 class UtilityModel {
@@ -25,11 +25,11 @@ class UtilityContainer extends StatelessWidget {
   final dynamic content;
 
   const UtilityContainer({
-    Key? key,
+    super.key,
     required this.title,
     required this.summary,
     required this.content,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class UtilityContainer extends StatelessWidget {
 }
 
 class Utility extends StatelessWidget {
-  const Utility({Key? key}) : super(key: key);
+  const Utility({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class Utility extends StatelessWidget {
 }
 
 class UtilityTabBar extends StatefulWidget {
-  const UtilityTabBar({Key? key}) : super(key: key);
+  const UtilityTabBar({super.key});
 
   @override
   _UtilityTabBarState createState() => _UtilityTabBarState();
@@ -140,7 +140,7 @@ class _UtilityTabBarState extends State<UtilityTabBar> {
               UtilityContainer(
                 title: t.utility3Title,
                 summary: t.utility3Summary,
-                content: Container(
+                content: SizedBox(
                   height: 400,
                   child: RandomCodeGeneratorScreen(),
                 ),
@@ -157,7 +157,7 @@ class _UtilityTabBarState extends State<UtilityTabBar> {
               UtilityContainer(
                 title: t.utility4Title,
                 summary: t.utility4Summary,
-                content: Container(
+                content: SizedBox(
                   height: 500,
                   child: PiCalculatorScreen(),
                 ),
@@ -208,6 +208,8 @@ class _UtilityTabBarState extends State<UtilityTabBar> {
 }
 
 class PiCalculatorScreen extends StatefulWidget {
+  const PiCalculatorScreen({super.key});
+
   @override
   _PiCalculatorScreenState createState() => _PiCalculatorScreenState();
 }
@@ -290,9 +292,10 @@ class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
     return piPath;
   }
 
+  @override
   Widget build(BuildContext context) {
     // Function to calculate Pi asynchronously
-    Future<void> _calculatePi(int prec) async {
+    Future<void> calculatePi(int prec) async {
       setState(() {
         _isCalculating = true;
       });
@@ -333,7 +336,7 @@ class _PiCalculatorScreenState extends State<PiCalculatorScreen> {
               ElevatedButton(
                 onPressed: () {
                   int prec = int.tryParse(_controller.text) ?? 0;
-                  _calculatePi(prec);
+                  calculatePi(prec);
                 },
                 child: Text('Calculate'),
               ),
@@ -500,6 +503,8 @@ class RandomCodeGenerator {
 }
 
 class RandomCodeGeneratorScreen extends StatefulWidget {
+  const RandomCodeGeneratorScreen({super.key});
+
   @override
   _RandomCodeGeneratorScreenState createState() =>
       _RandomCodeGeneratorScreenState();

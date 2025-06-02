@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import '/l10n/app_localizations.dart';
 
 class Credit extends StatelessWidget {
-  const Credit({Key? key});
+  const Credit({super.key, Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class Credit extends StatelessWidget {
 }
 
 class CreditTable extends StatelessWidget {
-  const CreditTable({Key? key}) : super(key: key);
+  const CreditTable({super.key});
 
   @override
   Widget build(BuildContext context) {
