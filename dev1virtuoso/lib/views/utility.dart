@@ -4,6 +4,7 @@ import 'dart:isolate';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '/l10n/app_localizations.dart';
+import 'package:flutter/services.dart';
 
 // Data model for utility content
 class UtilityModel {
@@ -490,7 +491,10 @@ class RandomCodeGenerator {
     if (includeDigits) charSet += digits;
     if (includeSpecialCharacters) charSet += specialCharacters;
 
-    if (charSet.isEmpty) {
+    if (!(includeUpperCase ||
+        includeLowerCase ||
+        includeDigits ||
+        includeSpecialCharacters)) {
       throw ArgumentError('At least one type of character should be included');
     }
 
@@ -520,7 +524,14 @@ class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
   String _generatedCode = '';
 
   void _generateCode() {
-    final RandomCodeGenerator generator = RandomCodeGenerator();
+    if (_length < 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Code length must be at least 1')),
+      );
+      return;
+    }
+
+    final generator = RandomCodeGenerator();
     setState(() {
       _generatedCode = generator.generateCode(
         length: _length,
@@ -532,13 +543,24 @@ class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
     });
   }
 
+  void _copyCode() {
+    if (_generatedCode.isNotEmpty) {
+      Clipboard.setData(ClipboardData(text: _generatedCode));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Code copied to clipboard')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No code generated to copy')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.utility3Title),
-      ),
+      appBar: AppBar(title: Text(t.utility3Title)),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -553,54 +575,64 @@ class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
                   initialValue: _length.toString(),
                   onChanged: (value) {
                     setState(() {
-                      _length = int.parse(value);
+                      _length = int.tryParse(value) ?? 12;
                     });
                   },
                 ),
                 CheckboxListTile(
                   title: Text(t.utility3UpperCase),
                   value: _includeUpperCase,
-                  onChanged: (value) {
-                    setState(() {
-                      _includeUpperCase = value!;
-                    });
-                  },
+                  onChanged: (value) =>
+                      setState(() => _includeUpperCase = value!),
                 ),
                 CheckboxListTile(
                   title: Text(t.utility3LowerCase),
                   value: _includeLowerCase,
-                  onChanged: (value) {
-                    setState(() {
-                      _includeLowerCase = value!;
-                    });
-                  },
+                  onChanged: (value) =>
+                      setState(() => _includeLowerCase = value!),
                 ),
                 CheckboxListTile(
                   title: Text(t.utility3Digits),
                   value: _includeDigits,
-                  onChanged: (value) {
-                    setState(() {
-                      _includeDigits = value!;
-                    });
-                  },
+                  onChanged: (value) => setState(() => _includeDigits = value!),
                 ),
                 CheckboxListTile(
                   title: Text(t.utility3SpecialCharacters),
                   value: _includeSpecialCharacters,
-                  onChanged: (value) {
-                    setState(() {
-                      _includeSpecialCharacters = value!;
-                    });
-                  },
+                  onChanged: (value) =>
+                      setState(() => _includeSpecialCharacters = value!),
                 ),
                 ElevatedButton(
-                  onPressed: _generateCode,
+                  onPressed: (_includeUpperCase ||
+                          _includeLowerCase ||
+                          _includeDigits ||
+                          _includeSpecialCharacters)
+                      ? _generateCode
+                      : null,
                   child: Text(t.utility3GeneratedTitle),
                 ),
+                if (!(_includeUpperCase ||
+                    _includeLowerCase ||
+                    _includeDigits ||
+                    _includeSpecialCharacters))
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      t.utility3NoCharacterType,
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 SizedBox(height: 16),
                 Text(
                   '${t.utility4Result} $_generatedCode',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                ElevatedButton(
+                  onPressed: _copyCode,
+                  child: Text(_generatedCode.isNotEmpty
+                      ? t.utility3CopyCode
+                      : t.utility3NoCode),
                 ),
               ],
             ),

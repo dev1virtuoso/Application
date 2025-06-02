@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/l10n/app_localizations.dart';
 
 class Credit extends StatelessWidget {
-  const Credit({super.key, Key? key});
+  const Credit({super.key, Key});
 
   @override
   Widget build(BuildContext context) {

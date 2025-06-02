@@ -156,6 +156,10 @@
   "utility3SpecialCharacters": "Include Special Characters",
   "utility3GeneratedTitle": "Generated Code",
   "utility3Generated": "Generated Code:",
+  "utility3CopyCode": "Copy Result",
+  "utility3NoCode": "The result is empty",
+  "utility3CodeCopied": "Result Copied",
+  "utility3NoCharacterType": "At least one type of character should be included",
 
   "utility4Title": "π",
   "utility4SubTitle": "Pi Calculator",

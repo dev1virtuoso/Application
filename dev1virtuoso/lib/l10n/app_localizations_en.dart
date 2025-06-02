@@ -67,12 +67,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String pageSettingsInputLanguage(String locale) {
-    String _temp0 = intl.Intl.selectLogic(locale, {
-      'ar': 'عربي',
-      'en': 'English',
-      'es': 'Español',
-      'other': '-',
-    });
+    String _temp0 = intl.Intl.selectLogic(
+      locale,
+      {
+        'ar': 'عربي',
+        'en': 'English',
+        'es': 'Español',
+        'other': '-',
+      },
+    );
     return '$_temp0';
   }
 
@@ -412,6 +415,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get utility3Generated => 'Generated Code:';
+
+  @override
+  String get utility3CopyCode => 'Copy Result';
+
+  @override
+  String get utility3NoCode => 'The result is empty';
+
+  @override
+  String get utility3CodeCopied => 'Result Copied';
+
+  @override
+  String get utility3NoCharacterType =>
+      'At least one type of character should be included';
 
   @override
   String get utility4Title => 'π';

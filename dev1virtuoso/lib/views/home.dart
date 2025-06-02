@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '/l10n/app_localizations.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key, Key? key});
+  const Home({super.key, Key});
 
   @override
   Widget build(BuildContext context) {
