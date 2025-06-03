@@ -6,47 +6,11 @@
   "pageHomeDrawerListTileAccount": "Account",
   "pageHomeDrawerListTileArcade": "Arcade",
   "pageHomeDrawerListTileCredit": "Credit",
+  "pageHomeDrawerListTilePlayground": "Machine Learning Playground",
   "pageHomeDrawerListTileSettings": "Settings",
   "pageHomeDrawerListTileSupport": "Support",
   "pageHomeDrawerListTileutility": "Utility",
-  "pageHomeAuthor": "by {name}",
   "helloWorld": "Hello World!",
-  "@pageHomeAuthor": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "pageHomeCreated": "created {date}",
-  "@pageHomeCreated": {
-    "placeholders": {
-      "date": {
-        "type": "DateTime",
-        "format": "yMd"
-      }
-    }
-  },
-  "pageHomeVotes": "{count, plural, =1 {{count} vote} other {{count} votes}}",
-  "@pageHomeVotes": {
-    "description": "The gen_l10n does not handle properly plural forms: zero, one, and two. Check the reported issue for more details: https://github.com/flutter/flutter/issues/84291",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "pageSettingsTitle": "Settings",
-  "pageSettingsInputLanguage": "{locale, select, ar {عربي} en {English} es {Español} other {-}}",
-  "pageSettingsAppearance": "Appearance",
-  "pageSettingsLanguageSelectionHeading": "Language",
-  "@pageSettingsInputLanguage": {
-    "placeholders": {
-      "locale": {
-        "type": "String"
-      }
-    }
-  },
 
   "pageAboutTitle": "About",
   "aboutTitle": "About Me",
@@ -60,18 +24,18 @@
   "personalInfoBornContext": "Wu Tsz San Carson\n25 November 2010\nHong Kong",
   "personalInfoEOL": "Epistemology of Love",
   "personalInfoEOLContext": "Romantic view of love: This view of love emphasizes romance, passion, and attraction. People believe that love is an intense emotional experience and value romantic expressions and sparks of love.\nSacred view of love: This view of love considers love as a sacred force that transcends personal feelings and worldly factors. People believe that love is a sacred connection and value the union of spirit and emotions.",
-  "personalInfoFActor": "Favorite actor",
-  "personalInfoFActorContext": "Glen Thomas Powell Jr.",
-  "personalInfoFBotanical": "Favorite botanical",
-  "personalInfoFBotanicalContext": "Lavandula stoechas",
-  "personalInfoFColor": "Favorite color",
-  "personalInfoFColorContext": "Dark Purple, HEX: 872B8D, RGB: 135, 43, 141, HSL: 292, 53%, 37%",
-  "personalInfoFCeature": "Favorite creature",
-  "personalInfoFCeatureContext": "Felis catus domesticus (The Ragdoll)",
-  "personalInfoFInsecta": "Favorite insecta",
-  "personalInfoFInsectaContext": "Gromphadorhina portentosa",
-  "personalInfoFields": "Fields",
-  "personalInfoFieldsContext": "Computer Science",
+  "personalInfoFavoriteActor": "Favorite actor",
+  "personalInfoFavoriteActorContext": "Glen Thomas Powell Jr.",
+  "personalInfoFavoriteBotanical": "Favorite botanical",
+  "personalInfoFavoriteBotanicalContext": "Lavandula stoechas",
+  "personalInfoFavoriteColor": "Favorite color",
+  "personalInfoFavoriteColorContext": "Dark Purple, HEX: 872B8D\nRGB: 135, 43, 141\nHSL: 292, 53%, 37%",
+  "personalInfoFavoriteCeature": "Favorite creature",
+  "personalInfoFavoriteCeatureContext": "Felis catus domesticus (The Ragdoll)",
+  "personalInfoFavoriteInsecta": "Favorite insecta",
+  "personalInfoFavoriteInsectaContext": "Gromphadorhina portentosa",
+  "personalInfoFavoriteields": "Fields",
+  "personalInfoFavoriteieldsContext": "Computer Science",
   "personalInfoGender": "Gender",
   "personalInfoGenderContext": "Male",
   "personalInfoMBTI": "MBTI",
@@ -83,7 +47,7 @@
   "personalInfoReligion": "Religion",
   "personalInfoReligionContext": "Atheism",
   "personalInfoSO": "Sexual orientation",
-  "personalInfoSOContext": "Bisexuality, demisexuality",
+  "personalInfoSOContext": "Bisexuality",
   "personalInfoSignature": "Signature",
   "personalInfoZS": "Zodiac Sign",
   "personalInfoZSContext": "Sagittarius",
@@ -137,6 +101,23 @@
 
   "pageArcadeTitle" : "Arcade",
   "arcadeTitle" : "Arcade",
+
+  "pageExampleTitle":"Example",
+
+  "pagePlaygroundTitle": "Machine Learning Playground",
+  "playgroundTitle": "Machine Learning Playground",
+
+  "pageSettingsTitle": "Settings",
+  "pageSettingsInputLanguage": "{locale, select, ar {عربي} en {English} es {Español} other {-}}",
+  "pageSettingsAppearance": "Appearance",
+  "pageSettingsLanguageSelectionHeading": "Language",
+  "@pageSettingsInputLanguage": {
+    "placeholders": {
+      "locale": {
+        "type": "String"
+      }
+    }
+  },
 
   "pageutilityTitle" : "Utility",
   "utilityTitle": "Utility",

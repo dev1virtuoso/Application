@@ -87,6 +87,18 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               title: Text(
+                t.pageHomeDrawerListTilePlayground,
+                style: theme.textTheme.titleMedium,
+              ),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/playground',
+                );
+              },
+            ),
+            ListTile(
+              title: Text(
                 t.pageHomeDrawerListTileSettings,
                 style: theme.textTheme.titleMedium,
               ),

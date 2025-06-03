@@ -180,13 +180,13 @@ class PersonalInfoTable extends StatelessWidget {
             children: [
               TableCell(
                 child: Text(
-                  t.personalInfoFActor,
+                  t.personalInfoFavoriteActor,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               TableCell(
                 child: Text(
-                  t.personalInfoFActorContext,
+                  t.personalInfoFavoriteActorContext,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
@@ -196,13 +196,13 @@ class PersonalInfoTable extends StatelessWidget {
             children: [
               TableCell(
                 child: Text(
-                  t.personalInfoFBotanical,
+                  t.personalInfoFavoriteBotanical,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               TableCell(
                 child: Text(
-                  t.personalInfoFBotanicalContext,
+                  t.personalInfoFavoriteBotanicalContext,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
@@ -210,37 +210,21 @@ class PersonalInfoTable extends StatelessWidget {
           ),
           TableRow(
             children: [
-              TableCell(child: Text(t.personalInfoFColor)),
-              TableCell(child: Text(t.personalInfoFColorContext)),
+              TableCell(child: Text(t.personalInfoFavoriteColor)),
+              TableCell(child: Text(t.personalInfoFavoriteColorContext)),
             ],
           ),
           TableRow(
             children: [
               TableCell(
                 child: Text(
-                  t.personalInfoFCeature,
+                  t.personalInfoFavoriteCeature,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
               TableCell(
                 child: Text(
-                  t.personalInfoFCeatureContext,
-                  style: TextStyle(fontStyle: FontStyle.italic),
-                ),
-              ),
-            ],
-          ),
-          TableRow(
-            children: [
-              TableCell(
-                child: Text(
-                  t.personalInfoFInsecta,
-                  style: TextStyle(fontStyle: FontStyle.italic),
-                ),
-              ),
-              TableCell(
-                child: Text(
-                  t.personalInfoFInsectaContext,
+                  t.personalInfoFavoriteCeatureContext,
                   style: TextStyle(fontStyle: FontStyle.italic),
                 ),
               ),
@@ -248,8 +232,24 @@ class PersonalInfoTable extends StatelessWidget {
           ),
           TableRow(
             children: [
-              TableCell(child: Text(t.personalInfoFields)),
-              TableCell(child: Text(t.personalInfoFieldsContext)),
+              TableCell(
+                child: Text(
+                  t.personalInfoFavoriteInsecta,
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+              TableCell(
+                child: Text(
+                  t.personalInfoFavoriteInsectaContext,
+                  style: TextStyle(fontStyle: FontStyle.italic),
+                ),
+              ),
+            ],
+          ),
+          TableRow(
+            children: [
+              TableCell(child: Text(t.personalInfoFavoriteields)),
+              TableCell(child: Text(t.personalInfoFavoriteieldsContext)),
             ],
           ),
           TableRow(

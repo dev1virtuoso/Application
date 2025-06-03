@@ -27,6 +27,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageHomeDrawerListTileCredit => 'Credit';
 
   @override
+  String get pageHomeDrawerListTilePlayground => 'Machine Learning Playground';
+
+  @override
   String get pageHomeDrawerListTileSettings => 'Settings';
 
   @override
@@ -36,54 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageHomeDrawerListTileutility => 'Utility';
 
   @override
-  String pageHomeAuthor(String name) {
-    return 'by $name';
-  }
-
-  @override
   String get helloWorld => 'Hello World!';
-
-  @override
-  String pageHomeCreated(DateTime date) {
-    final intl.DateFormat dateDateFormat = intl.DateFormat.yMd(localeName);
-    final String dateString = dateDateFormat.format(date);
-
-    return 'created $dateString';
-  }
-
-  @override
-  String pageHomeVotes(int count) {
-    String _temp0 = intl.Intl.pluralLogic(
-      count,
-      locale: localeName,
-      other: '$count votes',
-      one: '$count vote',
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get pageSettingsTitle => 'Settings';
-
-  @override
-  String pageSettingsInputLanguage(String locale) {
-    String _temp0 = intl.Intl.selectLogic(
-      locale,
-      {
-        'ar': 'عربي',
-        'en': 'English',
-        'es': 'Español',
-        'other': '-',
-      },
-    );
-    return '$_temp0';
-  }
-
-  @override
-  String get pageSettingsAppearance => 'Appearance';
-
-  @override
-  String get pageSettingsLanguageSelectionHeading => 'Language';
 
   @override
   String get pageAboutTitle => 'About';
@@ -125,42 +81,42 @@ class AppLocalizationsEn extends AppLocalizations {
       'Romantic view of love: This view of love emphasizes romance, passion, and attraction. People believe that love is an intense emotional experience and value romantic expressions and sparks of love.\nSacred view of love: This view of love considers love as a sacred force that transcends personal feelings and worldly factors. People believe that love is a sacred connection and value the union of spirit and emotions.';
 
   @override
-  String get personalInfoFActor => 'Favorite actor';
+  String get personalInfoFavoriteActor => 'Favorite actor';
 
   @override
-  String get personalInfoFActorContext => 'Glen Thomas Powell Jr.';
+  String get personalInfoFavoriteActorContext => 'Glen Thomas Powell Jr.';
 
   @override
-  String get personalInfoFBotanical => 'Favorite botanical';
+  String get personalInfoFavoriteBotanical => 'Favorite botanical';
 
   @override
-  String get personalInfoFBotanicalContext => 'Lavandula stoechas';
+  String get personalInfoFavoriteBotanicalContext => 'Lavandula stoechas';
 
   @override
-  String get personalInfoFColor => 'Favorite color';
+  String get personalInfoFavoriteColor => 'Favorite color';
 
   @override
-  String get personalInfoFColorContext =>
-      'Dark Purple, HEX: 872B8D, RGB: 135, 43, 141, HSL: 292, 53%, 37%';
+  String get personalInfoFavoriteColorContext =>
+      'Dark Purple, HEX: 872B8D\nRGB: 135, 43, 141\nHSL: 292, 53%, 37%';
 
   @override
-  String get personalInfoFCeature => 'Favorite creature';
+  String get personalInfoFavoriteCeature => 'Favorite creature';
 
   @override
-  String get personalInfoFCeatureContext =>
+  String get personalInfoFavoriteCeatureContext =>
       'Felis catus domesticus (The Ragdoll)';
 
   @override
-  String get personalInfoFInsecta => 'Favorite insecta';
+  String get personalInfoFavoriteInsecta => 'Favorite insecta';
 
   @override
-  String get personalInfoFInsectaContext => 'Gromphadorhina portentosa';
+  String get personalInfoFavoriteInsectaContext => 'Gromphadorhina portentosa';
 
   @override
-  String get personalInfoFields => 'Fields';
+  String get personalInfoFavoriteields => 'Fields';
 
   @override
-  String get personalInfoFieldsContext => 'Computer Science';
+  String get personalInfoFavoriteieldsContext => 'Computer Science';
 
   @override
   String get personalInfoGender => 'Gender';
@@ -358,6 +314,38 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get arcadeTitle => 'Arcade';
+
+  @override
+  String get pageExampleTitle => 'Example';
+
+  @override
+  String get pagePlaygroundTitle => 'Machine Learning Playground';
+
+  @override
+  String get playgroundTitle => 'Machine Learning Playground';
+
+  @override
+  String get pageSettingsTitle => 'Settings';
+
+  @override
+  String pageSettingsInputLanguage(String locale) {
+    String _temp0 = intl.Intl.selectLogic(
+      locale,
+      {
+        'ar': 'عربي',
+        'en': 'English',
+        'es': 'Español',
+        'other': '-',
+      },
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pageSettingsAppearance => 'Appearance';
+
+  @override
+  String get pageSettingsLanguageSelectionHeading => 'Language';
 
   @override
   String get pageutilityTitle => 'Utility';

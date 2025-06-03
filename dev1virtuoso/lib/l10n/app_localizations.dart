@@ -130,6 +130,12 @@ abstract class AppLocalizations {
   /// **'Credit'**
   String get pageHomeDrawerListTileCredit;
 
+  /// No description provided for @pageHomeDrawerListTilePlayground.
+  ///
+  /// In en, this message translates to:
+  /// **'Machine Learning Playground'**
+  String get pageHomeDrawerListTilePlayground;
+
   /// No description provided for @pageHomeDrawerListTileSettings.
   ///
   /// In en, this message translates to:
@@ -148,53 +154,11 @@ abstract class AppLocalizations {
   /// **'Utility'**
   String get pageHomeDrawerListTileutility;
 
-  /// No description provided for @pageHomeAuthor.
-  ///
-  /// In en, this message translates to:
-  /// **'by {name}'**
-  String pageHomeAuthor(String name);
-
   /// No description provided for @helloWorld.
   ///
   /// In en, this message translates to:
   /// **'Hello World!'**
   String get helloWorld;
-
-  /// No description provided for @pageHomeCreated.
-  ///
-  /// In en, this message translates to:
-  /// **'created {date}'**
-  String pageHomeCreated(DateTime date);
-
-  /// The gen_l10n does not handle properly plural forms: zero, one, and two. Check the reported issue for more details: https://github.com/flutter/flutter/issues/84291
-  ///
-  /// In en, this message translates to:
-  /// **'{count, plural, =1 {{count} vote} other {{count} votes}}'**
-  String pageHomeVotes(int count);
-
-  /// No description provided for @pageSettingsTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get pageSettingsTitle;
-
-  /// No description provided for @pageSettingsInputLanguage.
-  ///
-  /// In en, this message translates to:
-  /// **'{locale, select, ar {عربي} en {English} es {Español} other {-}}'**
-  String pageSettingsInputLanguage(String locale);
-
-  /// No description provided for @pageSettingsAppearance.
-  ///
-  /// In en, this message translates to:
-  /// **'Appearance'**
-  String get pageSettingsAppearance;
-
-  /// No description provided for @pageSettingsLanguageSelectionHeading.
-  ///
-  /// In en, this message translates to:
-  /// **'Language'**
-  String get pageSettingsLanguageSelectionHeading;
 
   /// No description provided for @pageAboutTitle.
   ///
@@ -268,77 +232,77 @@ abstract class AppLocalizations {
   /// **'Romantic view of love: This view of love emphasizes romance, passion, and attraction. People believe that love is an intense emotional experience and value romantic expressions and sparks of love.\nSacred view of love: This view of love considers love as a sacred force that transcends personal feelings and worldly factors. People believe that love is a sacred connection and value the union of spirit and emotions.'**
   String get personalInfoEOLContext;
 
-  /// No description provided for @personalInfoFActor.
+  /// No description provided for @personalInfoFavoriteActor.
   ///
   /// In en, this message translates to:
   /// **'Favorite actor'**
-  String get personalInfoFActor;
+  String get personalInfoFavoriteActor;
 
-  /// No description provided for @personalInfoFActorContext.
+  /// No description provided for @personalInfoFavoriteActorContext.
   ///
   /// In en, this message translates to:
   /// **'Glen Thomas Powell Jr.'**
-  String get personalInfoFActorContext;
+  String get personalInfoFavoriteActorContext;
 
-  /// No description provided for @personalInfoFBotanical.
+  /// No description provided for @personalInfoFavoriteBotanical.
   ///
   /// In en, this message translates to:
   /// **'Favorite botanical'**
-  String get personalInfoFBotanical;
+  String get personalInfoFavoriteBotanical;
 
-  /// No description provided for @personalInfoFBotanicalContext.
+  /// No description provided for @personalInfoFavoriteBotanicalContext.
   ///
   /// In en, this message translates to:
   /// **'Lavandula stoechas'**
-  String get personalInfoFBotanicalContext;
+  String get personalInfoFavoriteBotanicalContext;
 
-  /// No description provided for @personalInfoFColor.
+  /// No description provided for @personalInfoFavoriteColor.
   ///
   /// In en, this message translates to:
   /// **'Favorite color'**
-  String get personalInfoFColor;
+  String get personalInfoFavoriteColor;
 
-  /// No description provided for @personalInfoFColorContext.
+  /// No description provided for @personalInfoFavoriteColorContext.
   ///
   /// In en, this message translates to:
-  /// **'Dark Purple, HEX: 872B8D, RGB: 135, 43, 141, HSL: 292, 53%, 37%'**
-  String get personalInfoFColorContext;
+  /// **'Dark Purple, HEX: 872B8D\nRGB: 135, 43, 141\nHSL: 292, 53%, 37%'**
+  String get personalInfoFavoriteColorContext;
 
-  /// No description provided for @personalInfoFCeature.
+  /// No description provided for @personalInfoFavoriteCeature.
   ///
   /// In en, this message translates to:
   /// **'Favorite creature'**
-  String get personalInfoFCeature;
+  String get personalInfoFavoriteCeature;
 
-  /// No description provided for @personalInfoFCeatureContext.
+  /// No description provided for @personalInfoFavoriteCeatureContext.
   ///
   /// In en, this message translates to:
   /// **'Felis catus domesticus (The Ragdoll)'**
-  String get personalInfoFCeatureContext;
+  String get personalInfoFavoriteCeatureContext;
 
-  /// No description provided for @personalInfoFInsecta.
+  /// No description provided for @personalInfoFavoriteInsecta.
   ///
   /// In en, this message translates to:
   /// **'Favorite insecta'**
-  String get personalInfoFInsecta;
+  String get personalInfoFavoriteInsecta;
 
-  /// No description provided for @personalInfoFInsectaContext.
+  /// No description provided for @personalInfoFavoriteInsectaContext.
   ///
   /// In en, this message translates to:
   /// **'Gromphadorhina portentosa'**
-  String get personalInfoFInsectaContext;
+  String get personalInfoFavoriteInsectaContext;
 
-  /// No description provided for @personalInfoFields.
+  /// No description provided for @personalInfoFavoriteields.
   ///
   /// In en, this message translates to:
   /// **'Fields'**
-  String get personalInfoFields;
+  String get personalInfoFavoriteields;
 
-  /// No description provided for @personalInfoFieldsContext.
+  /// No description provided for @personalInfoFavoriteieldsContext.
   ///
   /// In en, this message translates to:
   /// **'Computer Science'**
-  String get personalInfoFieldsContext;
+  String get personalInfoFavoriteieldsContext;
 
   /// No description provided for @personalInfoGender.
   ///
@@ -717,6 +681,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Arcade'**
   String get arcadeTitle;
+
+  /// No description provided for @pageExampleTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Example'**
+  String get pageExampleTitle;
+
+  /// No description provided for @pagePlaygroundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Machine Learning Playground'**
+  String get pagePlaygroundTitle;
+
+  /// No description provided for @playgroundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Machine Learning Playground'**
+  String get playgroundTitle;
+
+  /// No description provided for @pageSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get pageSettingsTitle;
+
+  /// No description provided for @pageSettingsInputLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'{locale, select, ar {عربي} en {English} es {Español} other {-}}'**
+  String pageSettingsInputLanguage(String locale);
+
+  /// No description provided for @pageSettingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get pageSettingsAppearance;
+
+  /// No description provided for @pageSettingsLanguageSelectionHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get pageSettingsLanguageSelectionHeading;
 
   /// No description provided for @pageutilityTitle.
   ///
