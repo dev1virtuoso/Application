@@ -8,6 +8,7 @@ import 'views/account.dart';
 import 'views/arcade.dart';
 import 'views/credit.dart';
 import 'views/playground.dart';
+import 'views/private.dart';
 import 'views/settings.dart';
 import 'views/support.dart';
 import 'views/utility.dart';
@@ -41,6 +42,7 @@ class Dev1virtuoso extends StatelessWidget {
             '/arcade': (context) => const Arcade(),
             '/credit': (context) => const Credit(),
             '/playground': (context) => const Playground(),
+            '/private': (context) => const Private(),
             '/settings': (context) => const Settings(),
             '/support': (context) => const Support(),
             '/utility': (context) => const Utility(),

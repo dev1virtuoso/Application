@@ -30,13 +30,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageHomeDrawerListTilePlayground => 'Machine Learning Playground';
 
   @override
+  String get pageHomeDrawerListTilePrivate => 'Private';
+
+  @override
   String get pageHomeDrawerListTileSettings => 'Settings';
 
   @override
   String get pageHomeDrawerListTileSupport => 'Support';
 
   @override
-  String get pageHomeDrawerListTileutility => 'Utility';
+  String get pageHomeDrawerListTileUtility => 'Utility';
 
   @override
   String get helloWorld => 'Hello World!';
@@ -152,7 +155,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get personalInfoSO => 'Sexual orientation';
 
   @override
-  String get personalInfoSOContext => 'Bisexuality, demisexuality';
+  String get personalInfoSOContext => 'Bisexuality';
 
   @override
   String get personalInfoSignature => 'Signature';
@@ -323,6 +326,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get playgroundTitle => 'Machine Learning Playground';
+
+  @override
+  String get pagePrivateTitle => 'Private';
+
+  @override
+  String get enterPassword => 'Enter password to unlock page';
+
+  @override
+  String get wrongPassword => 'Wrong password';
+
+  @override
+  String get unlock => 'Unlock';
 
   @override
   String get pageSettingsTitle => 'Settings';

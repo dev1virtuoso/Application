@@ -7,9 +7,10 @@
   "pageHomeDrawerListTileArcade": "Arcade",
   "pageHomeDrawerListTileCredit": "Credit",
   "pageHomeDrawerListTilePlayground": "Machine Learning Playground",
+  "pageHomeDrawerListTilePrivate": "Private",
   "pageHomeDrawerListTileSettings": "Settings",
   "pageHomeDrawerListTileSupport": "Support",
-  "pageHomeDrawerListTileutility": "Utility",
+  "pageHomeDrawerListTileUtility": "Utility",
   "helloWorld": "Hello World!",
 
   "pageAboutTitle": "About",
@@ -106,6 +107,11 @@
 
   "pagePlaygroundTitle": "Machine Learning Playground",
   "playgroundTitle": "Machine Learning Playground",
+
+  "pagePrivateTitle": "Private",
+  "enterPassword": "Enter password to unlock page",
+  "wrongPassword": "Wrong password",
+  "unlock": "Unlock",
 
   "pageSettingsTitle": "Settings",
   "pageSettingsInputLanguage": "{locale, select, ar {عربي} en {English} es {Español} other {-}}",

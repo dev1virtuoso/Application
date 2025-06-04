@@ -208,6 +208,178 @@ class _UtilityTabBarState extends State<UtilityTabBar> {
   }
 }
 
+class RandomCodeGenerator {
+  static const String upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  static const String lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
+  static const String digits = '0123456789';
+  static const String specialCharacters = '!@#\$%^&*()-_+=<>?';
+
+  String generateCode({
+    required int length,
+    bool includeUpperCase = true,
+    bool includeLowerCase = true,
+    bool includeDigits = true,
+    bool includeSpecialCharacters = true,
+  }) {
+    String charSet = '';
+
+    if (includeUpperCase) charSet += upperCaseLetters;
+    if (includeLowerCase) charSet += lowerCaseLetters;
+    if (includeDigits) charSet += digits;
+    if (includeSpecialCharacters) charSet += specialCharacters;
+
+    if (!(includeUpperCase ||
+        includeLowerCase ||
+        includeDigits ||
+        includeSpecialCharacters)) {
+      throw ArgumentError('At least one type of character should be included');
+    }
+
+    final Random random = Random();
+    return List.generate(length, (index) {
+      final int randomIndex = random.nextInt(charSet.length);
+      return charSet[randomIndex];
+    }).join('');
+  }
+}
+
+class RandomCodeGeneratorScreen extends StatefulWidget {
+  const RandomCodeGeneratorScreen({super.key});
+
+  @override
+  _RandomCodeGeneratorScreenState createState() =>
+      _RandomCodeGeneratorScreenState();
+}
+
+class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
+  final _formKey = GlobalKey<FormState>();
+  int _length = 12;
+  bool _includeUpperCase = true;
+  bool _includeLowerCase = true;
+  bool _includeDigits = true;
+  bool _includeSpecialCharacters = true;
+  String _generatedCode = '';
+
+  void _generateCode() {
+    if (_length < 1) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Code length must be at least 1')),
+      );
+      return;
+    }
+
+    final generator = RandomCodeGenerator();
+    setState(() {
+      _generatedCode = generator.generateCode(
+        length: _length,
+        includeUpperCase: _includeUpperCase,
+        includeLowerCase: _includeLowerCase,
+        includeDigits: _includeDigits,
+        includeSpecialCharacters: _includeSpecialCharacters,
+      );
+    });
+  }
+
+  void _copyCode() {
+    if (_generatedCode.isNotEmpty) {
+      Clipboard.setData(ClipboardData(text: _generatedCode));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Code copied to clipboard')),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('No code generated to copy')),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var t = AppLocalizations.of(context)!;
+    return Scaffold(
+      appBar: AppBar(title: Text(t.utility3Title)),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TextFormField(
+                  decoration: InputDecoration(labelText: t.utility3Length),
+                  keyboardType: TextInputType.number,
+                  initialValue: _length.toString(),
+                  onChanged: (value) {
+                    setState(() {
+                      _length = int.tryParse(value) ?? 12;
+                    });
+                  },
+                ),
+                CheckboxListTile(
+                  title: Text(t.utility3UpperCase),
+                  value: _includeUpperCase,
+                  onChanged: (value) =>
+                      setState(() => _includeUpperCase = value!),
+                ),
+                CheckboxListTile(
+                  title: Text(t.utility3LowerCase),
+                  value: _includeLowerCase,
+                  onChanged: (value) =>
+                      setState(() => _includeLowerCase = value!),
+                ),
+                CheckboxListTile(
+                  title: Text(t.utility3Digits),
+                  value: _includeDigits,
+                  onChanged: (value) => setState(() => _includeDigits = value!),
+                ),
+                CheckboxListTile(
+                  title: Text(t.utility3SpecialCharacters),
+                  value: _includeSpecialCharacters,
+                  onChanged: (value) =>
+                      setState(() => _includeSpecialCharacters = value!),
+                ),
+                ElevatedButton(
+                  onPressed: (_includeUpperCase ||
+                          _includeLowerCase ||
+                          _includeDigits ||
+                          _includeSpecialCharacters)
+                      ? _generateCode
+                      : null,
+                  child: Text(t.utility3GeneratedTitle),
+                ),
+                if (!(_includeUpperCase ||
+                    _includeLowerCase ||
+                    _includeDigits ||
+                    _includeSpecialCharacters))
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Text(
+                      t.utility3NoCharacterType,
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                SizedBox(height: 16),
+                Text(
+                  '${t.utility4Result} $_generatedCode',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                ElevatedButton(
+                  onPressed: _copyCode,
+                  child: Text(_generatedCode.isNotEmpty
+                      ? t.utility3CopyCode
+                      : t.utility3NoCode),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class PiCalculatorScreen extends StatefulWidget {
   const PiCalculatorScreen({super.key});
 
@@ -468,177 +640,5 @@ class PiCalculator {
     await fLog.close();
 
     return piPath;
-  }
-}
-
-class RandomCodeGenerator {
-  static const String upperCaseLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  static const String lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz';
-  static const String digits = '0123456789';
-  static const String specialCharacters = '!@#\$%^&*()-_+=<>?';
-
-  String generateCode({
-    required int length,
-    bool includeUpperCase = true,
-    bool includeLowerCase = true,
-    bool includeDigits = true,
-    bool includeSpecialCharacters = true,
-  }) {
-    String charSet = '';
-
-    if (includeUpperCase) charSet += upperCaseLetters;
-    if (includeLowerCase) charSet += lowerCaseLetters;
-    if (includeDigits) charSet += digits;
-    if (includeSpecialCharacters) charSet += specialCharacters;
-
-    if (!(includeUpperCase ||
-        includeLowerCase ||
-        includeDigits ||
-        includeSpecialCharacters)) {
-      throw ArgumentError('At least one type of character should be included');
-    }
-
-    final Random random = Random();
-    return List.generate(length, (index) {
-      final int randomIndex = random.nextInt(charSet.length);
-      return charSet[randomIndex];
-    }).join('');
-  }
-}
-
-class RandomCodeGeneratorScreen extends StatefulWidget {
-  const RandomCodeGeneratorScreen({super.key});
-
-  @override
-  _RandomCodeGeneratorScreenState createState() =>
-      _RandomCodeGeneratorScreenState();
-}
-
-class _RandomCodeGeneratorScreenState extends State<RandomCodeGeneratorScreen> {
-  final _formKey = GlobalKey<FormState>();
-  int _length = 12;
-  bool _includeUpperCase = true;
-  bool _includeLowerCase = true;
-  bool _includeDigits = true;
-  bool _includeSpecialCharacters = true;
-  String _generatedCode = '';
-
-  void _generateCode() {
-    if (_length < 1) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Code length must be at least 1')),
-      );
-      return;
-    }
-
-    final generator = RandomCodeGenerator();
-    setState(() {
-      _generatedCode = generator.generateCode(
-        length: _length,
-        includeUpperCase: _includeUpperCase,
-        includeLowerCase: _includeLowerCase,
-        includeDigits: _includeDigits,
-        includeSpecialCharacters: _includeSpecialCharacters,
-      );
-    });
-  }
-
-  void _copyCode() {
-    if (_generatedCode.isNotEmpty) {
-      Clipboard.setData(ClipboardData(text: _generatedCode));
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Code copied to clipboard')),
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('No code generated to copy')),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var t = AppLocalizations.of(context)!;
-    return Scaffold(
-      appBar: AppBar(title: Text(t.utility3Title)),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView(
-          child: Form(
-            key: _formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                TextFormField(
-                  decoration: InputDecoration(labelText: t.utility3Length),
-                  keyboardType: TextInputType.number,
-                  initialValue: _length.toString(),
-                  onChanged: (value) {
-                    setState(() {
-                      _length = int.tryParse(value) ?? 12;
-                    });
-                  },
-                ),
-                CheckboxListTile(
-                  title: Text(t.utility3UpperCase),
-                  value: _includeUpperCase,
-                  onChanged: (value) =>
-                      setState(() => _includeUpperCase = value!),
-                ),
-                CheckboxListTile(
-                  title: Text(t.utility3LowerCase),
-                  value: _includeLowerCase,
-                  onChanged: (value) =>
-                      setState(() => _includeLowerCase = value!),
-                ),
-                CheckboxListTile(
-                  title: Text(t.utility3Digits),
-                  value: _includeDigits,
-                  onChanged: (value) => setState(() => _includeDigits = value!),
-                ),
-                CheckboxListTile(
-                  title: Text(t.utility3SpecialCharacters),
-                  value: _includeSpecialCharacters,
-                  onChanged: (value) =>
-                      setState(() => _includeSpecialCharacters = value!),
-                ),
-                ElevatedButton(
-                  onPressed: (_includeUpperCase ||
-                          _includeLowerCase ||
-                          _includeDigits ||
-                          _includeSpecialCharacters)
-                      ? _generateCode
-                      : null,
-                  child: Text(t.utility3GeneratedTitle),
-                ),
-                if (!(_includeUpperCase ||
-                    _includeLowerCase ||
-                    _includeDigits ||
-                    _includeSpecialCharacters))
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Text(
-                      t.utility3NoCharacterType,
-                      style: TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                SizedBox(height: 16),
-                Text(
-                  '${t.utility4Result} $_generatedCode',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                ElevatedButton(
-                  onPressed: _copyCode,
-                  child: Text(_generatedCode.isNotEmpty
-                      ? t.utility3CopyCode
-                      : t.utility3NoCode),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
   }
 }

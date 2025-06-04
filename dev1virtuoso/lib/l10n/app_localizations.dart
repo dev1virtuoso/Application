@@ -136,6 +136,12 @@ abstract class AppLocalizations {
   /// **'Machine Learning Playground'**
   String get pageHomeDrawerListTilePlayground;
 
+  /// No description provided for @pageHomeDrawerListTilePrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Private'**
+  String get pageHomeDrawerListTilePrivate;
+
   /// No description provided for @pageHomeDrawerListTileSettings.
   ///
   /// In en, this message translates to:
@@ -148,11 +154,11 @@ abstract class AppLocalizations {
   /// **'Support'**
   String get pageHomeDrawerListTileSupport;
 
-  /// No description provided for @pageHomeDrawerListTileutility.
+  /// No description provided for @pageHomeDrawerListTileUtility.
   ///
   /// In en, this message translates to:
   /// **'Utility'**
-  String get pageHomeDrawerListTileutility;
+  String get pageHomeDrawerListTileUtility;
 
   /// No description provided for @helloWorld.
   ///
@@ -373,7 +379,7 @@ abstract class AppLocalizations {
   /// No description provided for @personalInfoSOContext.
   ///
   /// In en, this message translates to:
-  /// **'Bisexuality, demisexuality'**
+  /// **'Bisexuality'**
   String get personalInfoSOContext;
 
   /// No description provided for @personalInfoSignature.
@@ -699,6 +705,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Machine Learning Playground'**
   String get playgroundTitle;
+
+  /// No description provided for @pagePrivateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Private'**
+  String get pagePrivateTitle;
+
+  /// No description provided for @enterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password to unlock page'**
+  String get enterPassword;
+
+  /// No description provided for @wrongPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong password'**
+  String get wrongPassword;
+
+  /// No description provided for @unlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get unlock;
 
   /// No description provided for @pageSettingsTitle.
   ///

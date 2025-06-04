@@ -99,6 +99,18 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               title: Text(
+                t.pageHomeDrawerListTilePrivate,
+                style: theme.textTheme.titleMedium,
+              ),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/private',
+                );
+              },
+            ),
+            ListTile(
+              title: Text(
                 t.pageHomeDrawerListTileSettings,
                 style: theme.textTheme.titleMedium,
               ),
@@ -123,7 +135,7 @@ class Home extends StatelessWidget {
             ),
             ListTile(
               title: Text(
-                t.pageHomeDrawerListTileutility,
+                t.pageHomeDrawerListTileUtility,
                 style: theme.textTheme.titleMedium,
               ),
               onTap: () {
