@@ -26,6 +26,7 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
   final List<bool> _isExpanded = [false, false, false];
   final String _correctPassword = "1234";
   bool _isUnlocked = false;
+  bool _hasShownDialog = false; // Prevents dialog reappearing unnecessarily
 
   @override
   void initState() {
@@ -35,7 +36,12 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _showPasswordDialog();
+    if (!_hasShownDialog && !_isUnlocked) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showPasswordDialog();
+      });
+      _hasShownDialog = true;
+    }
   }
 
   void _showPasswordDialog() {
@@ -45,12 +51,17 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
       builder: (context) {
         var t = AppLocalizations.of(context)!;
         String enteredPassword = "";
+        final TextEditingController controller = TextEditingController();
 
         return AlertDialog(
           title: Text(t.pagePrivateTitle),
           content: TextField(
+            controller: controller,
             obscureText: true,
-            decoration: InputDecoration(labelText: t.enterPassword),
+            decoration: InputDecoration(
+              labelText: t.enterPassword,
+              errorText: null,
+            ),
             onChanged: (value) {
               enteredPassword = value;
             },
@@ -71,6 +82,16 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
               },
               child: Text(t.unlock),
             ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(
+                  context,
+                  '/home',
+                );
+              },
+              child: Text(t.cancel),
+            ),
           ],
         );
       },
@@ -80,7 +101,7 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
   @override
   Widget build(BuildContext context) {
     if (!_isUnlocked) {
-      return Center(child: CircularProgressIndicator());
+      return const Center(child: CircularProgressIndicator());
     }
 
     var t = AppLocalizations.of(context)!;
@@ -101,7 +122,7 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
                 t.personalInfoTitle,
                 style: theme.textTheme.titleSmall,
               ),
-              PersonalInfoTable(),
+              const PersonalInfoTable(), // Assuming this is defined elsewhere
             ],
           ),
         ],
@@ -144,6 +165,12 @@ class _PrivateTabBarState extends State<PrivateTabBar> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // Clean up any resources if needed
+    super.dispose();
   }
 }
 

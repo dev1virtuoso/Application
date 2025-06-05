@@ -41,6 +41,7 @@ class Dev1virtuoso extends StatelessWidget {
             '/account': (context) => const Account(),
             '/arcade': (context) => const Arcade(),
             '/credit': (context) => const Credit(),
+            '/home': (context) => const Home(),
             '/playground': (context) => const Playground(),
             '/private': (context) => const Private(),
             '/settings': (context) => const Settings(),

@@ -112,6 +112,7 @@
   "enterPassword": "Enter password to unlock page",
   "wrongPassword": "Wrong password",
   "unlock": "Unlock",
+  "cancel": "Cancel",
 
   "pageSettingsTitle": "Settings",
   "pageSettingsInputLanguage": "{locale, select, ar {عربي} en {English} es {Español} other {-}}",

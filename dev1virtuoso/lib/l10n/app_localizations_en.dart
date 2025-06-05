@@ -340,6 +340,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unlock => 'Unlock';
 
   @override
+  String get cancel => 'Cancel';
+
+  @override
   String get pageSettingsTitle => 'Settings';
 
   @override
