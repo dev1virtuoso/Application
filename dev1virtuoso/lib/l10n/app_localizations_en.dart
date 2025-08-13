@@ -55,6 +55,24 @@ class AppLocalizationsEn extends AppLocalizations {
       'Software development is a creative craft, and I consider myself a masterful artist, weaving brilliance with every stroke of code. - Carson Wu, the Extraordinary Developer.\n\nI am Carson Wu, a talented young prodigy from Hong Kong specializing in the fascinating fields of Artificial Intelligence (AI) and Machine Learning (ML). Despite the perceived complexity of software development, I approach it with a mindset of awe and imagination. Every line of code represents a stroke of brilliance I use to create extraordinary things.\n\nFrom a young age, technology and its boundless possibilities have enthralled me. Fueled by curiosity and determination, I immersed myself in the enchanting world of AI and ML, eager to unravel their mysteries and harness their immense potential. What started as a hobby quickly transformed into a fervent passion, driving me to push boundaries and explore the frontiers of these cutting-edge technologies.\n\nDespite my youth, I have developed a profound understanding of AI and ML concepts, algorithms, and tools. My programming skills have been honed, and I am proficient in languages like Python, Java, and C, as well as frameworks such as TensorFlow, PyTorch, and OpenCV. Through dedicated self-study and active engagement within online communities, I have gained hands-on experience in developing AI models, training neural networks, and deriving meaningful insights from data.\n\nDespite my youth, I have developed a profound understanding of AI and ML concepts, algorithms, and tools. My programming skills have been honed, and I am proficient in languages like Python, Java, and C, as well as frameworks such as TensorFlow, PyTorch, and OpenCV. Through dedicated self-study and active engagement within online communities, I have gained hands-on experience in developing AI models, training neural networks, and deriving meaningful insights from data.\n\nMy projects have spanned a wide spectrum, including image recognition, natural language processing, predictive analytics, and recommendation systems. I am captivated by the transformative power of AI and ML to revolutionize industries, tackle intricate problems, and enrich human lives. Continuously seeking opportunities to apply my knowledge and expertise to real-world challenges, I am driven to make a tangible impact on the world.\n\nMy projects have spanned a wide spectrum, including image recognition, natural language processing, predictive analytics, and recommendation systems. I am captivated by the transformative power of AI and ML to revolutionize industries, tackle intricate problems, and enrich human lives. Continuously seeking opportunities to apply my knowledge and expertise to real-world challenges, I am driven to make a tangible impact on the world.\n\nBeyond my technical prowess, I am an inquisitive and adaptable learner. I embrace challenges with a growth mindset, fearlessly exploring new concepts and conquering obstacles. Recognizing the value of collaboration and effective communication, I relish opportunities to work with like-minded individuals, exchanging ideas and collectively pushing the boundaries of innovation.\n\nEmbarking on my journey as a world-class developer specializing in AI and ML, I remain committed to perpetual learning and evolution. The future possibilities and potential of these technologies to shape our world in profound ways fill me with excitement. With every project, I aim to leave an indelible impression, unveiling the brilliance of AI and ML through meticulously crafted code.\n\nIf you are seeking a young, talented enthusiast in the realms of AI and ML to contribute to your projects, I would be thrilled to collaborate with you. Together, let us paint a future where the possibilities of AI and ML are fully realized, and where brilliance radiates from every line of code.';
 
   @override
+  String get blogTitle => 'Blog';
+
+  @override
+  String get blogLoading => 'Loading';
+
+  @override
+  String get sortTitleAsc => 'Sort by Title (A-Z)';
+
+  @override
+  String get sortTitleDesc => 'Sort by Title (Z-A)';
+
+  @override
+  String get sortDateNewest => 'Sort by Date (Newest)';
+
+  @override
+  String get sortDateOldest => 'Sort by Date (Oldest)';
+
+  @override
   String get personalInfoTitle => 'Personal Information Table';
 
   @override
@@ -302,6 +320,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get donateGHSP => 'GitHub Sponsors profile';
+
+  @override
+  String get researchTitle => 'Research';
+
+  @override
+  String get researchLoading => 'Loading';
 
   @override
   String get pageAccountTitle => 'Account';
