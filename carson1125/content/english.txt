@@ -8,7 +8,7 @@ contact=
 
 donate=
 
-about_sponsorship1=I'm Carson-We, a software developer on a mission to craft innovative solutions with every line of code.
+about_sponsorship1=I'm dev1virtuoso, a software developer on a mission to craft innovative solutions with every line of code.
 about_sponsorship2=Software development is my canvas, and each code snippet is a stroke of brilliance. Together, let's shape a future where technology empowers change and progress.
 about_sponsorship3=Your sponsorship fuels my creative journey. Join me in building a tomorrow filled with endless possibilities through technology!
 about_sponsorship4=Reach out at carson.developer1125@gmail.com to collaborate or just to say hello! Let's innovate together!

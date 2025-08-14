@@ -193,7 +193,7 @@ abstract class AppLocalizations {
   /// No description provided for @blogLoading.
   ///
   /// In en, this message translates to:
-  /// **'Loading'**
+  /// **'Loading blogs...'**
   String get blogLoading;
 
   /// No description provided for @sortTitleAsc.
@@ -703,7 +703,7 @@ abstract class AppLocalizations {
   /// No description provided for @researchLoading.
   ///
   /// In en, this message translates to:
-  /// **'Loading'**
+  /// **'Loading researches...'**
   String get researchLoading;
 
   /// No description provided for @pageAccountTitle.

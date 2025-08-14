@@ -87,7 +87,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
   Future<void> _loadResearches() async {
     try {
       final String response =
-          await rootBundle.loadString('assets/researches.json');
+          await rootBundle.loadString('assets/research.json');
       if (response.isEmpty) {
         print('researches.json is empty');
         return;
@@ -132,6 +132,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
     var theme = Theme.of(context);
+    final locale = t.localeName;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
@@ -150,9 +151,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
           const SizedBox(height: 16),
           _buildExpansionCard(
             context,
-            index: 3,
+            index: 1,
             title: t.blogTitle,
-            isExpanded: _isExpanded[3],
+            isExpanded: _isExpanded[1],
             content: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -204,7 +205,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
                                         blog['url'])
                                     : null,
                                 child: Text(
-                                  blog['title'] ?? 'Untitled',
+                                  blog['title']?[locale] ??
+                                      blog['title']?['en'] ??
+                                      'Untitled',
                                   style: theme.textTheme.titleMedium?.copyWith(
                                     color: blog['url'] != null
                                         ? theme.colorScheme.primary
@@ -218,7 +221,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                blog['content'] ?? '',
+                                blog['content']?[locale] ??
+                                    blog['content']?['en'] ??
+                                    '',
                                 style: theme.textTheme.bodyMedium,
                               ),
                               if (blog['date'] != null)
@@ -241,9 +246,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
           const SizedBox(height: 16),
           _buildExpansionCard(
             context,
-            index: 1,
+            index: 2,
             title: t.contactTitle,
-            isExpanded: _isExpanded[1],
+            isExpanded: _isExpanded[2],
             content: [
               const ContactTable(),
             ],
@@ -251,9 +256,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
           const SizedBox(height: 16),
           _buildExpansionCard(
             context,
-            index: 2,
+            index: 3,
             title: t.donateTitle,
-            isExpanded: _isExpanded[2],
+            isExpanded: _isExpanded[3],
             content: [
               const DonateTable(),
               const SizedBox(height: 8),
@@ -276,9 +281,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
           const SizedBox(height: 16),
           _buildExpansionCard(
             context,
-            index: 3,
+            index: 4,
             title: t.researchTitle,
-            isExpanded: _isExpanded[3],
+            isExpanded: _isExpanded[4],
             content: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -330,7 +335,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
                                         research['url'])
                                     : null,
                                 child: Text(
-                                  research['title'] ?? 'Untitled',
+                                  research['title']?[locale] ??
+                                      research['title']?['en'] ??
+                                      'Untitled',
                                   style: theme.textTheme.titleMedium?.copyWith(
                                     color: research['url'] != null
                                         ? theme.colorScheme.primary
@@ -344,7 +351,9 @@ class _AboutTabBarState extends State<AboutTabBar> {
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                research['content'] ?? '',
+                                research['content']?[locale] ??
+                                    research['content']?['en'] ??
+                                    '',
                                 style: theme.textTheme.bodyMedium,
                               ),
                               if (research['date'] != null)

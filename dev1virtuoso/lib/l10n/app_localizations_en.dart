@@ -58,7 +58,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get blogTitle => 'Blog';
 
   @override
-  String get blogLoading => 'Loading';
+  String get blogLoading => 'Loading blogs...';
 
   @override
   String get sortTitleAsc => 'Sort by Title (A-Z)';
@@ -325,7 +325,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get researchTitle => 'Research';
 
   @override
-  String get researchLoading => 'Loading';
+  String get researchLoading => 'Loading researches...';
 
   @override
   String get pageAccountTitle => 'Account';
