@@ -1,7 +1,7 @@
 name: mindcheck
 description: "MindCheck is an Multi-platform built with Flutter for comprehensive mental health assessment and support."
 publish_to: 'none'
-version: 0.1.1+2
+version: 1.0.0
 
 environment:
   sdk: '>=3.4.4 <4.0.0'

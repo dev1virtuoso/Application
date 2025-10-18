@@ -1,7 +1,7 @@
 name: neuralmrse
 description: "NeuralMorse is a project that utilizes neural networks to translate text to Morse code and vice versa."
 publish_to: 'none'
-version: 0.1.1+2
+version: 1.0.0
 
 environment:
   sdk: '>=3.4.4 <4.0.0'
