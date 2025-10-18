@@ -1,12 +1,12 @@
 # Repository for Application Project
 
-This GitHub repository serves as a central location for storing the code of my Application project. The project is licensed under the Carson Open Source License (CEOSL) .
+This GitHub repository serves as a central location for storing the code of my Application project. The project is licensed under the MIT Licence .
 
 ## License
 
-This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the Carson Open Source License (CEOSL)  in addition to the terms outlined in this license.
+This repository is licensed under the Carson Open Source License, which provides users and contributors with the freedom to copy, modify, distribute, and sublicense the software under certain conditions. The project is governed by the MIT Licence  in addition to the terms outlined in this license.
 
-For a detailed understanding of the terms and conditions of the Carson Open Source License (CEOSL) , please refer to the [LICENSE](LICENSE) file in this repository.
+For a detailed understanding of the terms and conditions of the MIT Licence , please refer to the [LICENSE](LICENSE) file in this repository.
 
 ## Using MonoRepo Approach
 
@@ -36,10 +36,10 @@ Contributions to this application project are highly appreciated. If you wish to
 - Make your changes and thoroughly test them.
 - Submit a pull request describing the modifications and the rationale behind them.
 
-By contributing to this project, you agree to license your contributions under the terms of the Carson Open Source License (CEOSL) .
+By contributing to this project, you agree to license your contributions under the terms of the MIT Licence .
 
 ## Contact Information
 
-If you have any questions or suggestions regarding this application project, please feel free to contact me at [carson.developer1125@gmail.com](mailto:carson.developer1125@gmail.com).
+If you have any questions or suggestions regarding this application project, please feel free to contact me through [following methods](https://github.com/dev1virtuoso/Documentation/blob/main/dev1virtuoso/Attachment/dev1virtuoso/carson-wu.md#contact).
 
 Thank you for your interest and contributions to the project!

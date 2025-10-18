@@ -1,0 +1,36 @@
+{
+  "fill" : {
+    "solid" : "display-p3:0.79932,0.76025,0.95215,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "image-name" : "avatar2 2.png",
+          "name" : "avatar2 2",
+          "position" : {
+            "scale" : 2,
+            "translation-in-points" : [
+              -5.437029937879358,
+              -87.93609577214797
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
