@@ -28,7 +28,7 @@ class SupportTabBar extends StatefulWidget {
 
 class _SupportTabBarState extends State<SupportTabBar> {
   final List<bool> _isExpanded = List.generate(6, (_) => false);
-  final String appVersion = 'v0.0.5.12(060)(00512_060-281225a)';
+  final String appVersion = 'v0.0.5.13(061)(00513_061-281225a)';
 
   @override
   Widget build(BuildContext context) {

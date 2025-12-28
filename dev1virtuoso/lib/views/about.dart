@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; // Clipboard
+import 'package:flutter/services.dart';
 import '/l10n/app_localizations.dart';
 import 'package:dev1virtuoso/widgets/url_launcher.dart';
 import 'dart:convert';
@@ -162,7 +162,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
           textScaleFactor: 1.3,
         ),
       },
-      // 修正錯誤：使用可修改的 List 複製 GFM 並加入 LaTeX
       extensionSet: md.ExtensionSet(
         [...md.ExtensionSet.gitHubFlavored.blockSyntaxes, LatexBlockSyntax()],
         [...md.ExtensionSet.gitHubFlavored.inlineSyntaxes, LatexInlineSyntax()],
@@ -455,7 +454,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
   }
 }
 
-// 程式碼高亮 + 複製按鈕
 class CodeElementBuilder extends MarkdownElementBuilder {
   final ThemeData theme;
   final BuildContext context;
@@ -521,7 +519,6 @@ class CodeElementBuilder extends MarkdownElementBuilder {
   }
 }
 
-// GitHub-style Alert
 class AlertElementBuilder extends MarkdownElementBuilder {
   final ThemeData theme;
 
