@@ -43,6 +43,11 @@ class _AboutTabBarState extends State<AboutTabBar> {
   String _blogSortMode = 'date_newest';
   String _researchSortMode = 'date_newest';
 
+  int _expandedBlogIndex = -1;
+  int _expandedResearchIndex = -1;
+
+  final Map<String, String> _markdownCache = {};
+
   @override
   void initState() {
     super.initState();
@@ -79,11 +84,14 @@ class _AboutTabBarState extends State<AboutTabBar> {
     }
   }
 
-  Future<String> _loadMarkdownFile(String assetPath) async {
+  Future<String> _loadMarkdownLazy(String assetPath) async {
+    if (_markdownCache.containsKey(assetPath)) {
+      return _markdownCache[assetPath]!;
+    }
+
     try {
-      print('Loading asset: $assetPath');
       final String content = await rootBundle.loadString(assetPath);
-      print('Success: $assetPath');
+      _markdownCache[assetPath] = content;
       return content;
     } catch (e) {
       print('FAILED to load asset: $assetPath | Error: $e');
@@ -212,8 +220,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Blogs
           _buildExpansionCard(
             context,
             index: 1,
@@ -252,82 +258,115 @@ class _AboutTabBarState extends State<AboutTabBar> {
               const SizedBox(height: 8),
               ...(_blogs.isEmpty
                   ? [Text(t.blogLoading, style: theme.textTheme.bodyMedium)]
-                  : _blogs.map<Widget>((blog) {
+                  : _blogs.asMap().entries.map<Widget>((entry) {
+                      final int index = entry.key;
+                      final blog = entry.value;
                       final title = blog['title']?[locale] ??
                           blog['title']?['en'] ??
                           'Untitled';
+                      final author = blog['author'] as String?;
+                      final docId = blog['docId'] as String?;
                       final contentPath =
                           _getContentPath(blog['content'], locale);
                       final url = blog['url'] as String?;
                       final date = blog['date'] as String?;
 
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: url != null && url.isNotEmpty
-                                ? () => UrlLauncher.buildClickableLink(url)
-                                : null,
-                            child: Text(
-                              title,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                color: url != null && url.isNotEmpty
-                                    ? theme.colorScheme.primary
-                                    : null,
-                                decoration: url != null && url.isNotEmpty
-                                    ? TextDecoration.underline
-                                    : null,
-                                fontWeight: FontWeight.w600,
-                              ),
+                      return ExpansionTile(
+                        key: ValueKey('blog_$index'),
+                        title: InkWell(
+                          onTap: url != null && url.isNotEmpty
+                              ? () => UrlLauncher.buildClickableLink(url)
+                              : null,
+                          child: Text(
+                            title,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: url != null && url.isNotEmpty
+                                  ? theme.colorScheme.primary
+                                  : null,
+                              decoration: url != null && url.isNotEmpty
+                                  ? TextDecoration.underline
+                                  : null,
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          if (contentPath != null)
-                            FutureBuilder<String>(
-                              future: _loadMarkdownFile(contentPath),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 16),
-                                    child: Center(
-                                        child: CircularProgressIndicator()),
-                                  );
-                                }
-                                if (snapshot.hasError || !snapshot.hasData) {
-                                  return Text(
-                                    'Failed to load content',
-                                    style: theme.textTheme.bodyMedium
-                                        ?.copyWith(color: Colors.red),
-                                  );
-                                }
-                                return _buildMarkdownContent(
-                                    snapshot.data!, theme);
-                              },
-                            )
-                          else
-                            Text('No content available',
-                                style: theme.textTheme.bodyMedium),
-                          if (date != null && date.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Text(
+                        ),
+                        subtitle: Row(
+                          children: [
+                            if (date != null && date.isNotEmpty)
+                              Text(
                                 date,
                                 style: theme.textTheme.labelSmall?.copyWith(
                                   color: theme.textTheme.bodySmall?.color
                                       ?.withOpacity(0.7),
                                 ),
                               ),
+                            if ((date != null && date.isNotEmpty) &&
+                                (author != null && author.isNotEmpty ||
+                                    docId != null && docId.isNotEmpty))
+                              const Text('  •  '),
+                            if (author != null && author.isNotEmpty)
+                              Text(
+                                author,
+                                style: theme.textTheme.labelSmall,
+                              ),
+                            if (author != null &&
+                                author.isNotEmpty &&
+                                docId != null &&
+                                docId.isNotEmpty)
+                              const Text('  •  '),
+                            if (docId != null && docId.isNotEmpty)
+                              Text(
+                                docId,
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                    color: theme.colorScheme.primary),
+                              ),
+                          ],
+                        ),
+                        onExpansionChanged: (expanded) {
+                          setState(() {
+                            _expandedBlogIndex = expanded ? index : -1;
+                          });
+                        },
+                        initiallyExpanded: _expandedBlogIndex == index,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (contentPath != null)
+                                  FutureBuilder<String>(
+                                    future: _loadMarkdownLazy(contentPath),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return const Center(
+                                            child: CircularProgressIndicator());
+                                      }
+                                      if (snapshot.hasError ||
+                                          !snapshot.hasData) {
+                                        return Text(
+                                          'Failed to load content',
+                                          style: theme.textTheme.bodyMedium
+                                              ?.copyWith(color: Colors.red),
+                                        );
+                                      }
+                                      return _buildMarkdownContent(
+                                          snapshot.data!, theme);
+                                    },
+                                  )
+                                else
+                                  Text('No content available',
+                                      style: theme.textTheme.bodyMedium),
+                              ],
                             ),
-                          const Divider(height: 32),
+                          ),
                         ],
                       );
                     }).toList()),
             ],
           ),
           const SizedBox(height: 16),
-
-          // Contact
           _buildExpansionCard(
             context,
             index: 2,
@@ -336,8 +375,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             content: [const ContactTable()],
           ),
           const SizedBox(height: 16),
-
-          // Donate
           _buildExpansionCard(
             context,
             index: 3,
@@ -363,8 +400,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Research
           _buildExpansionCard(
             context,
             index: 4,
@@ -403,74 +438,109 @@ class _AboutTabBarState extends State<AboutTabBar> {
               const SizedBox(height: 8),
               ...(_researches.isEmpty
                   ? [Text(t.researchLoading, style: theme.textTheme.bodyMedium)]
-                  : _researches.map<Widget>((research) {
+                  : _researches.asMap().entries.map<Widget>((entry) {
+                      final int index = entry.key;
+                      final research = entry.value;
                       final title = research['title']?[locale] ??
                           research['title']?['en'] ??
                           'Untitled';
+                      final author = research['author'] as String?;
+                      final docId = research['docId'] as String?;
                       final contentPath =
                           _getContentPath(research['content'], locale);
                       final url = research['url'] as String?;
                       final date = research['date'] as String?;
 
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: url != null && url.isNotEmpty
-                                ? () => UrlLauncher.buildClickableLink(url)
-                                : null,
-                            child: Text(
-                              title,
-                              style: theme.textTheme.titleMedium?.copyWith(
-                                color: url != null && url.isNotEmpty
-                                    ? theme.colorScheme.primary
-                                    : null,
-                                decoration: url != null && url.isNotEmpty
-                                    ? TextDecoration.underline
-                                    : null,
-                                fontWeight: FontWeight.w600,
-                              ),
+                      return ExpansionTile(
+                        key: ValueKey('research_$index'),
+                        title: InkWell(
+                          onTap: url != null && url.isNotEmpty
+                              ? () => UrlLauncher.buildClickableLink(url)
+                              : null,
+                          child: Text(
+                            title,
+                            style: theme.textTheme.titleMedium?.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: url != null && url.isNotEmpty
+                                  ? theme.colorScheme.primary
+                                  : null,
+                              decoration: url != null && url.isNotEmpty
+                                  ? TextDecoration.underline
+                                  : null,
                             ),
                           ),
-                          const SizedBox(height: 8),
-                          if (contentPath != null)
-                            FutureBuilder<String>(
-                              future: _loadMarkdownFile(contentPath),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState ==
-                                    ConnectionState.waiting) {
-                                  return const Padding(
-                                    padding: EdgeInsets.symmetric(vertical: 16),
-                                    child: Center(
-                                        child: CircularProgressIndicator()),
-                                  );
-                                }
-                                if (snapshot.hasError || !snapshot.hasData) {
-                                  return Text(
-                                    'Failed to load content',
-                                    style: theme.textTheme.bodyMedium
-                                        ?.copyWith(color: Colors.red),
-                                  );
-                                }
-                                return _buildMarkdownContent(
-                                    snapshot.data!, theme);
-                              },
-                            )
-                          else
-                            Text('No content available',
-                                style: theme.textTheme.bodyMedium),
-                          if (date != null && date.isNotEmpty)
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8),
-                              child: Text(
+                        ),
+                        subtitle: Row(
+                          children: [
+                            if (date != null && date.isNotEmpty)
+                              Text(
                                 date,
                                 style: theme.textTheme.labelSmall?.copyWith(
                                   color: theme.textTheme.bodySmall?.color
                                       ?.withOpacity(0.7),
                                 ),
                               ),
+                            if ((date != null && date.isNotEmpty) &&
+                                (author != null && author.isNotEmpty ||
+                                    docId != null && docId.isNotEmpty))
+                              const Text('  •  '),
+                            if (author != null && author.isNotEmpty)
+                              Text(
+                                author,
+                                style: theme.textTheme.labelSmall,
+                              ),
+                            if (author != null &&
+                                author.isNotEmpty &&
+                                docId != null &&
+                                docId.isNotEmpty)
+                              const Text('  •  '),
+                            if (docId != null && docId.isNotEmpty)
+                              Text(
+                                docId,
+                                style: theme.textTheme.labelSmall?.copyWith(
+                                    color: theme.colorScheme.primary),
+                              ),
+                          ],
+                        ),
+                        onExpansionChanged: (expanded) {
+                          setState(() {
+                            _expandedResearchIndex = expanded ? index : -1;
+                          });
+                        },
+                        initiallyExpanded: _expandedResearchIndex == index,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                if (contentPath != null)
+                                  FutureBuilder<String>(
+                                    future: _loadMarkdownLazy(contentPath),
+                                    builder: (context, snapshot) {
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.waiting) {
+                                        return const Center(
+                                            child: CircularProgressIndicator());
+                                      }
+                                      if (snapshot.hasError ||
+                                          !snapshot.hasData) {
+                                        return Text(
+                                          'Failed to load content',
+                                          style: theme.textTheme.bodyMedium
+                                              ?.copyWith(color: Colors.red),
+                                        );
+                                      }
+                                      return _buildMarkdownContent(
+                                          snapshot.data!, theme);
+                                    },
+                                  )
+                                else
+                                  Text('No content available',
+                                      style: theme.textTheme.bodyMedium),
+                              ],
                             ),
-                          const Divider(height: 32),
+                          ),
                         ],
                       );
                     }).toList()),
