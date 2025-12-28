@@ -60,7 +60,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
         _sortBlogs();
       });
     } catch (e) {
-      debugPrint('Error loading blogs: $e');
+      debugPrint('Error loading blogs.json: $e');
     }
   }
 
@@ -75,7 +75,20 @@ class _AboutTabBarState extends State<AboutTabBar> {
         _sortResearches();
       });
     } catch (e) {
-      debugPrint('Error loading researches: $e');
+      debugPrint('Error loading research.json: $e');
+    }
+  }
+
+  Future<String> _loadMarkdownFile(String path) async {
+    try {
+      String assetPath = path.trim();
+      if (!assetPath.startsWith('assets/')) {
+        assetPath = 'assets/md/$assetPath';
+      }
+      return await rootBundle.loadString(assetPath);
+    } catch (e) {
+      debugPrint('Error loading markdown file $path: $e');
+      return '**Error: Could not load content from $path**';
     }
   }
 
@@ -195,8 +208,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Blogs
           _buildExpansionCard(
             context,
             index: 1,
@@ -239,9 +250,10 @@ class _AboutTabBarState extends State<AboutTabBar> {
                       final title = blog['title']?[locale] ??
                           blog['title']?['en'] ??
                           'Untitled';
-                      final content = blog['content']?[locale] ??
-                          blog['content']?['en'] ??
-                          '';
+                      final contentObj =
+                          blog['content'] as Map<String, dynamic>?;
+                      final contentPath =
+                          contentObj?[locale] ?? contentObj?['en'];
                       final url = blog['url'] as String?;
                       final date = blog['date'] as String?;
 
@@ -249,16 +261,16 @@ class _AboutTabBarState extends State<AboutTabBar> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           InkWell(
-                            onTap: url != null
+                            onTap: url != null && url.isNotEmpty
                                 ? () => UrlLauncher.buildClickableLink(url)
                                 : null,
                             child: Text(
                               title,
                               style: theme.textTheme.titleMedium?.copyWith(
-                                color: url != null
+                                color: url != null && url.isNotEmpty
                                     ? theme.colorScheme.primary
                                     : null,
-                                decoration: url != null
+                                decoration: url != null && url.isNotEmpty
                                     ? TextDecoration.underline
                                     : null,
                                 fontWeight: FontWeight.w600,
@@ -266,8 +278,33 @@ class _AboutTabBarState extends State<AboutTabBar> {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          _buildMarkdownContent(content, theme),
-                          if (date != null)
+                          if (contentPath != null && contentPath is String)
+                            FutureBuilder<String>(
+                              future: _loadMarkdownFile(contentPath),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 16),
+                                    child: Center(
+                                        child: CircularProgressIndicator()),
+                                  );
+                                }
+                                if (snapshot.hasError || !snapshot.hasData) {
+                                  return Text(
+                                    'Failed to load content',
+                                    style: theme.textTheme.bodyMedium
+                                        ?.copyWith(color: Colors.red),
+                                  );
+                                }
+                                return _buildMarkdownContent(
+                                    snapshot.data!, theme);
+                              },
+                            )
+                          else
+                            Text('No content available',
+                                style: theme.textTheme.bodyMedium),
+                          if (date != null && date.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
@@ -285,8 +322,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Contact
           _buildExpansionCard(
             context,
             index: 2,
@@ -295,8 +330,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             content: [const ContactTable()],
           ),
           const SizedBox(height: 16),
-
-          // Donate
           _buildExpansionCard(
             context,
             index: 3,
@@ -322,8 +355,6 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
-
-          // Research
           _buildExpansionCard(
             context,
             index: 4,
@@ -366,9 +397,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
                       final title = research['title']?[locale] ??
                           research['title']?['en'] ??
                           'Untitled';
-                      final content = research['content']?[locale] ??
-                          research['content']?['en'] ??
-                          '';
+                      final contentPath = research['content'] as String?;
                       final url = research['url'] as String?;
                       final date = research['date'] as String?;
 
@@ -376,16 +405,16 @@ class _AboutTabBarState extends State<AboutTabBar> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           InkWell(
-                            onTap: url != null
+                            onTap: url != null && url.isNotEmpty
                                 ? () => UrlLauncher.buildClickableLink(url)
                                 : null,
                             child: Text(
                               title,
                               style: theme.textTheme.titleMedium?.copyWith(
-                                color: url != null
+                                color: url != null && url.isNotEmpty
                                     ? theme.colorScheme.primary
                                     : null,
-                                decoration: url != null
+                                decoration: url != null && url.isNotEmpty
                                     ? TextDecoration.underline
                                     : null,
                                 fontWeight: FontWeight.w600,
@@ -393,8 +422,33 @@ class _AboutTabBarState extends State<AboutTabBar> {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          _buildMarkdownContent(content, theme),
-                          if (date != null)
+                          if (contentPath != null)
+                            FutureBuilder<String>(
+                              future: _loadMarkdownFile(contentPath),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 16),
+                                    child: Center(
+                                        child: CircularProgressIndicator()),
+                                  );
+                                }
+                                if (snapshot.hasError || !snapshot.hasData) {
+                                  return Text(
+                                    'Failed to load content',
+                                    style: theme.textTheme.bodyMedium
+                                        ?.copyWith(color: Colors.red),
+                                  );
+                                }
+                                return _buildMarkdownContent(
+                                    snapshot.data!, theme);
+                              },
+                            )
+                          else
+                            Text('No content specified',
+                                style: theme.textTheme.bodyMedium),
+                          if (date != null && date.isNotEmpty)
                             Padding(
                               padding: const EdgeInsets.only(top: 8),
                               child: Text(
@@ -566,7 +620,6 @@ class AlertElementBuilder extends MarkdownElementBuilder {
   }
 }
 
-// Contact Table
 class ContactTable extends StatelessWidget {
   const ContactTable({super.key});
 
@@ -637,7 +690,6 @@ class ContactTable extends StatelessWidget {
   }
 }
 
-// Donate Table
 class DonateTable extends StatelessWidget {
   const DonateTable({super.key});
 
