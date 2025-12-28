@@ -50,6 +50,9 @@ dependencies:
   auto_updater: ^1.0.0
   flutter_gen: ^5.10.0
   flutter_localized_locales: ^2.0.5
+  flutter_markdown: ^0.7.3
+  flutter_highlight: ^0.7.0
+  flutter_markdown_latex: ^0.3.4
 
 dev_dependencies:
   flutter_test:
