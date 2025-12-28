@@ -1,364 +1,448 @@
 [
   {
-    "date": "",
-    "url": "",
+    "date": "2023-06-22",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2023/06_2023/20230622_01.md",
     "title": {
-      "en": "",
+      "en": "Assistive Smart Glasses for Empowering Individuals with Disabilities: A Comparative Study of ADA and Oureyes Systems",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2023/06_2023/20230622_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2023-06-22",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2023/06_2023/20230622_02.md",
+    "title": {
+      "en": "Knowledge Retrieval and Inference System for Test Yielding",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2023/06_2023/20230622_02.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/20240827_01.md",
+    "title": {
+      "en": "Facial Recognition System Innovation Proposal",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240827_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/20240827_02.md",
+    "title": {
+      "en": "Fingerprint Recognition System Innovation Proposal",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240827_02.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/20240827_03.md",
+    "title": {
+      "en": "Iris Recognition System Innovation Proposal",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240827_03.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/20240827_04.md",
+    "title": {
+      "en": "Project Mountain Lion Innovation Proposal",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240827_04.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/20240827_05.md",
+    "title": {
+      "en": "Palmprint and Palm Vein Recognition System Innovation Proposal",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240827_05.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-08-28",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/08_2023/HWTB",
+    "title": {
+      "en": "Why do people feel heartache when they break up (from a medical perspective)?",
+      "zh": "為什麼人們在分手時會感到心痛（從醫學角度解釋）？",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/08_2024/20240828_01.md",
+      "zh": "md/research/2024/08_2024/20240828_02.md",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-09-05",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/09_2024/20240905_01.md",
+    "title": {
+      "en": "A.R.I.E.L. 2.0",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/09_2024/20240905_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-09-06",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/09_2024/20240906_01.md",
+    "title": {
+      "en": "Project Mojave",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/09_2024/20240906_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-09-08",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/09_2024/20240908_01.md",
+    "title": {
+      "en": "Web-Origin Recognition: Unveiling Digital Fragment Provenance through Advanced Machine Learning",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/09_2024/20240908_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-09-15",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/09_2024/20240915_01.md",
+    "title": {
+      "en": "Dynamic Data Integration: Revolutionizing Machine Learning Efficiency",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/09_2024/20240915_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-09-23",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/09_2024/20240923_01.md",
+    "title": {
+      "en": "Magnetic Materials for Autonomous Repair: Innovations and Implementation",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/09_2024/20240923_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2024-10-08",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/",
+    "title": {
+      "en": "Investigating Non-locality in Quantum Entanglement: The Absence of Spatial Distances in the Quantum Realm",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2024/10_2024/20241008_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
     "date": "",
-    "url": "",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/10_2024/20241012_01.md",
     "title": {
-      "en": "",
+      "en": "Unraveling the Fascination of Vulgar Language - Exploring Its History, Usage, and Impact",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2024/10_2024/20241012_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
     "date": "",
-    "url": "",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/10_2024/20241014_01.md",
     "title": {
-      "en": "",
+      "en": "Innovative Solution: Multi-Modal Meta Self-Supervised Reinforcement Learning Framework (M3SRL-Framework)",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2024/10_2024/20241014_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
     "date": "",
-    "url": "",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2024/10_2024/20241017_01.md",
     "title": {
-      "en": "",
+      "en": "Complex Mathematical Proofs",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2024/10_2024/20241017_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "date": "2025-01-20",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/01_2025/20250120_01.md",
+    "title": {
+      "en": "The Epistemological Challenge: Proving the Non-Occurrence of Unprecedented Events",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2025/01_2025/20250120_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
     "date": "",
-    "url": "",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/01_2025/20250120_01.md",
     "title": {
-      "en": "",
+      "en": "Research on Using Poly(lactic-co-glycolic acid) (PLGA) as a Safe Ingestible Base for Chewing Gum",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/01_2025/20250121_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-02-06",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/02_2025/20250206_01.md",
     "title": {
-      "en": "",
+      "en": "Intelligent Thermal Management System Design and Implementation",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/02_2025/20250206_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-02-10",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/02_2025/20250210_01.md",
     "title": {
-      "en": "",
+      "en": "Comprehensive Analysis of the Heracles Project: Objectives, Innovations, and Integration with the Holistic System",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/02_2025/20250210_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-03-06",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/03_2025/20250306_01.md",
     "title": {
-      "en": "",
+      "en": "Project Heracles - A Visionary Leap in Robotics",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/03_2025/20250306_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-05-01",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/05_2025/20250501_01.md",
     "title": {
-      "en": "",
+      "en": "Lie Equivariant Perception Algebraic Unified Transform Embedding Framework (L.E.P.A.U.T.E. Framework): Achieving Precise Modeling of Geometric Transformations",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/05_2025/20250501_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-07-02",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/07_2025/20250702_01.md",
     "title": {
-      "en": "",
+      "en": "Application of Micro-Operation in Robot Motion Control",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/07_2025/20250702_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-07-25",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/07_2025/20250725_01",
     "title": {
-      "en": "",
+      "en": "SHA-256 Hashing of Common Words and Combinations Using SecLists",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/07_2025/20250725_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-07-28",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/07_2025/20250728_01.md",
     "title": {
-      "en": "",
+      "en": "Dance Learning and Creation System",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/07_2025/20250728_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-07-31",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/07_2025/20250731_01.md",
     "title": {
-      "en": "",
+      "en": "Inferring User Personal Data Profile via Behavioral and Linguistic Analysis in Expert Systems",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/07_2025/20250731_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-10-06",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/10_2025/20251006_01.md",
     "title": {
-      "en": "",
+      "en": "K.R.I.S.T.Y. v4.0",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/10_2025/20251006_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-10-27",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/10_2025/20251027_01.md",
     "title": {
-      "en": "",
+      "en": "NexusFlow: A Post-Transformer Architecture for Scalable, Interpretable, and Continual General Intelligence",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/10_2025/20251027_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-11-30",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/11_2025/20251130_01.md",
     "title": {
-      "en": "",
+      "en": "Heracles Humanoid Robot Platform V5 to V6",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/11_2025/20251130_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-12-02",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/12_2025/20251202_01.md",
     "title": {
-      "en": "",
+      "en": "A Novel Method for Distinguishing Active Human Movement from Passive Transportation Using Existing Smartwatches",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
+      "en": "md/research/2025/12_2025/20251202_01.md",
       "zh": "",
       "kr": ""
     }
   },
   {
-    "date": "",
-    "url": "",
+    "date": "2025-12-20",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/12_2025/20251220_01.md",
     "title": {
-      "en": "",
+      "en": "Technical Report on the AI-Powered Dance Creation and Execution System Integrated with the Heracles Humanoid Robot Platform",
       "zh": "",
       "kr": ""
     },
     "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
+      "en": "md/research/2025/12_2025/20251220_01.md",
       "zh": "",
       "kr": ""
     }

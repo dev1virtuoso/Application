@@ -1,127 +1,155 @@
 [
   {
-    "date": "",
-    "url": "",
+    "date": "2024-04-02",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/04_2024/02_04_2024/",
     "title": {
-      "en": "",
+      "zh": "發佈（2024年4月2日）",
+      "en": "RELEASE(2 April 2024)",
+      "kr": "게재(2024년 4월 2일)"
+    },
+    "content": {
+      "zh": "md/blog/2024/04_2024/02_04_2024/20240402_01.md",
+      "en": "md/blog/2024/04_2024/02_04_2024/20240402_02.md",
+      "kr": "md/blog/2024/04_2024/02_04_2024/20240402_03.md"
+    }
+  },
+  {
+    "date": "2024-04-03",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/04_2024/02_04_2024/",
+    "title": {
+      "zh": "發佈（2024年4月3日）",
+      "en": "Release (April 3, 2024)",
+      "kr": "발표 (2024년 4월 3일)"
+    },
+    "content": {
+      "zh": "md/blog/2024/04_2024/02_04_2024/20240403_01.md",
+      "en": "md/blog/2024/04_2024/02_04_2024/20240403_02.md",
+      "kr": "md/blog/2024/04_2024/02_04_2024/20240403_03.md"
+    }
+  },
+  {
+    "date": "2024-04-04",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/04_2024/02_04_2024/",
+    "title": {
+      "zh": "邏輯推理系統開發遭遇挫折",
+      "en": "Announces Setback in Logic-Based Inference System Development",
+      "kr": "논리 추론 시스템 개발 지연 발표"
+    },
+    "content": {
+      "zh": "md/blog/2024/04_2024/02_04_2024/20240404_01.md",
+      "en": "md/blog/2024/04_2024/02_04_2024/20240404_02.md",
+      "kr": "md/blog/2024/04_2024/02_04_2024/20240404_03.md"
+    }
+  },
+  {
+    "date": "2024-04-07",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/04_2024/02_04_2024/",
+    "title": {
+      "zh": "發佈（2024年4月7日）",
+      "en": "RELEASE (April 7, 2024)",
+      "kr": "게재 (2024년 4월 7일)"
+    },
+    "content": {
+      "zh": "md/blog/2024/04_2024/02_04_2024/20240407_01.md",
+      "en": "md/blog/2024/04_2024/02_04_2024/20240407_02.md",
+      "kr": "md/blog/2024/04_2024/02_04_2024/20240407_03.md"
+    }
+  },
+  {
+    "date": "2024-06-28",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/06_2024/28_06_2024/",
+    "title": {
+      "zh": "發佈（2024年6月29日）",
+      "en": "Release (June 29, 2024)",
+      "kr": "발표 (2024년 6월 29일)"
+    },
+    "content": {
+      "zh": "md/blog/2024/06_2024/28_06_2024/20240628_01.md",
+      "en": "md/blog/2024/06_2024/28_06_2024/20240628_02.md",
+      "kr": "md/blog/2024/06_2024/28_06_2024/20240628_03.md"
+    }
+  },
+  {
+    "date": "2024-07-10",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/07_2024/10_07_2024/",
+    "title": {
+      "zh": "Utility-beta.github.io",
+      "en": "Utility-beta.github.io",
+      "kr": "Utility-beta.github.io"
+    },
+    "content": {
+      "zh": "md/blog/2024/07_2024/10_07_2024/20240710_01.md",
+      "en": "md/blog/2024/07_2024/10_07_2024/20240710_02.md",
+      "kr": "md/blog/2024/07_2024/10_07_2024/20240710_03.md"
+    }
+  },
+  {
+    "date": "2024-08-10",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/08_2024/10_08_2024/",
+    "title": {
+      "zh": "我的開源之旅",
+      "en": "My open source journey",
+      "kr": "나의오픈소스여정"
+    },
+    "content": {
+      "zh": "md/blog/2024/08_2024/10_08_2024/20240810_01.md",
+      "en": "md/blog/2024/08_2024/10_08_2024/20240810_02.md",
+      "kr": "md/blog/2024/08_2024/10_08_2024/20240810_03.md"
+    }
+  },
+  {
+    "date": "2024-11-08",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/11_2024/08_11_2024/",
+    "title": {
+      "zh": "了解知識產權：VEX IQ 2024 比賽",
+      "en": "Understanding Intellectual Property: VEX IQ 2024 Competition",
+      "kr": "지적 재산권 이해: VEX IQ 2024 대회"
+    },
+    "content": {
+      "zh": "md/blog/2024/11_2024/08_11_2024/20241108_01.md",
+      "en": "md/blog/2024/11_2024/08_11_2024/20241108_02.md",
+      "kr": "md/blog/2024/11_2024/08_11_2024/20241108_03.md"
+    }
+  },
+  {
+    "date": "2024-11-11",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2024/11_2024/11_11_2024/",
+    "title": {
+      "zh": "專利制度的影響：開啟對開源運動的思考",
+      "en": "The Impact of Patent System: Opening Up Reflections on the Open Source Movement",
+      "kr": "특허 시스템의 영향: 오픈 소스 운동에 대한 성찰"
+    },
+    "content": {
+      "zh": "md/blog/2024/11_2024/11_11_2024/20241111_01.md",
+      "en": "md/blog/2024/11_2024/11_11_2024/20241111_02.md",
+      "kr": "md/blog/2024/11_2024/11_11_2024/20241111_03.md"
+    }
+  },
+  {
+    "date": "2024-11-24",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2025/11_2025/11_11_2024/20251124_01.md",
+    "title": {
       "zh": "",
+      "en": "A Difficult but Necessary Update: Delay to Our Upcoming Releases",
       "kr": ""
     },
     "content": {
+      "zh": "md/blog/2025/11_2025/11_11_2024/20251124_01.md",
       "en": "",
-      "zh": "",
       "kr": ""
     }
   },
   {
     "date": "",
-    "url": "",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2025/12_2025/01_12_2024/20251201_01.md",
     "title": {
-      "en": "",
       "zh": "",
+      "en": "Why the Robotics Industry Is Still Building $100,000 Statues Instead of $500 Living Dolls",
       "kr": ""
     },
     "content": {
-      "en": "",
       "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    }
-  },
-  {
-    "date": "",
-    "url": "",
-    "title": {
-      "en": "",
-      "zh": "",
-      "kr": ""
-    },
-    "content": {
-      "en": "",
-      "zh": "",
+      "en": "md/blog/2025/12_2025/01_12_2024/20251201_01.md",
       "kr": ""
     }
   }

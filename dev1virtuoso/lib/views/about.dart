@@ -79,16 +79,15 @@ class _AboutTabBarState extends State<AboutTabBar> {
     }
   }
 
-  Future<String> _loadMarkdownFile(String path) async {
+  Future<String> _loadMarkdownFile(String assetPath) async {
     try {
-      String assetPath = path.trim();
-      if (!assetPath.startsWith('assets/')) {
-        assetPath = 'assets/md/$assetPath';
-      }
-      return await rootBundle.loadString(assetPath);
+      print('Loading asset: $assetPath');
+      final String content = await rootBundle.loadString(assetPath);
+      print('Success: $assetPath');
+      return content;
     } catch (e) {
-      debugPrint('Error loading markdown file $path: $e');
-      return '**Error: Could not load content from $path**';
+      print('FAILED to load asset: $assetPath | Error: $e');
+      return '**Error: Could not load content from $assetPath**';
     }
   }
 
@@ -187,6 +186,11 @@ class _AboutTabBarState extends State<AboutTabBar> {
     );
   }
 
+  String? _getContentPath(Map<String, dynamic>? contentObj, String locale) {
+    if (contentObj == null) return null;
+    return contentObj[locale] ?? contentObj['en'];
+  }
+
   @override
   Widget build(BuildContext context) {
     var t = AppLocalizations.of(context)!;
@@ -208,6 +212,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
+
+          // Blogs
           _buildExpansionCard(
             context,
             index: 1,
@@ -250,10 +256,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
                       final title = blog['title']?[locale] ??
                           blog['title']?['en'] ??
                           'Untitled';
-                      final contentObj =
-                          blog['content'] as Map<String, dynamic>?;
                       final contentPath =
-                          contentObj?[locale] ?? contentObj?['en'];
+                          _getContentPath(blog['content'], locale);
                       final url = blog['url'] as String?;
                       final date = blog['date'] as String?;
 
@@ -278,7 +282,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
                             ),
                           ),
                           const SizedBox(height: 8),
-                          if (contentPath != null && contentPath is String)
+                          if (contentPath != null)
                             FutureBuilder<String>(
                               future: _loadMarkdownFile(contentPath),
                               builder: (context, snapshot) {
@@ -322,6 +326,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
+
+          // Contact
           _buildExpansionCard(
             context,
             index: 2,
@@ -330,6 +336,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
             content: [const ContactTable()],
           ),
           const SizedBox(height: 16),
+
+          // Donate
           _buildExpansionCard(
             context,
             index: 3,
@@ -355,6 +363,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
             ],
           ),
           const SizedBox(height: 16),
+
+          // Research
           _buildExpansionCard(
             context,
             index: 4,
@@ -397,7 +407,8 @@ class _AboutTabBarState extends State<AboutTabBar> {
                       final title = research['title']?[locale] ??
                           research['title']?['en'] ??
                           'Untitled';
-                      final contentPath = research['content'] as String?;
+                      final contentPath =
+                          _getContentPath(research['content'], locale);
                       final url = research['url'] as String?;
                       final date = research['date'] as String?;
 
@@ -446,7 +457,7 @@ class _AboutTabBarState extends State<AboutTabBar> {
                               },
                             )
                           else
-                            Text('No content specified',
+                            Text('No content available',
                                 style: theme.textTheme.bodyMedium),
                           if (date != null && date.isNotEmpty)
                             Padding(
