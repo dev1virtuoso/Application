@@ -145,8 +145,8 @@
   },
   {
     "author": "Carson Wu",
-    "docId": "",
-    "date": "2024-11-24",
+    "docId": "20251124_01",
+    "date": "2025-11-24",
     "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2025/11_2025/11_11_2024/20251124_01.md",
     "title": {
       "zh": "",
@@ -161,8 +161,8 @@
   },
   {
     "author": "Carson Wu",
-    "docId": "",
-    "date": "",
+    "docId": "20251201_01",
+    "date": "2025-12-01",
     "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2025/12_2025/01_12_2024/20251201_01.md",
     "title": {
       "zh": "",
@@ -172,6 +172,22 @@
     "content": {
       "zh": "",
       "en": "md/blog/2025/12_2025/01_12_2024/20251201_01.md",
+      "kr": ""
+    }
+  },
+  {
+    "author": "Carson Wu",
+    "docId": "20260202_01",
+    "date": "2026-02-02",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/blog/2026/02_2026/02_02_2026/20260202_01.md",
+    "title": {
+      "zh": "",
+      "en": "Moltbook: Have We Lost Control? Examining AI Autonomy, Deception, and the Black Box Dilemma",
+      "kr": ""
+    },
+    "content": {
+      "zh": "",
+      "en": "md/blog/2026/02_2026/02_02_2026/20260202_01.md",
       "kr": ""
     }
   }

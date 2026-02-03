@@ -510,5 +510,68 @@
       "zh": "",
       "kr": ""
     }
+  },
+  {
+    "author": "Carson Wu",
+    "docId": "20251220_01",
+    "date": "2025-12-20",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2025/12_2025/20251220_01.md",
+    "title": {
+      "en": "Technical Report on the AI-Powered Dance Creation and Execution System Integrated with the Heracles Humanoid Robot Platform",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2025/12_2025/20251220_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "author": "Carson Wu",
+    "docId": "20260101_01",
+    "date": "2026-01-01",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2026/01_2026/20260101_01.md",
+    "title": {
+      "en": "Evolution of K.R.I.S.T.Y.: Advancements in Multimodal AI for Creative Content Generation and Robotic Execution (v4.0 to v6.0 Sneak Peek)",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2026/01_2026/20260101_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },
+  {
+    "author": "Carson Wu",
+    "docId": "20260109_01",
+    "date": "2026-01-09",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2026/01_2026/20260109_01.md",
+    "title": {
+      "en": "Evil A.R.I.E.L. v2.0 (\"Shadow Mirror\"): An Experimental Branch in Hyper-Personalized AI Companionship",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2026/01_2026/20260109_01.md",
+      "zh": "",
+      "kr": ""
+    }
+  },{
+    "author": "Carson Wu",
+    "docId": "20260203_01",
+    "date": "2026-02-03",
+    "url": "https://github.com/dev1virtuoso/Documentation/tree/main/dev1virtuoso/research/2026/02_2026/20260203_01.md",
+    "title": {
+      "en": "Technical Report: The Compressed Language Phenomenon in Large Language Models: Exploiting Internal Compression for Efficiency via LLM-to-LLM Decompression",
+      "zh": "",
+      "kr": ""
+    },
+    "content": {
+      "en": "md/research/2026/02_2026/20260203_01.md",
+      "zh": "",
+      "kr": ""
+    }
   }
 ]
