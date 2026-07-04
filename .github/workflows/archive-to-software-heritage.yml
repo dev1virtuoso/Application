@@ -1,0 +1,17 @@
+# GitHub action
+# https://github.com/marketplace/actions/save-to-software-heritage
+
+name: Achive 🗃️ repository to Software Heritage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  swh-archive:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Save repository to Software Heritage
+      uses: sdruskat/swh-save-action@v1.0.1
+
